@@ -14,7 +14,7 @@ This project is for setting up a minimal Ubuntu installation with the i3 window 
 * A computer which supports the network drivers that come with the Ubuntu Minimal image.
 
 # Default Ubuntu packages
-The standard Ubuntu distribution comes preinstalled with a number of standard packages. This project tries to determine what packages allow for the desired Ubuntu setup to be made. As of this writing (November 28, 2018) the most recent version of Ubuntu is Ubuntu 18.10, and a complete list of all preinstalled packages was to be found in the following manifest file: http://releases.ubuntu.com/xenial/ubuntu-16.04-desktop-amd64.manifest.
+The standard Ubuntu distribution comes preinstalled with a number of standard packages. This project tries to determine what packages allow for the desired Ubuntu setup to be made. As of this writing (November 30, 2018) the most recent LTS version of Ubuntu is Ubuntu 18.04, and a complete list of all preinstalled packages was to be found in the following manifest file: http://releases.ubuntu.com/bionic/ubuntu-18.04.1-desktop-amd64.manifest.
 
 # Installation
 
