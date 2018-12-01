@@ -91,7 +91,7 @@ mkdir ~/.config/gtk-3.0
 mkdir ~/.config/i3
 
 ###### Set configs
-cp -f configs/gtk/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
+#cp -f configs/gtk/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
 cp -f configs/i3/config ~/.config/i3/config
 
 ###### Install Oh-my-zsh
