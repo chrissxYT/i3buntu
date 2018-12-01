@@ -89,4 +89,5 @@ openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
 rm -f ghk.txt
 find /sys/ -type f -iname '*brightness*' | grep intel
 echo please select your backlight without the /brightness in it
+read backlight
 sudo ln -s $backlight /sys/class/backlight
