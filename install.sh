@@ -13,7 +13,7 @@ apt install -y ubuntu-restricted-extras
 apt install -y ttf-ubuntu-font-family
 apt install -y openssh-client curl gcc g++
 apt install -y libstartup-notification0
-apt install -y evince evince-common lightdm make autoconf automake
+apt install -y evince evince-common make autoconf automake
 apt install -y x11-xserver-utils arandr
 apt install -y pavucontrol dconf-tools
 apt install -y python-gconf lxappearance
@@ -32,18 +32,6 @@ apt install -y xserver-xorg-video-intel
 apt install -y acpi-support apport-gtk foomatic-db-compressed-ppds
 apt install -y hplip
 apt install -y evince evince-common libssh-4 libnm-glib-vpn1
-apt install -y fonts-arphic-ukai fonts-arphic-uming
-apt install -y fonts-dejavu-core fonts-freefont-ttf
-apt install -y fonts-guru fonts-guru-extra fonts-kacst
-apt install -y fonts-kacst-one fonts-khmeros-core
-apt install -y fonts-liberation fonts-opensymbol
-apt install -y fonts-nanum fonts-stix fonts-symbola
-apt install -y xfonts-base xfonts-encodings
-apt install -y xfonts-scalable xfonts-utils
-apt install -y libfont-afm-perl
-apt install -y libfontconfig1 libfontembed1
-apt install -y libfontenc1
-apt install -y fontconfig fontconfig-config
 apt install -y dmz-cursor-theme libwayland-cursor0
 apt install -y libxcursor1 xcursor-themes
 apt install -y mousetweaks laptop-detect
@@ -66,38 +54,17 @@ curl -L -o ch.deb 'https://dl.google.com/linux/direct/google-chrome-stable_curre
 dpkg -i ch.deb
 rm -f ch.deb
 
-###### Make .fonts directory if not already available
-mkdir ~/.fonts
-
-###### Get and install San Francisco Font
-git clone https://github.com/supermarin/YosemiteSanFranciscoFont.git
-cp -v YosemiteSanFranciscoFont/*.ttf ~/.fonts
-rm -rf YosemiteSanFranciscoFont
-
-###### Get and install Font Awesome Web Font
-git clone https://github.com/FortAwesome/Font-Awesome.git
-cp -v Font-Awesome/fonts/*.ttf ~/.fonts
-rm -rf Font-Awesome
-
-###### Get and install infinality (better font rendering)
-curl -L -o ifnly.deb https://launchpadlibrarian.net/127644673/fontconfig-infinality_20130104-0ubuntu0ppa1_all.deb
-dpkg -i ifnly.deb
-rm -f ifnly.deb
-/etc/fonts/infinality/infctl.sh setstyle
-
 ###### Make config directories
 mkdir ~/.config
-mkdir ~/.config/gtk-3.0
 mkdir ~/.config/i3
 
 ###### Set configs
-#cp -f configs/gtk/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
 cp -f configs/i3/config ~/.config/i3/config
 
 ###### Install Oh-my-zsh
 curl -o omz.sh https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
 chmod +x omz.sh
-./omz.sh
+zsh omz.sh
 rm -f omz.sh
 
 ###### Remove bloatware
@@ -112,3 +79,14 @@ apt remove -y gnome-software
 snap remove gnome-calculator
 snap remove gnome-system-monitor
 snap remove gnome-characters
+
+###### Install helper "scripts"
+cp -f tools/y /bin/y
+cp -f tools/ghk /bin/ghk
+cp -f tools/ghp /bin/ghp
+vim ghk.txt
+openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
+rm -f ghk.txt
+find /sys/ -type f -iname '*brightness*' | grep intel
+echo please select your backlight without the /brightness in it
+sudo ln -s $backlight /sys/class/backlight
