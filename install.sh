@@ -55,23 +55,22 @@ mkdir ~/.config/i3
 cp -f configs/i3/config ~/.config/i3/config
 
 ###### Install Oh-my-zsh
-curl -o omz.sh https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+curl -L -o omz.sh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
 chmod +x omz.sh
 zsh omz.sh
 rm -f omz.sh
 
 ###### Remove bloatware
-apt remove -y firefox
-apt remove -y gnome-keyring
-apt remove -y gnome-bluetooth
-apt remove -y gnome-accessibility-themes
-apt remove -y gnome-user-docs
-apt remove -y gnome-user-guide
-apt remove -y gnome-disk-utility
-apt remove -y gnome-software
-snap remove gnome-calculator
-snap remove gnome-system-monitor
-snap remove gnome-characters
+apt remove -y firefox gedit
+#apt remove -y gnome-keyring
+#apt remove -y gnome-bluetooth
+#apt remove -y gnome-accessibility-themes
+apt remove -y gnome-user-docs gnome-user-guide
+#apt remove -y gnome-disk-utility
+#apt remove -y gnome-software
+#snap remove gnome-calculator
+#snap remove gnome-system-monitor
+#snap remove gnome-characters
 
 ###### Install helper "scripts"
 cp -f tools/y /bin/y
@@ -84,5 +83,5 @@ rm -f ghk.txt
 find /sys/ -type f -iname '*brightness*' | grep intel
 echo please select your backlight without the /brightness in it
 read backlight
-sudo ln -s $backlight /sys/class/backlight
+ln -s $backlight /sys/class/backlight
 curl -L -o ~/.ftb.jar http://ftb.cursecdn.com/FTB2/launcher/FTB_Launcher.jar
