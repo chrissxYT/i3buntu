@@ -4,8 +4,9 @@
 #                          INSTALL i3BUNTU                         #
 #------------------------------------------------------------------#
 
-###### Update package lists
+###### Update package lists and upgrade preinstalled packages
 apt update
+apt upgrade -y
 
 ###### Install main apps, drivers and dependencies
 apt install -y ubuntu-drivers-common ubuntu-restricted-extras
