@@ -33,7 +33,7 @@ apt install -y update-inetd update-notifier update-notifier-common
 apt install -y usb-creator-common usb-creator-gtk gnome-power-manager
 apt install -y libgsettings-qt1 libproxy1-plugin-gsettings
 apt install -y libappindicator3-1 gir1.2-appindicator3-0.1 gdebi
-apt install -y openjdk-11-jdk
+apt install -y openjdk-8-jdk
 snap install vscode --classic
 snap install dotnet-sdk --classic
 apt install -y zsh htop tmux dosbox blender w3m
