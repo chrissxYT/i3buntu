@@ -35,7 +35,7 @@ apt install -y libgsettings-qt1 libproxy1-plugin-gsettings
 apt install -y libappindicator3-1 gir1.2-appindicator3-0.1 gdebi
 snap install vscode --classic
 snap install dotnet-sdk --classic
-apt install -y zsh htop tmux dosbox blender
+apt install -y zsh htop tmux dosbox blender w3m
 
 ###### Get and install playerctl
 curl -L -o pc.deb 'https://github.com/acrisci/playerctl/releases/download/v2.0.1/playerctl-2.0.1_amd64.deb'
