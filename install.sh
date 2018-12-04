@@ -35,7 +35,13 @@ apt install -y libgsettings-qt1 libproxy1-plugin-gsettings
 apt install -y libappindicator3-1 gir1.2-appindicator3-0.1 gdebi
 apt install -y openjdk-8-jdk
 snap install vscode --classic
-snap install dotnet-sdk --classic
+curl -L -o pmp.deb https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+dpkg -i pmp.deb
+rm -f pmp.deb
+sudo add-apt-repository universe
+sudo apt-get install -y apt-transport-https
+sudo apt-get update
+sudo apt-get install -y dotnet-sdk-2.2
 apt install -y zsh htop tmux dosbox blender w3m
 
 ###### Get and install playerctl
