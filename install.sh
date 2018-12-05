@@ -42,7 +42,7 @@ sudo add-apt-repository universe
 sudo apt-get install -y apt-transport-https
 sudo apt-get update
 sudo apt-get install -y dotnet-sdk-2.2
-apt install -y zsh htop tmux dosbox blender w3m
+apt install -y zsh htop tmux dosbox blender w3m progress
 
 ###### Get and install playerctl
 curl -L -o pc.deb 'https://github.com/acrisci/playerctl/releases/download/v2.0.1/playerctl-2.0.1_amd64.deb'
