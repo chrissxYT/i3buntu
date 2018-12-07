@@ -38,12 +38,12 @@ snap install vscode --classic
 curl -L -o pmp.deb https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
 dpkg -i pmp.deb
 rm -f pmp.deb
-sudo add-apt-repository universe
-sudo apt-get install -y apt-transport-https
-sudo apt-get update
-sudo apt-get install -y dotnet-sdk-2.2
+add-apt-repository universe
+apt-get install -y apt-transport-https
+apt-get update
+apt-get install -y dotnet-sdk-2.2
 apt install -y zsh htop tmux dosbox blender w3m progress ncdu icdiff
-apt install -y kdenlive mplayer obs-studio
+apt install -y kdenlive mplayer obs-studio gimp audacity rdesktop
 
 ###### Get and install playerctl
 curl -L -o pc.deb 'https://github.com/acrisci/playerctl/releases/download/v2.0.1/playerctl-2.0.1_amd64.deb'
