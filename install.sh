@@ -44,6 +44,7 @@ apt-get update
 apt-get install -y dotnet-sdk-2.2
 apt install -y zsh htop tmux dosbox blender w3m progress ncdu icdiff
 apt install -y kdenlive mplayer obs-studio gimp audacity rdesktop
+apt install -y lm-sensors
 
 ###### Get and install playerctl
 curl -L -o pc.deb 'https://github.com/acrisci/playerctl/releases/download/v2.0.1/playerctl-2.0.1_amd64.deb'
@@ -61,6 +62,7 @@ mkdir ~/.config/i3
 
 ###### Set configs
 cp -f configs/i3/config ~/.config/i3/config
+cp -f configs/i3/i3status ~/.config/i3/i3status
 
 ###### Install Oh-my-zsh
 curl -L -o omz.sh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
