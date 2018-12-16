@@ -196,3 +196,5 @@ bindsym XF86AudioMicMute exec i3-sensible-terminal
 bindsym XF86Launch1 exec google-chrome
 
 bindsym Print exec gnome-screenshot -i
+
+bindsym XF86ScreenSaver gnome-screensaver-command -l
