@@ -45,6 +45,7 @@ apt-get install -y dotnet-sdk-2.2
 apt install -y zsh htop tmux dosbox blender w3m progress ncdu icdiff
 apt install -y kdenlive mplayer obs-studio gimp audacity rdesktop tor
 apt install -y lm-sensors gnome-screensaver wireshark libudev-dev
+apt install -y cmake clang
 
 ###### Get and install FlashPrint
 curl -L -o fp.deb 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
