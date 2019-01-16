@@ -1,0 +1,17 @@
+export ZSH="/home/chrissx/.oh-my-zsh"
+ZSH_THEME="agnoster"
+export UPDATE_ZSH_DAYS=1
+
+#DISABLE_AUTO_TITLE="true"
+ENABLE_CORRECTION="true"
+#COMPLETION_WAITING_DOTS="false"
+HIST_STAMPS="dd.mm.yyyy"
+
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git vscode battery tmux)
+
+source $ZSH/oh-my-zsh.sh
+export LANG=en_US.UTF-8
+export EDITOR='vim'
+export ARCHFLAGS="-arch x86_64"

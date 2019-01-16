@@ -75,6 +75,7 @@ curl -L -o omz.sh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/in
 chmod +x omz.sh
 zsh omz.sh
 rm -f omz.sh
+cp configs/zshrc ~/.zshrc
 
 ###### Remove bloatware
 apt remove -y firefox gedit
