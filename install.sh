@@ -24,7 +24,7 @@ apt install -y pulseaudio-module-x11
 apt install -y totem-plugins gromit gstreamer1.0-pulseaudio
 apt install -y transmission-gtk pulseaudio-utils xbacklight
 apt install -y feh rofi compton gnome-terminal i3 i3-wm i3blocks
-apt install -y i3lock i3status xserver-xorg-video-intel hplip
+apt install -y i3status xserver-xorg-video-intel hplip
 apt install -y acpi-support apport-gtk foomatic-db-compressed-ppds
 apt install -y evince evince-common libssh-4 libnm-glib-vpn1
 apt install -y dmz-cursor-theme libwayland-cursor0
@@ -39,13 +39,13 @@ curl -L -o pmp.deb https://packages.microsoft.com/config/ubuntu/18.04/packages-m
 dpkg -i pmp.deb
 rm -f pmp.deb
 add-apt-repository universe
-apt-get install -y apt-transport-https
-apt-get update
-apt-get install -y dotnet-sdk-2.2
+apt install -y apt-transport-https
+apt update
+apt install -y dotnet-sdk-2.2
 apt install -y zsh htop tmux dosbox blender w3m progress ncdu icdiff
 apt install -y kdenlive mplayer obs-studio gimp audacity rdesktop tor
 apt install -y lm-sensors gnome-screensaver wireshark libudev-dev
-apt install -y cmake clang
+apt install -y cmake clang fonts-powerline
 
 ###### Get and install FlashPrint
 curl -L -o fp.deb 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
@@ -89,7 +89,6 @@ apt remove -y gnome-user-docs gnome-user-guide
 #snap remove gnome-characters
 
 ###### Install helper "scripts"
-cp -f tools/y /bin/y
 cp -f tools/ghk /bin/ghk
 cp -f tools/ghp /bin/ghp
 cp -f tools/ftb /bin/ftb
@@ -101,3 +100,6 @@ echo please select your backlight without the /brightness in it
 read backlight
 ln -s $backlight /sys/class/backlight
 curl -L -o ~/.ftb.jar http://ftb.cursecdn.com/FTB2/launcher/FTB_Launcher.jar
+
+###### Reboot the system
+shutdown -r now
