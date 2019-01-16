@@ -1,5 +1,4 @@
-i3buntu
-============
+# i3buntu
 
 This project is for setting up a minimal Ubuntu installation with the i3 window managing system together with other options that will make the operating system work and look well. The main goal of the project is to construct a flavour of the Ubuntu operating system which
 * is minimal in the sense that it should not come with many preinstalled desktop applications like LibreOffice, Solitaire, Rhythmbox and other stuff considered to be bloat. This kind of software should be easily installable but should not come preinstalled.
@@ -14,7 +13,7 @@ This project is for setting up a minimal Ubuntu installation with the i3 window 
 * A computer which supports the network drivers that come with the Ubuntu Minimal image.
 
 # Default Ubuntu packages
-The standard Ubuntu distribution comes preinstalled with a number of standard packages. This project tries to determine what packages allow for the desired Ubuntu setup to be made. As of this writing (November 30, 2018) the most recent LTS version of Ubuntu is Ubuntu 18.04, and a complete list of all preinstalled packages was to be found in the following manifest file: http://releases.ubuntu.com/bionic/ubuntu-18.04.1-desktop-amd64.manifest.
+The standard Ubuntu distribution comes preinstalled with a number of standard packages. This project tries to determine what packages allow for the desired Ubuntu setup to be made. As of this writing (January 16, 2019) the most recent LTS version of Ubuntu is Ubuntu 18.04, and a complete list of all preinstalled packages was to be found in the following manifest file: http://releases.ubuntu.com/bionic/ubuntu-18.04.1-desktop-amd64.manifest.
 
 # Installation
 
@@ -36,8 +35,7 @@ This will download the most recent version of git and use it to download i3buntu
 Now type the following in the terminal:
 ```
 cd i3buntu
-sudo chmod +x install.sh
-sudo ./install.sh
+sudo ./install
 ```
 It is very important that you remember to include `sudo`. At some point you will be prompted to type your user password. Do this and hit `ENTER`. After having done this, i3buntu will download, install and setup all relevant software and dependencies. When the setup is complete, you will again have access to the Ubuntu Bash. By typing
     reboot
