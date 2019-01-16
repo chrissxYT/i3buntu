@@ -1,51 +1,41 @@
 #!/bin/sh
 
-#------------------------------------------------------------------#
-#                          INSTALL i3BUNTU                         #
-#------------------------------------------------------------------#
-
 ###### Update package lists and upgrade preinstalled packages
 apt update
 apt upgrade -y
 
 ###### Install main apps, drivers and dependencies
-apt install -y ubuntu-drivers-common ubuntu-restricted-extras
-apt install -y ttf-ubuntu-font-family openssh-client curl gcc g++
-apt install -y libstartup-notification0 clang clang++
-apt install -y evince evince-common make autoconf automake
-apt install -y x11-xserver-utils arandr pavucontrol dconf-tools
-apt install -y python-gconf lxappearance policykit-desktop-privileges
-apt install -y policykit-1-gnome vim thunar
-apt install -y gnome-system-monitor gnome-system-tools
-apt install -y network-manager wireless-tools
-apt install -y lightdm-gtk-greeter lightdm-gtk-greeter-settings
-apt install -y overlay-scrollbar overlay-scrollbar-gtk2
-apt install -y pulseaudio-module-x11
-apt install -y totem-plugins gromit gstreamer1.0-pulseaudio
-apt install -y transmission-gtk pulseaudio-utils xbacklight
-apt install -y feh rofi compton gnome-terminal i3 i3-wm i3blocks
-apt install -y i3status xserver-xorg-video-intel hplip
-apt install -y acpi-support apport-gtk foomatic-db-compressed-ppds
-apt install -y evince evince-common libssh-4 libnm-glib-vpn1
-apt install -y dmz-cursor-theme libwayland-cursor0
-apt install -y libxcursor1 xcursor-themes mousetweaks laptop-detect
-apt install -y update-inetd update-notifier update-notifier-common
-apt install -y usb-creator-common usb-creator-gtk gnome-power-manager
-apt install -y libgsettings-qt1 libproxy1-plugin-gsettings
-apt install -y libappindicator3-1 gir1.2-appindicator3-0.1 gdebi
-apt install -y openjdk-8-jdk
+apt install -y ubuntu-drivers-common ubuntu-restricted-extras\
+	ttf-ubuntu-font-family openssh-client curl gcc g++\
+	libstartup-notification0 clang clang++ evince evince-common\
+	make autoconf automake x11-xserver-utils arandr pavucontrol\
+	dconf-tools python-gconf lxappearance\
+	policykit-desktop-privileges policykit-1-gnome vim thunar\
+	gnome-system-tools network-manager wireless-tools\
+	overlay-scrollbar overlay-scrollbar-gtk2\
+	pulseaudio-module-x11 totem-plugins gromit\
+	gstreamer1.0-pulseaudio transmission-gtk pulseaudio-utils\
+	xbacklight feh rofi compton gnome-terminal i3 i3-wm i3blocks\
+	i3status xserver-xorg-video-intel hplip acpi-support\
+	apport-gtk foomatic-db-compressed-ppds evince evince-common\
+	libssh-4 libnm-glib-vpn1 dmz-cursor-theme libwayland-cursor0\
+	libxcursor1 xcursor-themes mousetweaks laptop-detect\
+	update-inetd update-notifier update-notifier-common\
+	usb-creator-common usb-creator-gtk gnome-power-manager\
+	libgsettings-qt1 libproxy1-plugin-gsettings\
+	libappindicator3-1 gir1.2-appindicator3-0.1 gdebi\
+	openjdk-8-jdk apt-transport-https
 snap install vscode --classic
 curl -L -o pmp.deb https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
 dpkg -i pmp.deb
 rm -f pmp.deb
 add-apt-repository universe
-apt install -y apt-transport-https
 apt update
 apt install -y dotnet-sdk-2.2
-apt install -y zsh htop tmux dosbox blender w3m progress ncdu icdiff
-apt install -y kdenlive mplayer obs-studio gimp audacity rdesktop tor
-apt install -y lm-sensors gnome-screensaver wireshark libudev-dev
-apt install -y cmake clang fonts-powerline
+apt install -y zsh htop tmux dosbox blender w3m progress ncdu icdiff\
+	kdenlive mplayer obs-studio gimp audacity rdesktop tor\
+	lm-sensors gnome-screensaver wireshark libudev-dev cmake\
+	fonts-powerline
 
 ###### Get and install FlashPrint
 curl -L -o fp.deb 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
