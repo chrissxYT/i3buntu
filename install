@@ -24,7 +24,7 @@ apt install -y ubuntu-drivers-common ubuntu-restricted-extras\
 	usb-creator-common usb-creator-gtk gnome-power-manager\
 	libgsettings-qt1 libproxy1-plugin-gsettings\
 	libappindicator3-1 gir1.2-appindicator3-0.1 gdebi\
-	openjdk-8-jdk apt-transport-https
+	openjdk-8-jdk apt-transport-https fonts-hack-ttf
 snap install vscode --classic
 curl -L -o pmp.deb https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
 dpkg -i pmp.deb
@@ -60,12 +60,18 @@ mkdir ~/.config/i3
 cp -f configs/i3/config ~/.config/i3/config
 cp -f configs/i3/i3status ~/.config/i3/i3status
 
+###### Install vim plugins
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline.vim
+cp -f configs/vimrc ~/.vimrc
+
 ###### Install Oh-my-zsh
 curl -L -o omz.sh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
 chmod +x omz.sh
 zsh omz.sh
 rm -f omz.sh
-cp configs/zshrc ~/.zshrc
+cp -f configs/zshrc ~/.zshrc
 
 ###### Remove bloatware
 apt remove -y firefox gedit
