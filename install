@@ -15,7 +15,7 @@ apt install -y ubuntu-drivers-common ubuntu-restricted-extras\
 	overlay-scrollbar overlay-scrollbar-gtk2\
 	pulseaudio-module-x11 totem-plugins gromit\
 	gstreamer1.0-pulseaudio transmission-gtk pulseaudio-utils\
-	xbacklight feh rofi compton gnome-terminal i3 i3-wm i3blocks\
+	feh rofi compton gnome-terminal i3 i3-wm i3blocks\
 	i3status xserver-xorg-video-intel hplip acpi-support\
 	apport-gtk foomatic-db-compressed-ppds evince evince-common\
 	libssh-4 libnm-glib-vpn1 dmz-cursor-theme libwayland-cursor0\
@@ -36,6 +36,15 @@ apt install -y zsh htop tmux dosbox blender w3m progress ncdu icdiff\
 	kdenlive mplayer obs-studio gimp audacity rdesktop tor\
 	lm-sensors gnome-screensaver wireshark libudev-dev cmake\
 	fonts-powerline
+
+###### Get and install ybacklight
+curl -L -o yb.zip "https://github.com/chrissxYT/ybacklight/archive/1.0.zip"
+unzip yb.zip
+cd ybacklight-1.0
+./install
+cd ..
+rm -rf ybacklight-1.0
+rm -f yb.zip
 
 ###### Get and install FlashPrint
 curl -L -o fp.deb 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
@@ -64,6 +73,9 @@ cp -f configs/i3/i3status ~/.config/i3/i3status
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline.vim
+git clone https://github.com/w0rp/ale ~/.vim/bundle/ale
+git clone https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
+git clone https://github.com/Xuyuanp/nerdtree-git-plugin ~/.vim/bundle/nerdtree-git-plugin
 cp -f configs/vimrc ~/.vimrc
 
 ###### Install Oh-my-zsh
@@ -89,13 +101,10 @@ apt remove -y gnome-user-docs gnome-user-guide
 cp -f tools/ghk /bin/ghk
 cp -f tools/ghp /bin/ghp
 cp -f tools/ftb /bin/ftb
+cp -f tools/update /bin/update
 vim ghk.txt
 openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
 rm -f ghk.txt
-find /sys/ -type f -iname '*brightness*' | grep intel
-echo please select your backlight without the /brightness in it
-read backlight
-ln -s $backlight /sys/class/backlight
 curl -L -o ~/.ftb.jar http://ftb.cursecdn.com/FTB2/launcher/FTB_Launcher.jar
 
 ###### Reboot the system
