@@ -35,7 +35,7 @@ apt install -y dotnet-sdk-2.2
 apt install -y zsh htop tmux dosbox blender w3m progress ncdu icdiff\
 	kdenlive mplayer obs-studio gimp audacity rdesktop tor\
 	lm-sensors gnome-screensaver wireshark libudev-dev cmake\
-	fonts-powerline
+	fonts-powerline breeze
 
 ###### Get and install TeamViewer
 curl -L -o tv.deb 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb'
