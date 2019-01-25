@@ -189,12 +189,12 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 2 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 2 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec ybacklight inc 100 # increase screen brightness
+bindsym XF86MonBrightnessDown exec ybacklight dec 100 # decrease screen brightness
 
 bindsym XF86AudioMicMute exec i3-sensible-terminal
 bindsym XF86Launch1 exec google-chrome
 
 bindsym Print exec gnome-screenshot -i
 
-bindsym XF86ScreenSaver gnome-screensaver-command -l
+bindsym XF86ScreenSaver exec gnome-screensaver-command -l
