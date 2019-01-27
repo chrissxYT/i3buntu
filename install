@@ -46,12 +46,13 @@ dpkg -i tv.deb
 rm -f tv.deb
 
 ###### Get and install ybacklight
-curl -L -o yb.zip "https://github.com/chrissxYT/ybacklight/archive/1.0.zip"
+curl -L -o yb.zip "https://github.com/chrissxYT/ybacklight/archive/2.0.zip"
 unzip yb.zip
-cd ybacklight-1.0
+cd ybacklight-2.0
+./build
 ./install
 cd ..
-rm -rf ybacklight-1.0
+rm -rf ybacklight-2.0
 rm -f yb.zip
 
 ###### Get and install FlashPrint
@@ -108,12 +109,10 @@ apt remove -y gnome-user-docs gnome-user-guide
 ###### Install helper "scripts"
 cp -f tools/ghk /bin/ghk
 cp -f tools/ghp /bin/ghp
-cp -f tools/ftb /bin/ftb
 cp -f tools/update /bin/update
 vim ghk.txt
 openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
 rm -f ghk.txt
-curl -L -o ~/.ftb.jar http://ftb.cursecdn.com/FTB2/launcher/FTB_Launcher.jar
 
 ###### Reboot the system
 shutdown -r now
