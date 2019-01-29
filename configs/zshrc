@@ -1,9 +1,9 @@
 export ZSH="/home/chrissx/.oh-my-zsh"
 ZSH_THEME="agnoster"
-export UPDATE_ZSH_DAYS=1
+export UPDATE_ZSH_DAYS=7
 
 #DISABLE_AUTO_TITLE="true"
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 #COMPLETION_WAITING_DOTS="false"
 HIST_STAMPS="dd.mm.yyyy"
 
