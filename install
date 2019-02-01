@@ -31,11 +31,11 @@ dpkg -i pmp.deb
 rm -f pmp.deb
 add-apt-repository universe
 apt update
-apt install -y dotnet-sdk-2.2
-apt install -y zsh htop tmux dosbox blender w3m progress ncdu icdiff\
-	kdenlive mplayer obs-studio gimp audacity rdesktop tor\
-	lm-sensors gnome-screensaver wireshark libudev-dev cmake\
-	fonts-powerline breeze
+apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
+	progress ncdu icdiff kdenlive mplayer obs-studio gimp\
+	audacity rdesktop tor lm-sensors gnome-screensaver wireshark\
+	libudev-dev cmake fonts-powerline breeze help2man\
+	libcurl4-openssl-dev
 
 ###### Config the icons and themes and stuff
 lxappearance
@@ -46,14 +46,7 @@ dpkg -i tv.deb
 rm -f tv.deb
 
 ###### Get and install ybacklight
-curl -L -o yb.zip "https://github.com/chrissxYT/ybacklight/archive/2.0.zip"
-unzip yb.zip
-cd ybacklight-2.0
-./build
-./install
-cd ..
-rm -rf ybacklight-2.0
-rm -f yb.zip
+curl -L -o - "https://github.com/chrissxYT/ybacklight/raw/master/installer.sh" | sh
 
 ###### Get and install FlashPrint
 curl -L -o fp.deb 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
@@ -88,10 +81,7 @@ git clone https://github.com/Xuyuanp/nerdtree-git-plugin ~/.vim/bundle/nerdtree-
 cp -f configs/vimrc ~/.vimrc
 
 ###### Install Oh-my-zsh
-curl -L -o omz.sh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
-chmod +x omz.sh
-zsh omz.sh
-rm -f omz.sh
+curl -L -o - 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh' | zsh
 cp -f configs/zshrc ~/.zshrc
 
 ###### Remove bloatware
