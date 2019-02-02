@@ -36,7 +36,7 @@ apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
 	audacity rdesktop tor lm-sensors gnome-screensaver wireshark\
 	libudev-dev cmake fonts-powerline breeze help2man\
 	libcurl4-openssl-dev libssl-dev flex bison libelf-dev gcc-avr\
-	binutils-avr avr-libc
+	binutils-avr avr-libc neofetch
 
 ###### Config the icons and themes and stuff
 lxappearance
