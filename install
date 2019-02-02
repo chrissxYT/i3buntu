@@ -86,6 +86,7 @@ mkdir ~/.config/i3
 ###### Set configs
 cp -f configs/i3/config ~/.config/i3/config
 cp -f configs/i3/i3status ~/.config/i3/i3status
+cp -f configs/env /etc/environment
 
 ###### Install vim plugins
 mkdir -p ~/.vim/autoload ~/.vim/bundle
