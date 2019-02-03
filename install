@@ -10,7 +10,7 @@ apt install -y ubuntu-drivers-common ubuntu-restricted-extras\
 	ttf-ubuntu-font-family openssh-client curl gcc g++\
 	libstartup-notification0 clang evince evince-common\
 	make autoconf automake x11-xserver-utils arandr pavucontrol\
-	python-gconf lxappearance\
+	python-gconf libpng-dev libusb-dev lxappearance\
 	policykit-desktop-privileges policykit-1-gnome vim thunar\
 	gnome-system-tools network-manager wireless-tools\
 	overlay-scrollbar overlay-scrollbar-gtk2\
@@ -46,10 +46,10 @@ lxappearance
 ###### Get and install the Arduino IDE
 curl -L -o ad.tar.xz "https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz"
 tar xJf ad.tar.xz
-cd arduino-1.8.8
+mv arduino-1.8.8 /usr/bin/
+cd /usr/bin/arduino-1.8.8
 ./arduino-linux-setup.sh $USER
-cd ..
-rm -rf arduino-1.8.8
+popd
 rm -f ad.tar.xz
 
 ###### Get and install the Teensy loader
@@ -57,7 +57,12 @@ curl -L -o /etc/udev/rules.d/49-teensy.rules "https://www.pjrc.com/teensy/49-tee
 curl -L -o t.tar.gz "https://www.pjrc.com/teensy/teensy_linux64.tar.gz"
 tar xzf t.tar.gz
 mv teensy /bin
-rm -f t.tar.gz
+rm -f t.tar.gz libpng12.so.0 libusb-0.1.so.4
+
+###### Get and install Teensyduino
+curl -L -o td "https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64"
+chmod +x td
+./td
 
 ###### Get and install TeamViewer
 curl -L -o tv.deb 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb'
@@ -112,7 +117,6 @@ rm -f omz.sh
 
 ###### Remove bloatware
 apt remove -y firefox gedit
-#apt remove -y gnome-keyring
 #apt remove -y gnome-bluetooth
 #apt remove -y gnome-accessibility-themes
 apt remove -y gnome-user-docs gnome-user-guide
