@@ -1,6 +1,7 @@
 #!/bin/sh
 
-###### Update package lists and upgrade preinstalled packages
+###### Update packages and add yubico repo
+add-apt-repository ppa:yubico/stable
 apt update
 apt upgrade -y
 
@@ -36,7 +37,8 @@ apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
 	audacity rdesktop tor lm-sensors gnome-screensaver wireshark\
 	libudev-dev cmake fonts-powerline breeze help2man\
 	libcurl4-openssl-dev libssl-dev flex bison libelf-dev gcc-avr\
-	binutils-avr avr-libc neofetch
+	binutils-avr avr-libc neofetch yubikey-manager-qt\
+	yubikey-personalization-gui yubioath-desktop
 
 ###### Config the icons and themes and stuff
 lxappearance
