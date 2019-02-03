@@ -7,7 +7,7 @@ apt upgrade -y
 ###### Install main apps, drivers and dependencies
 apt install -y ubuntu-drivers-common ubuntu-restricted-extras\
 	ttf-ubuntu-font-family openssh-client curl gcc g++\
-	libstartup-notification0 clang clang++ evince evince-common\
+	libstartup-notification0 clang evince evince-common\
 	make autoconf automake x11-xserver-utils arandr pavucontrol\
 	python-gconf lxappearance\
 	policykit-desktop-privileges policykit-1-gnome vim thunar\
