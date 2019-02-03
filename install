@@ -128,5 +128,9 @@ vim ghk.txt
 openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
 rm -f ghk.txt
 
+###### Finish up everything
+apt --fix-broken install
+apt autoremove
+
 ###### Reboot the system
 shutdown -r now
