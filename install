@@ -63,7 +63,10 @@ dpkg -i tv.deb
 rm -f tv.deb
 
 ###### Get and install ybacklight
-curl -L -o - "https://github.com/chrissxYT/ybacklight/raw/master/installer.sh" | sh
+curl -L -o yb.sh "https://github.com/chrissxYT/ybacklight/raw/master/installer.sh"
+chmod +x yb.sh
+./yb.sh
+rm -f yb.sh
 
 ###### Get and install FlashPrint
 curl -L -o fp.deb 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
@@ -99,8 +102,11 @@ git clone https://github.com/Xuyuanp/nerdtree-git-plugin ~/.vim/bundle/nerdtree-
 cp -f configs/vimrc ~/.vimrc
 
 ###### Install Oh-my-zsh
-curl -L -o - 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh' | zsh
+curl -L -o omz.sh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
+chmod +x omz.sh
+./omz.sh
 cp -f configs/zshrc ~/.zshrc
+rm -f omz.sh
 
 ###### Remove bloatware
 apt remove -y firefox gedit
