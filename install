@@ -39,8 +39,10 @@ apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
 	libcurl4-openssl-dev libssl-dev flex bison libelf-dev gcc-avr\
 	binutils-avr avr-libc neofetch yubikey-manager-qt\
 	yubikey-personalization-gui yubioath-desktop
+# just to make sure icons arent corrupted all the time (happend on my machine)
+apt remove -y breeze-cursor-theme
 
-###### Config the icons and themes and stuff
+# Config the icons and themes and stuff
 lxappearance
 
 ###### Get and install the Arduino IDE
@@ -122,7 +124,7 @@ apt remove -y firefox gedit
 apt remove -y gnome-user-docs gnome-user-guide
 #apt remove -y gnome-disk-utility
 #apt remove -y gnome-software
-#snap remove gnome-calculator
+snap remove gnome-calculator
 #snap remove gnome-system-monitor
 #snap remove gnome-characters
 
