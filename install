@@ -38,7 +38,7 @@ apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
 	libudev-dev cmake fonts-powerline breeze help2man\
 	libcurl4-openssl-dev libssl-dev flex bison libelf-dev gcc-avr\
 	binutils-avr avr-libc neofetch yubikey-manager-qt\
-	yubikey-personalization-gui yubioath-desktop
+	yubikey-personalization-gui yubioath-desktop thunderbird
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
 
