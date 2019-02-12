@@ -31,6 +31,13 @@ curl -L -o pmp.deb https://packages.microsoft.com/config/ubuntu/18.04/packages-m
 dpkg -i pmp.deb
 rm -f pmp.deb
 add-apt-repository universe
+dpkg --add-architecture i386
+#curl -L -o whq.key https://dl.winehq.org/wine-builds/winehq.key
+#apt-key add whq.key
+#rm whq.key
+curl -L -o - https://github.com/chrissxYT/winstallhq/raw/master/winstall.hq | sh
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | tee /etc/apt/sources.list.d/mono-official-stable.list
 apt update
 apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
 	progress ncdu icdiff kdenlive mplayer obs-studio gimp\
@@ -38,7 +45,8 @@ apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
 	libudev-dev cmake fonts-powerline breeze help2man\
 	libcurl4-openssl-dev libssl-dev flex bison libelf-dev gcc-avr\
 	binutils-avr avr-libc neofetch yubikey-manager-qt\
-	yubikey-personalization-gui yubioath-desktop thunderbird
+	yubikey-personalization-gui yubioath-desktop thunderbird\
+	samba mono-complete
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
 
