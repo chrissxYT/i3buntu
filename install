@@ -14,7 +14,7 @@ apt install -y ubuntu-drivers-common ubuntu-restricted-extras\
 	policykit-desktop-privileges policykit-1-gnome vim thunar\
 	gnome-system-tools network-manager wireless-tools\
 	overlay-scrollbar overlay-scrollbar-gtk2\
-	totem-plugins gromit\
+	totem-plugins gromit exfat-fuse exfat-utils\
 	gstreamer1.0-pulseaudio transmission-gtk pulseaudio-utils\
 	feh rofi compton gnome-terminal i3 i3-wm i3blocks\
 	i3status xserver-xorg-video-intel hplip acpi-support\
