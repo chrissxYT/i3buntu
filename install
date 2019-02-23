@@ -140,6 +140,8 @@ snap remove gnome-calculator
 cp -f tools/ghk /bin/ghk
 cp -f tools/ghp /bin/ghp
 cp -f tools/update /bin/update
+cp -f tools/mnt /bin/mnt
+cp -f tools/unmount /bin/unmount
 vim ghk.txt
 openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
 rm -f ghk.txt
@@ -150,6 +152,7 @@ chsh -s /bin/zsh
 ###### Finish up everything
 apt --fix-broken install
 apt autoremove
+update
 
 ###### Reboot the system
 shutdown -r now
