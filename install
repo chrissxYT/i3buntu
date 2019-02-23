@@ -46,7 +46,7 @@ apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
 	libcurl4-openssl-dev libssl-dev flex bison libelf-dev gcc-avr\
 	binutils-avr avr-libc neofetch yubikey-manager-qt\
 	yubikey-personalization-gui yubioath-desktop thunderbird\
-	samba mono-complete p7zip iostat iotop dstat atop
+	samba mono-complete p7zip iostat iotop dstat atop lz4 lzma
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
 
