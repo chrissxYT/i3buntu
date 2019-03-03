@@ -16,8 +16,8 @@ apt install -y ubuntu-drivers-common ubuntu-restricted-extras\
 	overlay-scrollbar overlay-scrollbar-gtk2\
 	totem-plugins gromit exfat-fuse exfat-utils\
 	gstreamer1.0-pulseaudio transmission-gtk pulseaudio-utils\
-	feh rofi compton gnome-terminal i3 i3-wm i3blocks\
-	i3status xserver-xorg-video-intel hplip acpi-support\
+	feh rofi gnome-terminal i3\
+	xserver-xorg-video-intel acpi-support\
 	apport-gtk foomatic-db-compressed-ppds evince evince-common\
 	libssh-4 libnm-glib-vpn1 dmz-cursor-theme libwayland-cursor0\
 	libxcursor1 xcursor-themes mousetweaks laptop-detect\
@@ -32,16 +32,13 @@ dpkg -i pmp.deb
 rm -f pmp.deb
 add-apt-repository universe
 dpkg --add-architecture i386
-#curl -L -o whq.key https://dl.winehq.org/wine-builds/winehq.key
-#apt-key add whq.key
-#rm whq.key
 curl -L -o - https://github.com/chrissxYT/winstallhq/raw/master/winstall.hq | sh
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | tee /etc/apt/sources.list.d/mono-official-stable.list
 apt update
 apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
 	progress ncdu icdiff kdenlive mplayer obs-studio gimp\
-	audacity rdesktop tor lm-sensors gnome-screensaver wireshark\
+	audacity tor lm-sensors gnome-screensaver wireshark\
 	libudev-dev cmake fonts-powerline breeze help2man\
 	libcurl4-openssl-dev libssl-dev flex bison libelf-dev gcc-avr\
 	binutils-avr avr-libc neofetch yubikey-manager-qt\
@@ -54,6 +51,15 @@ apt remove -y breeze-cursor-theme
 
 # Config the icons and themes and stuff
 lxappearance
+
+###### Get and install sane-sent
+curl -L -o ss.zip https://github.com/chrissxYT/sane-sent/archive/c001.zip
+unzip ss.zip
+cd sane-sent-c001
+make install
+cd ..
+rm -rf sane-sent-c001
+rm -f ss.zip
 
 ###### Get and install the Arduino IDE
 curl -L -o ad.tar.xz "https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz"
