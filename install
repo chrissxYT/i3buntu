@@ -52,6 +52,11 @@ apt remove -y breeze-cursor-theme
 # Config the icons and themes and stuff
 lxappearance
 
+###### Get and install fzf
+curl -L -o fzf.deb http://launchpadlibrarian.net/405439988/fzf_0.17.5-2_amd64.deb
+dpkg -i fzf.deb
+rm -f fzf.deb
+
 ###### Get and install sane-sent
 curl -L -o ss.zip https://github.com/chrissxYT/sane-sent/archive/c001.zip
 unzip ss.zip
