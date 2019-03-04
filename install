@@ -127,8 +127,6 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline.vim
 git clone https://github.com/w0rp/ale ~/.vim/bundle/ale
-git clone https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
-git clone https://github.com/Xuyuanp/nerdtree-git-plugin ~/.vim/bundle/nerdtree-git-plugin
 cp -f configs/vimrc ~/.vimrc
 
 ###### Install Oh-my-zsh
