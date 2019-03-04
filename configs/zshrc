@@ -18,6 +18,7 @@ export ARCHFLAGS="-arch x86_64"
 export TERM=xterm-256color
 
 zlibd() (printf "\x1f\x8b\x08\x00\x00\x00\x00\x00"|cat - $@|gzip -dc)
-v() (vim $@)
+v()     (vim $@)
+# e()     (ls | fzf | xargs -r $EDITOR)
 
 neofetch
