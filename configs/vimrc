@@ -6,5 +6,5 @@ set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'powerline',
       \ }
-autocmd StdinReadPre * let s:std_in=1
+autocmd BufWritePost *.c,*.h,*.cc,*.hh,*.cpp,*.hpp if filereadable("Makefile") | !make
 autocmd BufWritePost config.h !sudo make install
