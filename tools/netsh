@@ -1,0 +1,2 @@
+#!/bin/sh
+curl -L -o - $1 | sh

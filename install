@@ -117,6 +117,7 @@ cp -f tools/update /bin/update
 cp -f tools/mnt /bin/mnt
 cp -f tools/unmount /bin/unmount
 cp -f tools/sd /bin/sd
+cp -f tools/netsh /bin/netsh
 vim ghk.txt
 openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
 rm -f ghk.txt
