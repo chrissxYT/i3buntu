@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Config the icons and themes and stuff
+lxappearance
+
+###### Make config directories
+mkdir ~/.config
+mkdir ~/.config/i3
+
+###### Set configs
+cp -f configs/i3/config ~/.config/i3/config
+cp -f configs/i3/i3status ~/.config/i3/i3status
+cp -f configs/env /etc/environment
+
+###### Install vim plugins
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline.vim
+git clone https://github.com/w0rp/ale ~/.vim/bundle/ale
+cp -f configs/vimrc ~/.vimrc
+
+###### Install Oh-my-zsh
+curl -L -o omz.sh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
+chmod +x omz.sh
+./omz.sh
+cp -f configs/zshrc ~/.zshrc
+rm -f omz.sh
+
+###### Change the login shell to zsh
+chsh -s /bin/zsh

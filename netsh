@@ -1,0 +1,8 @@
+#!/bin/sh
+sudo apt update
+sudo apt install git
+git clone https://github.com/chrissxYT/i3buntu.git i3buntu
+cd i3buntu
+sudo ./install
+./config
+sudo shutdown -r now

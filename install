@@ -45,12 +45,9 @@ apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
 	yubikey-personalization-gui yubioath-desktop thunderbird\
 	samba mono-complete p7zip-full iostat iotop dstat atop lz4\
 	lzma net-tools libxft-dev libgtk2.0-dev libgtk-3-dev\
-	webkit2gtk-4.0 python-pip python3-pip
+	webkit2gtk-4.0 python-pip python3-pip youtube-dl
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
-
-# Config the icons and themes and stuff
-lxappearance
 
 ###### Get and install fzf
 curl -L -o fzf.deb http://launchpadlibrarian.net/405439988/fzf_0.17.5-2_amd64.deb
@@ -113,28 +110,16 @@ curl -L -o ch.deb 'https://dl.google.com/linux/direct/google-chrome-stable_curre
 dpkg -i ch.deb
 rm -f ch.deb
 
-###### Make config directories
-mkdir ~/.config
-mkdir ~/.config/i3
-
-###### Set configs
-cp -f configs/i3/config ~/.config/i3/config
-cp -f configs/i3/i3status ~/.config/i3/i3status
-cp -f configs/env /etc/environment
-
-###### Install vim plugins
-mkdir -p ~/.vim/autoload ~/.vim/bundle
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline.vim
-git clone https://github.com/w0rp/ale ~/.vim/bundle/ale
-cp -f configs/vimrc ~/.vimrc
-
-###### Install Oh-my-zsh
-curl -L -o omz.sh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
-chmod +x omz.sh
-./omz.sh
-cp -f configs/zshrc ~/.zshrc
-rm -f omz.sh
+###### Install helper "scripts"
+cp -f tools/ghk /bin/ghk
+cp -f tools/ghp /bin/ghp
+cp -f tools/update /bin/update
+cp -f tools/mnt /bin/mnt
+cp -f tools/unmount /bin/unmount
+cp -f tools/sd /bin/sd
+vim ghk.txt
+openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
+rm -f ghk.txt
 
 ###### Remove bloatware
 apt remove -y firefox gedit
@@ -147,24 +132,6 @@ snap remove gnome-calculator
 #snap remove gnome-system-monitor
 #snap remove gnome-characters
 
-###### Install helper "scripts"
-cp -f tools/ghk /bin/ghk
-cp -f tools/ghp /bin/ghp
-cp -f tools/update /bin/update
-cp -f tools/mnt /bin/mnt
-cp -f tools/unmount /bin/unmount
-cp -f tools/sd /bin/sd
-vim ghk.txt
-openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
-rm -f ghk.txt
-
-###### Change the login shell to zsh
-chsh -s /bin/zsh
-
 ###### Finish up everything
 apt --fix-broken install
 apt autoremove
-update
-
-###### Reboot the system
-shutdown -r now
