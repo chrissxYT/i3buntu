@@ -1,15 +1,15 @@
-export ZSH="/home/chrissx/.oh-my-zsh"
+export ZSH="/home/$USER/.oh-my-zsh"
 ZSH_THEME="agnoster"
 export UPDATE_ZSH_DAYS=7
 
+DISABLE_UPDATE_PROMPT="true"
 #DISABLE_AUTO_TITLE="true"
 ENABLE_CORRECTION="false"
-#COMPLETION_WAITING_DOTS="false"
 HIST_STAMPS="dd.mm.yyyy"
 
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vscode battery tmux)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
@@ -18,7 +18,7 @@ export ARCHFLAGS="-arch x86_64"
 export TERM=xterm-256color
 
 zlibd() (printf "\x1f\x8b\x08\x00\x00\x00\x00\x00"|cat - $@|gzip -dc)
-v()     (vim $@)
-#e()    (ls | fzf | xargs -r $EDITOR)
+v()     ($EDITOR $@)
+e()     ($EDITOR $(ls | fzf))
 
 neofetch

@@ -175,9 +175,6 @@ bar {
         }
 }
 
-# Lock computer using i3lock
-bindsym $mod+Shift+x exec i3lock --color 475263
-
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
@@ -197,4 +194,7 @@ bindsym XF86Launch1 exec google-chrome
 
 bindsym Print exec gnome-screenshot -i
 
-bindsym XF86ScreenSaver exec gnome-screensaver-command -l
+# Lock the screen with the lock bash tool
+bindsym $mod+Shift+x exec lock
+bindsym XF86ScreenSaver exec lock
+bindsym XF86Suspend exec lock

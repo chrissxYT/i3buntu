@@ -16,7 +16,7 @@ apt install -y ubuntu-drivers-common ubuntu-restricted-extras\
 	overlay-scrollbar overlay-scrollbar-gtk2\
 	totem-plugins gromit exfat-fuse exfat-utils\
 	gstreamer1.0-pulseaudio transmission-gtk pulseaudio-utils\
-	feh rofi gnome-terminal i3\
+	feh rofi gnome-terminal i3 scrot\
 	xserver-xorg-video-intel acpi-support\
 	apport-gtk foomatic-db-compressed-ppds evince evince-common\
 	libssh-4 libnm-glib-vpn1 dmz-cursor-theme libwayland-cursor0\
@@ -118,6 +118,7 @@ cp -f tools/mnt /bin/mnt
 cp -f tools/unmount /bin/unmount
 cp -f tools/sd /bin/sd
 cp -f tools/netsh /bin/netsh
+cp -f tools/lock /bin/lock
 vim ghk.txt
 openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
 rm -f ghk.txt
@@ -133,9 +134,12 @@ snap remove gnome-calculator
 #snap remove gnome-system-monitor
 #snap remove gnome-characters
 
+###### Installing resources
+cp -rf res ~/.i3buntu
+
 ###### Finish up everything
 apt --fix-broken install
 apt autoremove
 
-# give the user rights to their home directory
+# give the user rights to all of their home directory
 chown -R $USER:$USER ~

@@ -31,5 +31,8 @@ chmod +x omz.sh
 cp -f configs/zshrc ~/.zshrc
 rm -f omz.sh
 
+###### Configure git
+git config --global credential.helper cache
+
 ###### Change the login shell to zsh
 chsh -s /bin/zsh
