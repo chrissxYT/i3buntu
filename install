@@ -134,8 +134,12 @@ snap remove gnome-calculator
 #snap remove gnome-system-monitor
 #snap remove gnome-characters
 
-###### Installing resources
+###### Install resources
 cp -rf res ~/.i3buntu
+
+###### Change the distro name
+echo "i3buntu 18.04+ \n \l" > /etc/issue
+echo -n "i3buntu 18.04+" > /etc/issue.net
 
 ###### Finish up everything
 apt --fix-broken install
