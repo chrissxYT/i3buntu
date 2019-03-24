@@ -41,7 +41,7 @@ apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
 	audacity tor lm-sensors wireshark\
 	libudev-dev cmake fonts-powerline breeze help2man\
 	libcurl4-openssl-dev libssl-dev flex bison libelf-dev gcc-avr\
-	binutils-avr avr-libc neofetch yubikey-manager-qt\
+	binutils-avr avr-libc yubikey-manager-qt\
 	yubikey-personalization-gui yubioath-desktop thunderbird\
 	samba mono-complete p7zip-full iostat iotop dstat atop lz4\
 	lzma net-tools libxft-dev libgtk2.0-dev libgtk-3-dev\
@@ -105,6 +105,13 @@ curl -L -o pc.deb 'https://github.com/acrisci/playerctl/releases/download/v2.0.1
 dpkg -i pc.deb
 rm -f pc.deb
 
+###### Get and install the fixed version of neofetch
+git clone https://github.com/chrissxYT/neofetch.git nf
+cd nf
+make install
+cd ..
+rm -rf nf
+
 ###### Get and install Chrome
 curl -L -o ch.deb 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
 dpkg -i ch.deb
@@ -140,6 +147,8 @@ cp -rf res ~/.i3buntu
 ###### Change the distro name
 echo "i3buntu 18.04+ \n \l" > /etc/issue
 echo -n "i3buntu 18.04+" > /etc/issue.net
+cp -f configs/os-release /etc/os-release
+cp -f configs/lsbr /usr/bin/lsb_release
 
 ###### Finish up everything
 apt --fix-broken install
