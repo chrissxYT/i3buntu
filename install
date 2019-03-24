@@ -148,7 +148,7 @@ cp -rf res ~/.i3buntu
 echo "i3buntu 18.04+ \n \l" > /etc/issue
 echo -n "i3buntu 18.04+" > /etc/issue.net
 cp -f configs/os-release /etc/os-release
-cp -f configs/lsbr /usr/bin/lsb_release
+cp -f configs/lsbr /etc/lsb-release
 
 ###### Finish up everything
 apt --fix-broken install
