@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "If you've got a i3brc for configuration, give the path, otherwise press enter."
+read i3brc
+if [[ i3brc -eq "" ]]
+then
+	echo ""
+else
+	echo ""
+fi

@@ -3,6 +3,6 @@ sudo apt update
 sudo apt install git
 git clone https://github.com/chrissxYT/i3buntu.git i3buntu
 cd i3buntu
-sudo ./install
+sudo bash install $(bash i3brc)
 ./config
 sudo shutdown -r now
