@@ -3,6 +3,9 @@
 ###### Update packages and add yubico repo
 add-apt-repository ppa:yubico/stable
 apt update
+# install the microsoft fonts at this stage to avoid unnecessary
+# dialogs later
+apt install -y ttf-mscorefonts-installer
 apt upgrade -y
 
 ###### Install main apps, drivers and dependencies
