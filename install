@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ###### Update packages and add yubico repo
 add-apt-repository ppa:yubico/stable
@@ -46,6 +46,18 @@ apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
 	samba mono-complete p7zip-full iostat iotop dstat atop lz4\
 	lzma net-tools libxft-dev libgtk2.0-dev libgtk-3-dev\
 	webkit2gtk-4.0 python-pip python3-pip youtube-dl golang rustc
+if [[ $1 -eq "c" ]]
+then
+	###### Get and install Chrome
+	curl -L -o ch.deb 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+	dpkg -i ch.deb
+	rm -f ch.deb
+else
+	if [[ $1 -eq "f" ]]
+	then
+		apt install firefox
+	fi
+fi
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
 
@@ -112,10 +124,6 @@ make install
 cd ..
 rm -rf nf
 
-###### Get and install Chrome
-curl -L -o ch.deb 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
-dpkg -i ch.deb
-rm -f ch.deb
 
 ###### Install helper "scripts"
 cp -f tools/ghk /bin/ghk
@@ -131,7 +139,7 @@ openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
 rm -f ghk.txt
 
 ###### Remove bloatware
-apt remove -y firefox gedit
+apt remove -y gedit
 #apt remove -y gnome-bluetooth
 #apt remove -y gnome-accessibility-themes
 apt remove -y gnome-user-docs gnome-user-guide
