@@ -20,8 +20,6 @@ apt install -y ubuntu-drivers-common openssh-client curl gcc g++\
 	libssh-4 libnm-glib-vpn1 dmz-cursor-theme libwayland-cursor0\
 	libxcursor1 xcursor-themes mousetweaks laptop-detect\
 	usb-creator-common usb-creator-gtk gnome-power-manager\
-	libgsettings-qt1 libproxy1-plugin-gsettings\
-	libappindicator3-1 gir1.2-appindicator3-0.1 \
 	openjdk-8-jdk apt-transport-https fonts-hack-ttf
 snap install vscode --classic
 curl -L -o pmp.deb https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
