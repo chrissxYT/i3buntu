@@ -8,26 +8,21 @@ apt upgrade -y
 ###### Install main apps, drivers and dependencies
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
 apt install -y ttf-mscorefonts-installer
-apt install -y ubuntu-drivers-common ubuntu-restricted-extras\
-	ttf-ubuntu-font-family openssh-client curl gcc g++\
-	libstartup-notification0 clang evince evince-common\
-	make autoconf automake x11-xserver-utils arandr pavucontrol\
-	python-gconf libpng-dev libusb-dev lxappearance\
-	policykit-desktop-privileges policykit-1-gnome vim thunar\
-	gnome-system-tools network-manager wireless-tools\
-	overlay-scrollbar overlay-scrollbar-gtk2\
-	totem-plugins gromit exfat-fuse exfat-utils\
-	gstreamer1.0-pulseaudio transmission-gtk pulseaudio-utils\
-	feh rofi gnome-terminal i3 scrot\
-	xserver-xorg-video-intel acpi-support\
-	apport-gtk foomatic-db-compressed-ppds evince evince-common\
+apt install -y ubuntu-drivers-common openssh-client curl gcc g++\
+	libstartup-notification0 clang make autoconf automake\
+	x11-xserver-utils arandr python-gconf libpng-dev libusb-dev\
+	lxappearance vim gnome-system-tools network-manager\
+	wireless-tools overlay-scrollbar overlay-scrollbar-gtk2\
+	exfat-fuse exfat-utils gstreamer1.0-pulseaudio\
+	transmission-gtk pulseaudio-utils feh gnome-terminal i3 scrot\
+	xserver-xorg-video-intel acpi-support apport-gtk\
+	foomatic-db-compressed-ppds evince evince-common\
 	libssh-4 libnm-glib-vpn1 dmz-cursor-theme libwayland-cursor0\
 	libxcursor1 xcursor-themes mousetweaks laptop-detect\
-	update-inetd update-notifier update-notifier-common\
 	usb-creator-common usb-creator-gtk gnome-power-manager\
 	libgsettings-qt1 libproxy1-plugin-gsettings\
-	libappindicator3-1 gir1.2-appindicator3-0.1 gdebi\
-	openjdk-8-jdk apt-transport-https fonts-hack-ttf curl
+	libappindicator3-1 gir1.2-appindicator3-0.1 \
+	openjdk-8-jdk apt-transport-https fonts-hack-ttf
 snap install vscode --classic
 curl -L -o pmp.deb https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
 dpkg -i pmp.deb
