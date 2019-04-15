@@ -8,3 +8,4 @@ let g:lightline = {
       \ }
 autocmd BufWritePost *.c,*.h,*.cc,*.hh,*.cpp,*.hpp if filereadable("Makefile") | !make
 autocmd BufWritePost config.h !sudo make install
+autocmd BufWritePost slides !sent %
