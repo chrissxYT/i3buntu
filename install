@@ -37,7 +37,7 @@ apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
 	audacity tor lm-sensors wireshark vifm\
 	libudev-dev cmake fonts-powerline breeze help2man\
 	libcurl4-openssl-dev libssl-dev flex bison libelf-dev gcc-avr\
-	binutils-avr avr-libc yubikey-manager-qt\
+	binutils-avr avr-libc yubikey-manager-qt nextcloud-client\
 	yubikey-personalization-gui yubioath-desktop thunderbird\
 	samba mono-complete p7zip-full iotop dstat atop\
 	lzma net-tools libxft-dev libgtk2.0-dev libgtk-3-dev\
