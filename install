@@ -1,7 +1,8 @@
 #!/bin/bash
 
-###### Update packages and add yubico repo
+###### Update packages and add ppas
 add-apt-repository ppa:yubico/stable
+add-apt-repository ppa:nextcloud-devs/client
 apt update
 apt upgrade -y
 
