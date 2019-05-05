@@ -170,8 +170,8 @@ bar {
 }
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Media player controls
@@ -188,7 +188,7 @@ bindsym XF86Launch1 exec google-chrome
 
 bindsym Print exec gnome-screenshot -i
 
-# Lock the screen with the lock bash tool
+# Lock the screen with the lock tool
 bindsym $mod+Shift+x exec lock
 bindsym XF86ScreenSaver exec lock
 bindsym XF86Suspend exec lock
