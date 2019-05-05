@@ -120,30 +120,25 @@ make install
 cd ..
 rm -rf nf
 
-
 ###### Install helper "scripts"
-cp -f tools/ghk /bin/ghk
-cp -f tools/ghp /bin/ghp
-cp -f tools/update /bin/update
+cp -f tools/ghk /usr/bin/ghk
+cp -f tools/ghp /usr/bin/ghp
+cp -f tools/update /usr/bin/update
 cp -f tools/mnt /bin/mnt
 cp -f tools/unmount /bin/unmount
-cp -f tools/sd /bin/sd
-cp -f tools/netsh /bin/netsh
-cp -f tools/lock /bin/lock
-vim ghk.txt
-openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
-rm -f ghk.txt
+cp -f tools/sd /sbin/sd
+cp -f tools/netsh /usr/bin/netsh
+cp -f tools/lock /usr/bin/lock
+if [[ ! -f ~/.ghk.enc ]]
+then
+	vim ghk.txt
+	openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
+	rm -f ghk.txt
+fi
 
 ###### Remove bloatware
-apt remove -y gedit
-#apt remove -y gnome-bluetooth
-#apt remove -y gnome-accessibility-themes
-apt remove -y gnome-user-docs gnome-user-guide
-#apt remove -y gnome-disk-utility
-#apt remove -y gnome-software
+apt remove -y gedit gnome-user-docs gnome-user-guide
 snap remove gnome-calculator
-#snap remove gnome-system-monitor
-#snap remove gnome-characters
 
 ###### Install resources
 cp -rf res ~/.i3buntu
