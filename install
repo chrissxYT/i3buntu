@@ -57,6 +57,12 @@ fi
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
 
+###### Get and install yEd
+curl -L -o yed.sh "https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh"
+chmod +x yed.sh
+./yed.sh
+rm yed.sh
+
 ###### Get and install fzf
 curl -L -o fzf.deb http://launchpadlibrarian.net/405439988/fzf_0.17.5-2_amd64.deb
 dpkg -i fzf.deb
