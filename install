@@ -120,6 +120,15 @@ make install
 cd ..
 rm -rf nf
 
+###### Get and install EOS
+mkdir tmp_eos_stuff
+cd tmp_eos_stuff
+curl -L -o eos.zip "https://www.pabst-software.de/lib/exe/fetch.php?media=programme:eos:eos.zip"
+unzip eos.zip
+cp -f EOS.exe /usr/bin/eos.exe
+cd ..
+rm -rf tmp_eos_stuff
+
 ###### Install helper "scripts"
 cp -f tools/ghk /usr/bin/ghk
 cp -f tools/ghp /usr/bin/ghp
@@ -129,6 +138,7 @@ cp -f tools/unmount /bin/unmount
 cp -f tools/sd /sbin/sd
 cp -f tools/netsh /usr/bin/netsh
 cp -f tools/lock /usr/bin/lock
+cp -f tools/eos /usr/bin/eos
 if [[ ! -f ~/.ghk.enc ]]
 then
 	vim ghk.txt
