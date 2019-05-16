@@ -23,6 +23,7 @@ apt install -y ubuntu-drivers-common openssh-client curl gcc g++\
 	usb-creator-common usb-creator-gtk gnome-power-manager\
 	openjdk-8-jdk apt-transport-https fonts-hack-ttf
 snap install vscode --classic
+snap install github-desktop --beta --classic
 curl -L -o pmp.deb https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
 dpkg -i pmp.deb
 rm -f pmp.deb
