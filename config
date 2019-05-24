@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Config the icons and themes and stuff
-lxappearance
-
 ###### Make config directories
 mkdir ~/.config
 mkdir ~/.config/i3
@@ -13,6 +10,7 @@ cp -f configs/i3/config ~/.config/i3/config
 cp -f configs/i3/i3status ~/.config/i3/i3status
 sudo cp -f configs/env /etc/environment
 cp -f configs/vifmrc ~/.config/vifm/vifmrc
+cp -f configs/gtk ~/.config/gtk-3.0/settings.ini
 
 ###### Install vim plugins
 mkdir -p ~/.vim/autoload ~/.vim/bundle
