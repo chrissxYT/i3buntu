@@ -8,42 +8,61 @@ order += "disk /"
 order += "wireless wlp3s0"
 order += "battery 0"
 order += "cpu_temperature 0"
+order += "cpu_usage"
 order += "volume master"
 order += "tztime local"
 
 wireless wlp3s0 {
-        format_up = "%essid %ip"
+        format_up = " %essid %ip "
         format_down = "down"
+	separator = false
+	separator_block_width = 0
 }
 
 battery 0 {
-        format = "%status %percentage %remaining %consumption"
-        format_down = "No battery"
+        format = " %status %percentage %remaining %consumption "
+        format_down = "No battery "
         status_chr = "⚡"
         status_bat = "🔋"
         status_unk = "?"
         status_full = "😁"
         path = "/sys/class/power_supply/BAT%d/uevent"
-        low_threshold = 10
+        low_threshold = 15
+	separator = false
+	separator_block_width = 0
 }
 
 tztime local {
-        format = "%d.%m.%Y %H:%M:%S"
+        format = " %d.%m.%Y %H:%M:%S"
+	separator = false
+	separator_block_width = 0
 }
 
 cpu_temperature 0 {
-        format = "%degrees°C"
+        format = " %degrees°C "
         path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+	separator = false
+	separator_block_width = 0
+}
+
+cpu_usage {
+	format = " %usage "
+	separator = false
+	separator_block_width = 0
 }
 
 disk "/" {
-        format = "%free"
+        format = " %free "
+	separator = false
+	separator_block_width = 0
 }
 
 volume master {
         format = "🔉 %volume"
-        format_muted = "🔇"
+        format_muted = " 🔇 "
         device = "default"
         mixer = "Master"
         mixer_idx = 0
+	separator = false
+	separator_block_width = 0
 }
