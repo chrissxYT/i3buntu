@@ -35,7 +35,7 @@ echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | te
 apt update
 apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
 	progress ncdu icdiff kdenlive mplayer obs-studio gimp\
-	audacity tor lm-sensors wireshark vifm sox\
+	audacity tor lm-sensors wireshark vifm sox wifi-radar\
 	libudev-dev cmake fonts-powerline breeze help2man\
 	libcurl4-openssl-dev libssl-dev flex bison libelf-dev gcc-avr\
 	binutils-avr avr-libc yubikey-manager-qt nextcloud-client\
