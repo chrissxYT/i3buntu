@@ -8,7 +8,6 @@ apt upgrade -y
 
 ###### Install main apps, drivers and dependencies
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
-apt install -y ttf-mscorefonts-installer
 apt install -y ubuntu-drivers-common openssh-client curl gcc g++\
 	libstartup-notification0 clang make autoconf automake\
 	x11-xserver-utils arandr python-gconf libpng-dev libusb-dev\
@@ -167,8 +166,8 @@ cp -f configs/os-release /etc/os-release
 cp -f configs/lsbr /etc/lsb-release
 
 ###### Finish up everything
-apt --fix-broken install
-apt autoremove
+apt --fix-broken install -y
+apt autoremove -y
 
 # give the user rights to all of their home directory
 chown -R $USER:$USER ~

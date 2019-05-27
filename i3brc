@@ -1,9 +1,9 @@
 #!/bin/bash
-echo "If you've got a i3brc for configuration, give the path, otherwise press enter." >&2
+echo "If you've got a i3brc for configuration, give the url, otherwise press enter." >&2
 read i3brc
 if [[ i3brc -eq "" ]]
 then
-	echo "o"
+	echo "o 1 1 1 1 1"
 else
-	echo ""
+	curl -L -o - $i3brc
 fi
