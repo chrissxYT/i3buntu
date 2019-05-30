@@ -31,6 +31,11 @@ dpkg --add-architecture i386
 curl -L -o - https://github.com/chrissxYT/winstallhq/raw/master/winstall.hq | sh
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | tee /etc/apt/sources.list.d/mono-official-stable.list
+curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/debian \
+   buster \
+   stable"
 apt update
 apt install -y dotnet-sdk-2.2 zsh htop tmux dosbox blender w3m\
 	progress ncdu icdiff kdenlive mplayer obs-studio gimp\
