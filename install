@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ###### Update packages and add ppas
-add-apt-repository ppa:yubico/stable
-add-apt-repository ppa:nextcloud-devs/client
+add-apt-repository -y ppa:yubico/stable
+add-apt-repository -y ppa:nextcloud-devs/client
 apt update
 apt upgrade -y
 
@@ -17,13 +17,13 @@ snap install github-desktop --beta --classic
 curl -L -o pmp.deb https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
 dpkg -i pmp.deb
 rm -f pmp.deb
-add-apt-repository universe
+add-apt-repository -y universe
 dpkg --add-architecture i386
 curl -L -o - https://github.com/chrissxYT/winstallhq/raw/master/winstall.hq | sh
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | tee /etc/apt/sources.list.d/mono-official-stable.list
 curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
-sudo add-apt-repository \
+add-apt-repository -y \
    "deb [arch=amd64] https://download.docker.com/linux/debian \
    buster \
    stable"
@@ -34,15 +34,17 @@ do
 done
 if [[ $1 -eq "o" ]]
 then
-	###### Get and install Opera
 	curl -L -o op.deb "https://download1.operacdn.com/pub/opera/desktop/60.0.3255.109/linux/opera-stable_60.0.3255.109_amd64.deb"
 	dpkg -i op.deb
 	rm -f op.deb
-else
-	if [[ $1 -eq "f" ]]
-	then
-		apt install firefox
-	fi
+elif [[ $1 -eq "f" ]]
+then
+	apt install -y firefox
+elif [[ $1 -eq "c" ]]
+then
+	curl -L -o ch.deb 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+	dpkg -i ch.deb
+	rm -f ch.deb
 fi
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
@@ -114,10 +116,7 @@ then
 fi
 
 ###### Get and install ybacklight
-curl -L -o yb.sh "https://github.com/chrissxYT/ybacklight/raw/master/installer.sh"
-chmod +x yb.sh
-./yb.sh
-rm -f yb.sh
+curl -L "https://github.com/chrissxYT/ybacklight/raw/master/installer.sh" | sh
 
 ###### Get and install FlashPrint
 if [[ $6 -eq 1 ]]
@@ -149,8 +148,6 @@ cd ..
 rm -rf tmp_eos_stuff
 
 ###### Install helper "scripts"
-cp -f tools/ghk /usr/bin/ghk
-cp -f tools/ghp /usr/bin/ghp
 cp -f tools/update /usr/bin/update
 cp -f tools/mnt /bin/mnt
 cp -f tools/unmount /bin/unmount
@@ -158,11 +155,16 @@ cp -f tools/sd /sbin/sd
 cp -f tools/netsh /usr/bin/netsh
 cp -f tools/lock /usr/bin/lock
 cp -f tools/eos /usr/bin/eos
-if [[ ! -f ~/.ghk.enc ]]
+if [[ $8 -eq 1 ]]
 then
-	vim ghk.txt
-	openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
-	rm -f ghk.txt
+	cp -f tools/ghk /usr/bin/ghk
+	cp -f tools/ghp /usr/bin/ghp
+	if [[ ! -f ~/.ghk.enc ]]
+	then
+		vim ghk.txt
+		openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
+		rm -f ghk.txt
+	fi
 fi
 
 ###### Remove bloatware
@@ -179,7 +181,7 @@ cp -f configs/os-release /etc/os-release
 cp -f configs/lsbr /etc/lsb-release
 
 ###### Finish up everything
-apt --fix-broken install -y
+apt -f install -y
 apt autoremove -y
 
 # give the user rights to all of their home directory
