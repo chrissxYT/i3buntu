@@ -13,7 +13,7 @@ apt install -y ubuntu-drivers-common openssh-client curl gcc g++\
 	x11-xserver-utils arandr python-gconf libpng-dev libusb-dev\
 	lxappearance vim gnome-system-tools network-manager\
 	wireless-tools overlay-scrollbar overlay-scrollbar-gtk2\
-	exfat-fuse exfat-utils gstreamer1.0-pulseaudio\
+	exfat-fuse exfat-utils x11proto-dev gstreamer1.0-pulseaudio\
 	transmission-gtk pulseaudio-utils feh gnome-terminal i3 scrot\
 	xserver-xorg-video-intel acpi-support apport-gtk\
 	foomatic-db-compressed-ppds evince evince-common\
