@@ -20,5 +20,6 @@ export TERM=xterm-256color
 zlibd() (printf "\x1f\x8b\x08\x00\x00\x00\x00\x00"|cat - $@|gzip -dc)
 v()     ($EDITOR $@)
 e()     ($EDITOR $(ls | fzf))
+uzip()  (unzip -d "$(echo $1 | sed s/\.zip//g -)" "$1")
 
 neofetch
