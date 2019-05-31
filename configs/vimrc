@@ -6,6 +6,8 @@ set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'powerline',
       \ }
-autocmd BufWritePost *.c,*.h,*.cc,*.hh,*.cpp,*.hpp if filereadable("Makefile") | !make
-autocmd BufWritePost config.h !sudo make install
+autocmd BufWritePost *.c,*.h,*.cc,*.hh,*.cpp,*.hpp if filereadable("Makefile") | !make test
 autocmd BufWritePost slides !sent %
+
+" map <C-c> "+y
+" map <C-v> "+P
