@@ -9,7 +9,10 @@ apt upgrade -y
 ###### Install main apps, drivers and dependencies
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
 apt install -y curl gcc g++ clang make
-snap install vscode --classic
+if [[ $7 -eq 1 ]]
+then
+	snap install vscode --classic
+fi
 snap install github-desktop --beta --classic
 curl -L -o pmp.deb https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
 dpkg -i pmp.deb
@@ -50,13 +53,16 @@ cd im2heic
 make
 make install
 cd ..
-rm -rfim2heic
+rm -rf im2heic
 
 ###### Get and install yEd
-curl -L -o yed.sh "https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh"
-chmod +x yed.sh
-./yed.sh
-rm yed.sh
+if [[ $2 -eq 1 ]]
+then
+	curl -L -o yed.sh "https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh"
+	chmod +x yed.sh
+	./yed.sh
+	rm -f yed.sh
+fi
 
 ###### Get and install fzf
 curl -L -o fzf.deb http://launchpadlibrarian.net/405439988/fzf_0.17.5-2_amd64.deb
@@ -73,30 +79,39 @@ rm -rf sane-sent-c001
 rm -f ss.zip
 
 ###### Get and install the Arduino IDE
-curl -L -o ad.tar.xz "https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz"
-tar xJf ad.tar.xz
-mv arduino-1.8.8 /usr/bin/
-cd /usr/bin/arduino-1.8.8
-./arduino-linux-setup.sh $USER
-popd
-rm -f ad.tar.xz
+if [[ $3 -eq 1 ]]
+then
+	curl -L -o ad.tar.xz "https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz"
+	tar xJf ad.tar.xz
+	mv arduino-1.8.8 /usr/bin/
+	cd /usr/bin/arduino-1.8.8
+	./arduino-linux-setup.sh $USER
+	popd
+	rm -f ad.tar.xz
+fi
 
-###### Get and install the Teensy loader
-curl -L -o /etc/udev/rules.d/49-teensy.rules "https://www.pjrc.com/teensy/49-teensy.rules"
-curl -L -o t.tar.gz "https://www.pjrc.com/teensy/teensy_linux64.tar.gz"
-tar xzf t.tar.gz
-mv teensy /bin
-rm -f t.tar.gz libpng12.so.0 libusb-0.1.so.4
-
-###### Get and install Teensyduino
-curl -L -o td "https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64"
-chmod +x td
-./td
+if [[ $4 -eq 1 ]]
+then
+	###### Get and install the Teensy loader
+	curl -L -o /etc/udev/rules.d/49-teensy.rules "https://www.pjrc.com/teensy/49-teensy.rules"
+	curl -L -o t.tar.gz "https://www.pjrc.com/teensy/teensy_linux64.tar.gz"
+	tar xzf t.tar.gz
+	mv -f teensy /usr/bin
+	rm -f t.tar.gz libpng12.so.0 libusb-0.1.so.4
+	
+	###### Get and install Teensyduino
+	curl -L -o td "https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64"
+	chmod +x td
+	./td
+fi
 
 ###### Get and install TeamViewer
-curl -L -o tv.deb 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb'
-dpkg -i tv.deb
-rm -f tv.deb
+if [[ $5 -eq 1 ]]
+then
+	curl -L -o tv.deb 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb'
+	dpkg -i tv.deb
+	rm -f tv.deb
+fi
 
 ###### Get and install ybacklight
 curl -L -o yb.sh "https://github.com/chrissxYT/ybacklight/raw/master/installer.sh"
@@ -105,9 +120,12 @@ chmod +x yb.sh
 rm -f yb.sh
 
 ###### Get and install FlashPrint
-curl -L -o fp.deb 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
-dpkg -i fp.deb
-rm -f fp.deb
+if [[ $6 -eq 1 ]]
+then
+	curl -L -o fp.deb 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
+	dpkg -i fp.deb
+	rm -f fp.deb
+fi
 
 ###### Get and install playerctl
 curl -L -o pc.deb 'https://github.com/acrisci/playerctl/releases/download/v2.0.1/playerctl-2.0.1_amd64.deb'
