@@ -117,7 +117,7 @@ then
 fi
 
 ###### Get and install ybacklight
-curl -L "https://github.com/chrissxYT/ybacklight/raw/master/installer.sh" | sh
+curl -L "https://github.com/chrissxYT/ybacklight/raw/master/netsh" | sh
 
 ###### Get and install FlashPrint
 if [[ $6 -eq 1 ]]
