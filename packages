@@ -26,7 +26,6 @@ x11proto-dev
 gstreamer1.0-pulseaudio
 transmission-gtk
 pulseaudio-utils
-feh
 gnome-terminal
 i3
 scrot
@@ -95,8 +94,11 @@ p7zip-full
 iotop
 dstat
 atop
+libimlib2
+yudit-common
 libimlib2-dev
 libheif-dev
+feh
 lzma
 net-tools
 libxft-dev
