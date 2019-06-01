@@ -3,7 +3,7 @@ echo "If you've got a i3brc for configuration, give the url, otherwise press ent
 read i3brc
 if [[ i3brc -eq "" ]]
 then
-	echo "o 1 1 1 1 1 0 1"
+	echo "o 1 1 1 1 0 0 1"
 else
 	curl -L -o - $i3brc
 fi
