@@ -21,10 +21,11 @@ git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline.vim
 git clone https://github.com/w0rp/ale ~/.vim/bundle/ale
 cp -f configs/vimrc ~/.vimrc
 git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
+ret=$(pwd)
 cd ~/.vim/bundle/YouCompleteMe
 git submodule update --init --recursive
 ./install.py --clang-completer --cs-completer --java-completer --go-completer --rust-completer
-popd
+cd $ret
 
 ###### Install Oh-my-zsh
 curl -L -o omz.sh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'

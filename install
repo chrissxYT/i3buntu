@@ -86,9 +86,10 @@ then
 	curl -L -o ad.tar.xz "https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz"
 	tar xJf ad.tar.xz
 	mv arduino-1.8.8 /usr/bin/
+	ret=$(pwd)
 	cd /usr/bin/arduino-1.8.8
 	./arduino-linux-setup.sh $USER
-	popd
+	cd $ret
 	rm -f ad.tar.xz
 fi
 
