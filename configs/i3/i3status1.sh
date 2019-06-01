@@ -1,2 +1,6 @@
 #!/bin/sh
-i3status -c ~/.config/i3/i3status | sed "s/]/,{\"name\":\"hallol\",\"full_text\":\" brightness: $(ybacklight cur)\"}]/"
+i3status -c ~/.config/i3/i3status | while :
+do
+        read line
+	echo $line | sed "s/}]/},{\"name\":\"aha\",\"full_text\":\" 💻 $(ybacklight cur)\"}]/g"
+done
