@@ -1,9 +1,10 @@
 #!/bin/bash
-echo "If you've got a i3brc for configuration, give the url, otherwise press enter." >&2
+ls i3brcs | sed s/.i3brc//g >&2
+echo "Either enter the name of one of the above i3brcs or hit enter to use the defaults." >&2
 read i3brc
 if [[ i3brc -eq "" ]]
 then
 	echo "o 1 1 1 1 0 0 1"
 else
-	curl -L -o - $i3brc
+	cat i3brcs/$i3brc.i3brc
 fi
