@@ -1,3 +1,8 @@
+libjson-c-dev
+libuv1-dev
+libwebsockets-dev
+libwebsockets8
+libev-dev
 ubuntu-drivers-common
 openssh-client
 curl
