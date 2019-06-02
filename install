@@ -19,7 +19,7 @@ dpkg -i pmp.deb
 rm -f pmp.deb
 add-apt-repository -y universe
 dpkg --add-architecture i386
-curl -L https://github.com/chrissxYT/winstallhq/raw/master/winstall.hq | sh
+tools/netsh chrissxYT/winstallhq
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | tee /etc/apt/sources.list.d/mono-official-stable.list
 curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
@@ -28,23 +28,19 @@ add-apt-repository -y \
    buster \
    stable"
 apt update
-for p in $(cat packages)
+for p in $(cat apt)
 do
 	apt install -y $p
 done
 if [[ $1 -eq "o" ]]
 then
-	curl -L -o op.deb "https://download1.operacdn.com/pub/opera/desktop/60.0.3255.109/linux/opera-stable_60.0.3255.109_amd64.deb"
-	dpkg -i op.deb
-	rm -f op.deb
+	tools/udpkg "https://download1.operacdn.com/pub/opera/desktop/60.0.3255.109/linux/opera-stable_60.0.3255.109_amd64.deb"
 elif [[ $1 -eq "f" ]]
 then
 	apt install -y firefox
 elif [[ $1 -eq "c" ]]
 then
-	curl -L -o ch.deb 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
-	dpkg -i ch.deb
-	rm -f ch.deb
+	tools/udpkg 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
 fi
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
@@ -67,9 +63,7 @@ then
 fi
 
 ###### Get and install fzf
-curl -L -o fzf.deb http://launchpadlibrarian.net/405439988/fzf_0.17.5-2_amd64.deb
-dpkg -i fzf.deb
-rm -f fzf.deb
+tools/udpkg http://launchpadlibrarian.net/405439988/fzf_0.17.5-2_amd64.deb
 
 ###### Get and install sane-sent
 curl -L -o ss.zip https://github.com/chrissxYT/sane-sent/archive/c001.zip
@@ -109,31 +103,24 @@ then
 fi
 
 ###### Get and install TeamViewer
-if [[ $5 -eq 1 ]]
-then
-	curl -L -o tv.deb 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb'
-	dpkg -i tv.deb
-	rm -f tv.deb
+if [[ $5 -eq 1 ]] ; then
+	udpkg 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb'
 fi
 
 ###### Get and install ybacklight
-curl -L "https://github.com/chrissxYT/ybacklight/raw/master/netsh" | sh
+tools/netsh "https://github.com/chrissxYT/ybacklight/raw/master/netsh"
 
 ###### Get and install FlashPrint
-if [[ $6 -eq 1 ]]
-then
-	curl -L -o fp.deb 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
-	dpkg -i fp.deb
-	rm -f fp.deb
+if [[ $6 -eq 1 ]] ; then
+	udpkg 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
 fi
 
 ###### Get and install playerctl
-curl -L -o pc.deb 'https://github.com/acrisci/playerctl/releases/download/v2.0.1/playerctl-2.0.1_amd64.deb'
-dpkg -i pc.deb
-rm -f pc.deb
+udpkg 'https://github.com/acrisci/playerctl/releases/download/v2.0.1/playerctl-2.0.1_amd64.deb'
 
-###### Get and install the fixed version of neofetch
-git clone https://github.com/chrissxYT/neofetch.git nf
+###### Get and install the master branch of neofetch
+###### (the packaged versions don't have the i3buntu fix yet)
+git clone https://github.com/dylanaraps/neofetch.git nf
 cd nf
 make install
 cd ..
@@ -156,6 +143,7 @@ cp -f tools/sd /sbin/sd
 cp -f tools/netsh /usr/bin/netsh
 cp -f tools/lock /usr/bin/lock
 cp -f tools/eos /usr/bin/eos
+cp -f tools/udpkg /usr/bin/udpkg
 if [[ $8 -eq 1 ]]
 then
 	cp -f tools/ghk /usr/bin/ghk
