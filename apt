@@ -126,3 +126,5 @@ python3-pip
 youtube-dl
 golang
 rustc
+latex
+texlive-fonts-recommended
