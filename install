@@ -149,17 +149,6 @@ cp -f tools/netsh /usr/bin/netsh
 cp -f tools/lock /usr/bin/lock
 cp -f tools/eos /usr/bin/eos
 cp -f tools/udpkg /usr/bin/udpkg
-if [[ $8 -eq 1 ]]
-then
-	cp -f tools/ghk /usr/bin/ghk
-	cp -f tools/ghp /usr/bin/ghp
-	if [[ ! -f ~/.ghk.enc ]]
-	then
-		vim ghk.txt
-		openssl aes-256-cbc -a -in ghk.txt -out ~/.ghk.enc
-		rm -f ghk.txt
-	fi
-fi
 
 ###### Install resources
 cp -rf res ~/.i3buntu

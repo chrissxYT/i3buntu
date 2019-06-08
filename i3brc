@@ -4,7 +4,7 @@ echo "Either enter the name of one of the above i3brcs or hit enter to use the d
 read i3brc
 if [[ i3brc -eq "" ]]
 then
-	echo "o 1 1 1 1 0 0 1"
+	echo "o 1 1 1 1 0 0"
 else
 	cat i3brcs/$i3brc.i3brc
 fi

@@ -1,2 +1,0 @@
-#!/bin/sh
-openssl aes-256-cbc -d -a -in ~/.ghk.enc -out -
