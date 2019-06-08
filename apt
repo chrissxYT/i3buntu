@@ -127,3 +127,4 @@ golang
 rustc
 latex
 texlive-fonts-recommended
+libgnome-keyring-dev

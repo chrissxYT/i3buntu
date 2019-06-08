@@ -161,10 +161,6 @@ then
 	fi
 fi
 
-###### Remove bloatware
-apt remove -y gedit gnome-user-docs gnome-user-guide
-snap remove gnome-calculator
-
 ###### Install resources
 cp -rf res ~/.i3buntu
 

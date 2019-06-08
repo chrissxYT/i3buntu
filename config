@@ -28,14 +28,15 @@ git submodule update --init --recursive
 cd $ret
 
 ###### Install Oh-my-zsh
-curl -L -o omz.sh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
-chmod +x omz.sh
-./omz.sh
+tools/netsh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
 cp -f configs/zshrc ~/.zshrc
-rm -f omz.sh
 
 ###### Configure git
-git config --global credential.helper cache
+RET=$(pwd)
+cd /usr/share/doc/git/contrib/credential/gnome-keyring
+sudo make
+cd $RET
+git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 
 ###### Change the login shell to zsh
 chsh -s /bin/zsh
