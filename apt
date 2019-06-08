@@ -126,5 +126,5 @@ python3-pip
 golang
 rustc
 latex
-texlive-fonts-recommended
+texlive-full
 libgnome-keyring-dev
