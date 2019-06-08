@@ -5,27 +5,50 @@ general {
 }
 
 order += "disk /"
+order += "ethernet eth0"
 order += "wireless wlp3s0"
 order += "battery 0"
-order += "cpu_temperature 0"
+order += "cpu_temperature 1"
+order += "cpu_temperature 2"
 order += "cpu_usage"
 order += "volume master"
 order += "tztime local"
 
+cpu_temperature 1 {
+        format = " %degrees°C "
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input"
+	separator = false
+	separator_block_width = 0
+}
+
+cpu_temperature 2 {
+        format = " %degrees°C "
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+	separator = false
+	separator_block_width = 0
+}
+
+ethernet eth0 {
+	format_up = " %ip (%speed) "
+	format_down = " ethernet_down_remove_pls "
+	separator = false
+	separator_block_width = 0
+}
+
 wireless wlp3s0 {
-        format_up = " %essid %ip "
-        format_down = "down"
+        format_up = " 📶 %essid %ip (%quality, %bitrate, %frequency) "
+        format_down = " wifi_down_remove_pls "
 	separator = false
 	separator_block_width = 0
 }
 
 battery 0 {
         format = " %status %percentage %remaining %consumption (%emptytime) "
-        format_down = "No battery "
+        format_down = " no_battery_remove_pls "
         status_chr = "⚡"
         status_bat = "🔋"
-        status_unk = "?"
-        status_full = "😁"
+        status_unk = "❔"
+        status_full = "🔌"
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 15
 	separator = false
@@ -34,13 +57,6 @@ battery 0 {
 
 tztime local {
         format = " %d.%m.%Y %H:%M:%S "
-	separator = false
-	separator_block_width = 0
-}
-
-cpu_temperature 0 {
-        format = " %degrees°C "
-        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input"
 	separator = false
 	separator_block_width = 0
 }
