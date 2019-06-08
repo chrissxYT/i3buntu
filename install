@@ -141,8 +141,9 @@ rm -rf tmp_eos_stuff
 
 ###### Install helper "scripts"
 cp -f tools/update /usr/bin/update
+mkdir $HOME/mnt
 cp -f tools/mnt /bin/mnt
-cp -f tools/unmount /bin/unmount
+cp -f tools/umnt /bin/umnt
 cp -f tools/sd /sbin/sd
 cp -f tools/netsh /usr/bin/netsh
 cp -f tools/lock /usr/bin/lock
