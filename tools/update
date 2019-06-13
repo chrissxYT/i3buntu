@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo apt update
-sudo apt upgrade -y
-sudo apt --fix-broken install -y
-sudo apt autoremove -y
+sudo sh -c "apt update && \
+	    apt upgrade -y && \
+	    apt -f install -y && \
+	    apt autoremove -y"
