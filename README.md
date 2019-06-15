@@ -18,7 +18,7 @@ The standard Ubuntu distribution comes preinstalled with a number of standard pa
 
 ##### 1. Download and install Ubuntu Minimal (NetBoot)
 
-A guide on how to construct a installation media (CD, DVD or USB key) can be found in the above link for Ubuntu Minimal. During installation, a `Software Selection` wizard will appear. One may choose to install whatever one wishes to include from this wizard. However, in my personal setup I have chosen to select `Manual package selection` and `standard system utilities` as the only selected options. When the base installation is done, one should see the Ubuntu Bash prompt.
+A guide on how to construct a installation media (CD, DVD or USB key) can be found in the above link for Ubuntu Minimal. During the installation select the English language and German keyboard layout, uncheck the options for additional software. After the new installation is booted, open a Terminal.
 
 ##### 2. Download and install i3buntu
 
