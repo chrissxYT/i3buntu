@@ -107,20 +107,17 @@ then
 	curl -L -o td "https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64"
 	chmod +x td
 	./td
+	rm -f td
 fi
 
 ###### Get and install TeamViewer
-if [[ $5 -eq 1 ]] ; then
-	udpkg 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb'
-fi
+[ $5 -eq 1 ] && udpkg 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb'
 
 ###### Get and install ybacklight
 tools/netsh "https://github.com/chrissxYT/ybacklight/raw/master/netsh"
 
 ###### Get and install FlashPrint
-if [[ $6 -eq 1 ]] ; then
-	udpkg 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
-fi
+[ $6 -eq 1 ] && udpkg 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
 
 ###### Get and install playerctl
 udpkg 'https://github.com/acrisci/playerctl/releases/download/v2.0.1/playerctl-2.0.1_amd64.deb'
@@ -134,13 +131,15 @@ cd ..
 rm -rf nf
 
 ###### Get and install EOS
-mkdir tmp_eos_stuff
-cd tmp_eos_stuff
-curl -L -o eos.zip "https://www.pabst-software.de/lib/exe/fetch.php?media=programme:eos:eos.zip"
-unzip eos.zip
-cp -f EOS.exe /usr/bin/eos.exe
-cd ..
-rm -rf tmp_eos_stuff
+if [[ $2 -eq "1" ]] ; then
+	mkdir tmp_eos_stuff
+	cd tmp_eos_stuff
+	curl -L -o eos.zip "https://www.pabst-software.de/lib/exe/fetch.php?media=programme:eos:eos.zip"
+	unzip eos.zip
+	cp -f EOS.exe /usr/bin/eos.exe
+	cd ..
+	rm -rf tmp_eos_stuff
+fi
 
 ###### Install tools
 cp -f tools/update /usr/bin/update
