@@ -11,6 +11,9 @@ set hlsearch
 set ignorecase
 set smartcase
 set backspace=indent,eol,start
+set shiftwidth=8
+set softtabstop=8
+set expandtab
 set autoindent
 set confirm
 set visualbell
