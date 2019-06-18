@@ -13,6 +13,8 @@ set smartcase
 set backspace=indent,eol,start
 set autoindent
 set confirm
+set visualbell
+set t_vb=
 set mouse=a
 set noshowmode
 let g:lightline = {
