@@ -28,3 +28,4 @@ autocmd BufWritePost .vimrc source %
 
 map <Leader>c "+y
 map <Leader>v "+P
+map <Leader>s :nohl<CR><C-L>
