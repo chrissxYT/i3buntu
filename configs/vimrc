@@ -11,6 +11,7 @@ set hlsearch
 set ignorecase
 set smartcase
 set backspace=indent,eol,start
+set autoindent
 set mouse=a
 set noshowmode
 let g:lightline = {
