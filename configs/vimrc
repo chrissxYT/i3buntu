@@ -16,6 +16,7 @@ set confirm
 set visualbell
 set t_vb=
 set mouse=a
+set notimeout ttimeout ttimeoutlen=5
 set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'powerline',
