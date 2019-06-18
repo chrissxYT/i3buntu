@@ -144,6 +144,7 @@ fi
 
 ###### Install tools
 cp -f tools/update /usr/bin/update
+cp -f tools/_update /usr/bin/_update
 mkdir $HOME/mnt
 cp -f tools/mnt /bin/mnt
 cp -f tools/umnt /bin/umnt

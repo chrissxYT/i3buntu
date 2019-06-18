@@ -1,5 +1,2 @@
 #!/bin/sh
-sudo sh -c "apt update && \
-	    apt upgrade -y && \
-	    apt -f install -y && \
-	    apt autoremove -y"
+sudo _update
