@@ -9,10 +9,7 @@ apt upgrade -y
 ###### Install main apps, drivers and dependencies
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
 apt install -y curl gcc g++ clang make
-if [[ $7 -eq 1 ]]
-then
-	snap install vscode --classic
-fi
+[ $7 = 1 ] && snap install vscode --classic
 snap install github-desktop --beta --classic
 curl -L -o pmp.deb https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
 dpkg -i pmp.deb
@@ -29,27 +26,12 @@ curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | apt-key 
 echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ bionic main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-bionic.list
 sudo apt-add-repository -y ppa:teejee2008/ppa
 apt update
-for p in $(cat apt)
-do
-	apt install -y $p
-done
-for p in $(cat pip)
-do
-	pip install $p
-done
-if [[ $1 -eq "b" ]]
-then
-	apt install brave-browser
-elif [[ $1 -eq "o" ]]
-then
-	tools/udpkg "https://download1.operacdn.com/pub/opera/desktop/60.0.3255.109/linux/opera-stable_60.0.3255.109_amd64.deb"
-elif [[ $1 -eq "f" ]]
-then
-	apt install -y firefox
-elif [[ $1 -eq "c" ]]
-then
-	tools/udpkg 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
-fi
+for p in $(cat apt) ; do apt install -y $p ; done
+for p in $(cat pip) ; do pip install $p ; done
+[ $1 = "b" ] && apt install -y brave-browser
+[ $1 = "o" ] && tools/udpkg "https://download1.operacdn.com/pub/opera/desktop/60.0.3255.109/linux/opera-stable_60.0.3255.109_amd64.deb"
+[ $1 = "f" ] && apt install -y firefox
+[ $1 = "c" ] && tools/udpkg 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
 
