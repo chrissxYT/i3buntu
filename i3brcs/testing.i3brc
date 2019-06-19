@@ -1,1 +1,2 @@
-b 0 0 0 0 0 0
+# just a minimal setup, can be used for testing
+echo "b 0 0 0 0 0 0"

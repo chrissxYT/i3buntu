@@ -18,7 +18,7 @@ The standard Ubuntu distribution comes preinstalled with a number of standard pa
 
 ##### 1. Download and install Ubuntu Minimal (NetBoot)
 
-A guide on how to construct a installation media (CD, DVD or USB key) can be found in the above link for Ubuntu Minimal. During the installation select the English language and German keyboard layout, uncheck the options for additional software. After the new installation is booted, open a Terminal.
+A guide on how to construct a installation media (CD, DVD or USB key) can be found in the above link for Ubuntu Minimal. During the installation select the English language and German keyboard layout, uncheck the options for additional software. After the new installation is booted, open a Terminal and optionally put your config under ~/.i3brc.
 
 ##### 2. Download and install i3buntu
 
