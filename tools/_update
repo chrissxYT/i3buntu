@@ -3,4 +3,10 @@ apt update
 apt upgrade -y
 apt -f install -y
 apt autoremove -y
+echo "i3buntu 18.04+ \n \l" > /etc/issue
+echo -n "i3buntu 18.04+" > /etc/issue.net
+cp -f $HOME/.i3buntu/configs/os-release /etc/os-release
+cp -f $HOME/.i3buntu/configs/lsbr /etc/lsb-release
+# it always fails the first time for me
+ukuu --install-latest --yes
 ukuu --install-latest --yes
