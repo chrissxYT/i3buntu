@@ -128,7 +128,6 @@ rustc
 libgnome-keyring-dev
 virtualbox
 ukuu
-latex
 latex-cjk-common
 latex209-base
 latex209-bin
@@ -141,15 +140,11 @@ texlive-base
 texlive-bibtex-extra
 texlive-binaries
 texlive-font-utils
-texlive-full
-texlive-games
-texlive-humanities
 texlive-lang-english
 texlive-lang-german
 texlive-latex-base
 texlive-luatex
 texlive-metapost
-texlive-music
 texlive-pictures
 texlive-plain-generic
 texlive-pstricks
