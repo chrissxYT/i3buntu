@@ -22,19 +22,20 @@ v()     ($EDITOR $@)
 e()     ($EDITOR $(ls | fzf))
 uzip()  (unzip -d "$(echo $1 | sed s/\.zip//g -)" "$1")
 
-xmodmap -e "clear lock"
-xmodmap -e "keycode 66 = Escape"
-xmodmap -e "keycode 47 = parenleft braceleft"
-xmodmap -e "keycode 48 = parenright braceright"
-xmodmap -e "keycode 34 = slash bar"
-xmodmap -e "keycode 20 = backslash question"
-xmodmap -e "keycode 135 = Multi_key"
+#xmodmap -e "clear lock"
+#xmodmap -e "keycode 66 = Escape"
+#xmodmap -e "keycode 47 = parenleft braceleft"
+#xmodmap -e "keycode 48 = parenright braceright"
+#xmodmap -e "keycode 34 = slash bar"
+#xmodmap -e "keycode 20 = backslash question"
+#xmodmap -e "keycode 135 = Multi_key"
 
 # hard mode
-xmodmap -e "keycode 9  = NoSymbol"
-xmodmap -e "keycode 16 = 7 NoSymbol 7 NoSymbol NoSymbol seveneighths NoSymbol"
-xmodmap -e "keycode 17 = 8 NoSymbol 8 NoSymbol bracketleft trademark bracketleft"
-xmodmap -e "keycode 18 = 9 NoSymbol 9 NoSymbol bracketright plusminus bracketright"
-xmodmap -e "keycode 19 = 0 equal 0 equal NoSymbol degree NoSymbol"
+#xmodmap -e "keycode 9  = NoSymbol"
+#xmodmap -e "keycode 16 = 7 NoSymbol 7 NoSymbol NoSymbol seveneighths NoSymbol"
+#xmodmap -e "keycode 17 = 8 NoSymbol 8 NoSymbol bracketleft trademark bracketleft"
+#xmodmap -e "keycode 18 = 9 NoSymbol 9 NoSymbol bracketright plusminus bracketright"
+#xmodmap -e "keycode 19 = 0 equal 0 equal NoSymbol degree NoSymbol"
+#xmodmap -e "keycode 94 = less greater less greater NoSymbol dead_belowmacron NoSymbol dead_belowmacron less greater NoSymbol dead_belowmacron"
 
 neofetch

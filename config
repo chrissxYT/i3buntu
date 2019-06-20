@@ -40,5 +40,9 @@ git config --global credential.helper /usr/share/doc/git/contrib/credential/gnom
 git config --global core.editor vim
 git config --global commit.gpgsign true
 
+###### X keyboard
+cp configs/xinitrc $HOME/.xinitrc
+cp configs/Xmodmap $HOME/.Xmodmap
+
 ###### Change the login shell to zsh
 chsh -s /bin/zsh

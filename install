@@ -124,6 +124,14 @@ if [[ $2 -eq "1" ]] ; then
 	rm -rf tmp_eos_stuff
 fi
 
+###### Get and install scron
+git clone https://github.com/chrissxyt/scron scr
+cp jobs.h scr/jobs.h
+cd scr
+sudo make install
+cd ..
+rm -rf scr
+
 ###### Install tools
 cp -f tools/update /usr/bin/update
 cp -f tools/_update /usr/bin/_update

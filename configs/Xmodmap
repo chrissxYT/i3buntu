@@ -1,0 +1,11 @@
+keycode 47 = parenleft braceleft
+keycode 48 = parenright braceright
+keycode 34 = slash bar
+keycode 20 = backslash question
+keycode 135 = Multi_key
+keycode 9  = NoSymbol
+keycode 16 = 7 NoSymbol 7 NoSymbol NoSymbol seveneighths NoSymbol
+keycode 17 = 8 NoSymbol 8 NoSymbol bracketleft trademark bracketleft
+keycode 18 = 9 NoSymbol 9 NoSymbol bracketright plusminus bracketright
+keycode 19 = 0 equal 0 equal NoSymbol degree NoSymbol
+keycode 94 = less greater less greater NoSymbol dead_belowmacron NoSymbol dead_belowmacron less greater NoSymbol dead_belowmacron
