@@ -137,9 +137,6 @@ cp -f tools/eos /usr/bin/eos
 cp -f tools/udpkg /usr/bin/udpkg
 cp -f tools/screenshot /usr/bin/screenshot
 
-###### Install resources
-cp -rf res ~/.i3buntu
-
 ###### Change the distro name
 echo "i3buntu 18.04+ \n \l" > /etc/issue
 echo -n "i3buntu 18.04+" > /etc/issue.net

@@ -2,5 +2,5 @@
 scrot /tmp/s.png
 convert /tmp/s.png -scale 10% -scale 1000% /tmp/s.png
 convert /tmp/s.png -paint 3 -modulate 80 /tmp/s.png
-convert /tmp/s.png  ~/.i3buntu/lock.png -gravity center -composite -matte /tmp/s.png
+convert /tmp/s.png  ~/.i3buntu/res/lock.png -gravity center -composite -matte /tmp/s.png
 i3lock -u -e -i /tmp/s.png
