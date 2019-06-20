@@ -22,8 +22,8 @@ v()     ($EDITOR $@)
 e()     ($EDITOR $(ls | fzf))
 uzip()  (unzip -d "$(echo $1 | sed s/\.zip//g -)" "$1")
 
-#xmodmap -e "clear lock"
-#xmodmap -e "keycode 66 = Escape"
+xmodmap -e "clear lock"
+xmodmap -e "keycode 66 = Escape"
 #xmodmap -e "keycode 47 = parenleft braceleft"
 #xmodmap -e "keycode 48 = parenright braceright"
 #xmodmap -e "keycode 34 = slash bar"
