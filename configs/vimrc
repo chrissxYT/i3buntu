@@ -28,6 +28,7 @@ autocmd BufWritePost *.c,*.h,*.cc,*.hh,*.cpp,*.hpp if filereadable("Makefile") |
 autocmd BufWritePost slides !sent %
 autocmd BufWritePost slides.md !md2pdf % $(echo % | sed s/.md/.pdf/) && mupdf $(echo % | sed s/.md/.pdf/)
 autocmd BufWritePost .vimrc source %
+autocmd BufWritePost sources.list !sudo apt update
 
 map <Leader>c "+y
 map <Leader>v "+P
