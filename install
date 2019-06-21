@@ -136,6 +136,7 @@ cp -f tools/lock /usr/bin/lock
 cp -f tools/eos /usr/bin/eos
 cp -f tools/udpkg /usr/bin/udpkg
 cp -f tools/screenshot /usr/bin/screenshot
+cp -f tools/todo /usr/bin/todo
 
 ###### Change the distro name
 echo "i3buntu 18.04+ \n \l" > /etc/issue
