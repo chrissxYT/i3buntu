@@ -149,4 +149,4 @@ apt -f install -y
 apt autoremove -y
 
 # give the user rights to all of their home directory
-chown -R $USER:$USER ~
+chown -R $8:$8 ~
