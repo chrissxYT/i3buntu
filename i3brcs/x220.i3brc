@@ -1,2 +1,3 @@
+#!/bin/sh
 # the setup i use on my main machine
 echo "b 1 1 1 1 0 0"
