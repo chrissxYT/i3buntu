@@ -20,6 +20,7 @@ libpng-dev
 libusb-dev
 lxappearance
 vim
+vim-gtk
 gnome-system-tools
 network-manager
 wireless-tools
