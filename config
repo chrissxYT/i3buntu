@@ -6,10 +6,7 @@ mkdir ~/.config/i3
 mkdir ~/.config/vifm
 
 ###### Set configs
-cp -f configs/i3/config ~/.config/i3/config
-cp -f configs/i3/i3status ~/.config/i3/i3status
-cp -f configs/i3/i3status1.sh ~/.config/i3/i3status1.sh
-cp -f configs/i3/i3status2.sh ~/.config/i3/i3status2.sh
+cp -f configs/i3/* ~/.config/i3/
 sudo cp -f configs/env /etc/environment
 cp -f configs/vifmrc ~/.config/vifm/vifmrc
 cp -f configs/gtk ~/.config/gtk-3.0/settings.ini
