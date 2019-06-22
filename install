@@ -53,7 +53,7 @@ then
 fi
 
 ###### Get and install fzf
-tools/tools/udpkg http://launchpadlibrarian.net/405439988/fzf_0.17.5-2_amd64.deb
+tools/udpkg http://launchpadlibrarian.net/405439988/fzf_0.17.5-2_amd64.deb
 
 ###### Get and install sane-sent
 curl -L -o ss.zip https://github.com/chrissxYT/sane-sent/archive/c001.zip
@@ -67,14 +67,13 @@ rm -f ss.zip
 ###### Get and install the Arduino IDE
 if [[ $3 -eq 1 ]]
 then
-	curl -L -o ad.tar.xz "https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz"
-	tar xJf ad.tar.xz
+	curl -L "https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz" |\
+                tar xJf -
 	mv arduino-1.8.8 /usr/bin/
 	ret=$(pwd)
 	cd /usr/bin/arduino-1.8.8
 	./arduino-linux-setup.sh $USER
 	cd $ret
-	rm -f ad.tar.xz
 fi
 
 if [[ $4 -eq 1 ]]
