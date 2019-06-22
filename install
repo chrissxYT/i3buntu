@@ -139,8 +139,8 @@ cp -f tools/screenshot /usr/bin/screenshot
 cp -f tools/todo /usr/bin/todo
 
 ###### Change the distro name
-echo "i3buntu 18.04+ \n \l" > /etc/issue
-echo -n "i3buntu 18.04+" > /etc/issue.net
+echo "i3buntu 19.04+ \n \l" > /etc/issue
+echo -n "i3buntu 19.04+" > /etc/issue.net
 cp -f configs/os-release /etc/os-release
 cp -f configs/lsbr /etc/lsb-release
 
