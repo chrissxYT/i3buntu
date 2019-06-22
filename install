@@ -121,6 +121,7 @@ if [[ $2 -eq "1" ]] ; then
 	cp -f EOS.exe /usr/bin/eos.exe
 	cd ..
 	rm -rf tmp_eos_stuff
+        cp -f tools/eos /usr/bin/eos
 fi
 
 ###### Install tools
@@ -131,7 +132,6 @@ cp -f tools/umnt /bin/umnt
 cp -f tools/sd /sbin/sd
 cp -f tools/netsh /usr/bin/netsh
 cp -f tools/lock /usr/bin/lock
-cp -f tools/eos /usr/bin/eos
 cp -f tools/udpkg /usr/bin/udpkg
 cp -f tools/screenshot /usr/bin/screenshot
 cp -f tools/todo /usr/bin/todo
