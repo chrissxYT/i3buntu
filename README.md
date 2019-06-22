@@ -7,16 +7,12 @@ This project is for setting up a minimal Ubuntu installation with the i3 window 
 
 
 # Requirements
-* A version of Ubuntu Minimal (Ubuntu NetBoot). The latest version is to be located here: https://help.ubuntu.com/community/Installation/MinimalCD.
+* A version of Ubuntu Minimal (19.04 recommended, later ones should work, too). The latest version is to be located [here](https://ubuntu.com/download/desktop).
 * An internet connection.
-* A computer which supports the network drivers that come with the Ubuntu Minimal image.
-
-# Default Ubuntu packages
-The standard Ubuntu distribution comes preinstalled with a number of standard packages. This project tries to determine what packages allow for the desired Ubuntu setup to be made. As of this writing (2019) the most recent LTS version of Ubuntu is Ubuntu 18.04, and a complete list of all preinstalled packages was to be found in [the manifest file](http://releases.ubuntu.com/18.04/ubuntu-18.04.2-desktop-amd64.manifest).
 
 # Installation
 
-##### 1. Download and install Ubuntu Minimal (NetBoot)
+##### 1. Download and install Ubuntu Minimal
 
 A guide on how to construct a installation media (CD, DVD or USB key) can be found in the above link for Ubuntu Minimal. During the installation select the English language and German keyboard layout, uncheck the options for additional software. After the new installation is booted, open a Terminal and optionally put your config under ~/.i3brc.
 
