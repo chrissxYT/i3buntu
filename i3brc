@@ -3,5 +3,6 @@ if [[ ! -f $HOME/.i3brc ]]
 then
 	echo "b 0 1 1 1 0 0 $USER"
 else
+        chmod +x $HOME/.i3brc
 	$HOME/.i3brc
 fi
