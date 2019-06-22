@@ -1,4 +1,17 @@
 #!/bin/bash
+if [[ $1 == "-c" ]] || [[ $1 == "--clone" ]] ; then
+        DIRNAME=".netsh$(date +%s)"
+        if [[ $2 == *.*/* ]] || [[ $2 == http://* ]] || [[ $2 == https://* ]]
+        then
+                git clone $2 $DIRNAME
+        else
+        	git clone https://github.com/$2
+        fi
+        cd $DIRNAME
+        ./netsh
+        cd ..
+        rm -rf $DIRNAME
+fi
 if [[ $1 == *.*/* ]] || [[ $1 == http://* ]] || [[ $1 == https://* ]]
 then
 	curl -L $1 | sh
