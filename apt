@@ -67,6 +67,7 @@ gnome-power-manager
 openjdk-8-jdk
 apt-transport-https
 fonts-hack-ttf
+fonts-noto-color-emoji
 dotnet-sdk-2.2
 zsh
 htop
