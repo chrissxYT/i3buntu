@@ -21,11 +21,7 @@ libusb-dev
 vim
 wireless-tools
 overlay-scrollbar
-exfat-fuse
-exfat-utils
 x11proto-dev
-transmission-gtk
-pulseaudio-utils
 gnome-terminal
 i3
 scrot
@@ -33,18 +29,17 @@ xserver-xorg-video-intel
 acpi-support
 apport-gtk
 foomatic-db-compressed-ppds
-libssh-4
 libnm-glib-vpn1
 dmz-cursor-theme
 libxcursor1
 xcursor-themes
 mousetweaks
-laptop-detect
 usb-creator-common
 usb-creator-gtk
 openjdk-8-jdk
 apt-transport-https
 fonts-hack-ttf
+fonts-noto-color-emoji
 dotnet-sdk-2.2
 zsh
 htop
@@ -85,3 +80,4 @@ golang
 rustc
 libgnome-keyring-dev
 ukuu
+imagemagick
