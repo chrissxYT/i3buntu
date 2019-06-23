@@ -7,6 +7,4 @@ cp -f $HOME/.i3buntu/configs/issue /etc/issue
 cp -f $HOME/.i3buntu/configs/issue.net /etc/issue.net
 cp -f $HOME/.i3buntu/configs/os-release /etc/os-release
 cp -f $HOME/.i3buntu/configs/lsbr /etc/lsb-release
-# it always fails the first time for me
-ukuu --install-latest --yes
-ukuu --install-latest --yes
+likeu -l
