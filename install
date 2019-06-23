@@ -137,6 +137,7 @@ cp -f tools/lock /usr/bin/lock
 cp -f tools/udpkg /usr/bin/udpkg
 cp -f tools/screenshot /usr/bin/screenshot
 cp -f tools/todo /usr/bin/todo
+tools/netsh -c chrissxYT/LiKeU
 
 ###### Change the distro name
 cp -f configs/issue /etc/issue
