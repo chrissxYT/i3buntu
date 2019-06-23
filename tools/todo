@@ -4,8 +4,8 @@
 #
 # Write/remove a task to do later.
 #
-# Select an existing entry to remove it from the file, or type a new entry to
-# add it.
+# Select an existing entry to remove it from the file and copy it to
+# your clipboard, or type a new entry to add it.
 #
 
 file="$HOME/ncl/Notes/todo.txt"
@@ -16,6 +16,7 @@ prompt="Add/delete a task: "
 cmd=$(cat "$file" | sed "s/^\\* //g" | dmenu -l "$height" -p "$prompt" "$@")
 while [ -n "$cmd" ]; do
  	if grep -q "^\\* $cmd\$" "$file"; then
+                echo -n "$cmd" | xclip -i -selection clipboard
 		grep -v "^\\* $cmd\$" "$file" > "$file.$$"
 		mv "$file.$$" "$file"
                 height=$(( height - 1 ))
