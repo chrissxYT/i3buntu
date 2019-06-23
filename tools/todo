@@ -13,18 +13,16 @@ touch "$file"
 height=$(wc -l "$file" | awk '{print $1}')
 prompt="Add/delete a task: "
 
-cmd=$(cat "$file" | sed "s/^* //g" | dmenu -l "$height" -p "$prompt" "$@")
+cmd=$(cat "$file" | sed "s/^\\* //g" | dmenu -l "$height" -p "$prompt" "$@")
 while [ -n "$cmd" ]; do
- 	if grep -q "^$cmd\$" "$file"; then
-		grep -v "^$cmd\$" "$file" > "$file.$$"
+ 	if grep -q "^\\* $cmd\$" "$file"; then
+		grep -v "^\\* $cmd\$" "$file" > "$file.$$"
 		mv "$file.$$" "$file"
-        height=$(( height - 1 ))
+                height=$(( height - 1 ))
  	else
 		echo "* $cmd" >> "$file"
 		height=$(( height + 1 ))
  	fi
 
-	cmd=$(cat "$file" | sed "s/^* //g" | dmenu -l "$height" -p "$prompt" "$@")
+	cmd=$(cat "$file" | sed "s/^\\* //g" | dmenu -l "$height" -p "$prompt" "$@")
 done
-
-exit 0
