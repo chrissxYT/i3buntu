@@ -1,0 +1,35 @@
+#!/bin/sh
+
+rawfile=.likeu_raw
+imagefile=.likeu_image.deb
+gheaderfile=.likeu_gheader.deb
+modulefile=.likeu_module.deb
+aheaderfile=.likeu_aheader.deb
+dmenuheight=20
+rurl="https://kernel.ubuntu.com/~kernel-ppa/mainline/"
+
+curl -o "$rawfile" "$rurl"
+
+kurl=$(grep tr $rawfile | grep "[DIR]" | sed "s/>/\n/g" | sed "s/</\n/g" | grep "a href" | sed "s/\"/\n/g" | grep ^v | tac -)
+[ "$1" = "-l" ] || kurl=$(echo "$kurl" | dmenu -l "$dmenuheight")
+[ "$1" = "-l" ] && kurl=$(echo "$kurl" | sed 1q)
+kurl=$rurl$kurl
+
+curl -o "$rawfile" "$kurl"
+
+image_url=$kurl$(grep amd64 $rawfile | grep linux-image-unsigned- | grep generic | sed "s/</\n/g" | sed "s/>/\n/g" | sed "s/\"/\n/g" | grep deb | sed 1q)
+generic_header_url=$kurl$(grep amd64 $rawfile | grep linux-headers- | grep generic | sed "s/</\n/g" | sed "s/>/\n/g" | sed "s/\"/\n/g" | grep deb | sed 1q)
+module_url=$kurl$(grep amd64 $rawfile | grep linux-modules- | grep generic | sed "s/</\n/g" | sed "s/>/\n/g" | sed "s/\"/\n/g" | grep deb | sed 1q)
+all_header_url=$kurl$(grep all $rawfile | grep linux-headers- | sed "s/</\n/g" | sed "s/>/\n/g" | sed "s/\"/\n/g" | grep deb | sed 1q)
+
+curl -o "$imagefile" "$image_url"
+curl -o "$gheaderfile" "$generic_header_url"
+curl -o "$modulefile" "$module_url"
+curl -o "$aheaderfile" "$all_header_url"
+
+dpkg -i "$modulefile"
+dpkg -i "$aheaderfile"
+dpkg -i "$gheaderfile"
+dpkg -i "$imagefile"
+
+rm -f "$rawfile" "$modulefile" "$aheaderfile" "$gheaderfile" "$imagefile"
