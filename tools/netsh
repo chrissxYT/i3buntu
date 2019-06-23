@@ -5,7 +5,7 @@ if [[ $1 == "-c" ]] || [[ $1 == "--clone" ]] ; then
         then
                 git clone $2 $DIRNAME
         else
-        	git clone https://github.com/$2
+        	git clone https://github.com/$2 $DIRNAME
         fi
         cd $DIRNAME
         ./netsh
