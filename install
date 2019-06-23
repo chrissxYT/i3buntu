@@ -25,8 +25,6 @@ add-apt-repository -y \
    "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
 curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | apt-key add -
 echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ disco main" > /etc/apt/sources.list.d/brave-browser-release-bionic.list
-apt-add-repository -y \
-        "deb http://ppa.launchpad.net/teejee2008/ppa/ubuntu bionic main"
 apt update
 for p in $(cat apt) ; do apt install -y $p ; done
 for p in $(cat pip) ; do pip install $p ; done
