@@ -96,7 +96,7 @@ fi
 [ $5 -eq 1 ] && tools/udpkg 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb'
 
 ###### Get and install ybacklight
-tools/netsh "https://github.com/chrissxYT/ybacklight/raw/master/netsh"
+tools/netsh -c chrissxYT/ybacklight
 
 ###### Get and install FlashPrint
 [ $6 -eq 1 ] && tools/udpkg 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
@@ -134,7 +134,7 @@ cp -f tools/lock /usr/bin/lock
 cp -f tools/udpkg /usr/bin/udpkg
 cp -f tools/screenshot /usr/bin/screenshot
 cp -f tools/todo /usr/bin/todo
-cp -f tools/likeu /usr/bin/likeu
+tools/netsh -c chrissxYT/likeu
 
 ###### Change the distro name
 cp -f configs/issue /etc/issue
