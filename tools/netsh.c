@@ -3,6 +3,9 @@
 #include <string.h>
 #include <time.h>
 
+#define VERSION "1.0"
+
+#define arg(s, unix, gnu) (!strcmp(s, unix) || !strcmp(s, gnu))
 #define no_url(s) (strncmp((s), "http://", 7) && \
         strncmp((s), "https://", 8) && strncmp((s), "git://", 6))
 
@@ -22,7 +25,8 @@ int main(int argc, char **argv)
                 char *s = argv[i];
                 char bfr[strlen(s) + 1024];
                 char buf[strlen(s) + 1024];
-                if(!strcmp(s, "-c") || !strcmp(s, "--clone")) c = !c;
+                if(arg(s, "-c", "--clone")) c = !c;
+                else if(arg(s, "-v", "--version")) puts(VERSION);
                 else if(c)
                 {
                         char dir[16];
