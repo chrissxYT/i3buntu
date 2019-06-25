@@ -129,7 +129,6 @@ cp -f tools/update /usr/bin/update
 cp -f tools/_update /usr/bin/_update
 cp -f tools/mnt /bin/mnt
 cp -f tools/umnt /bin/umnt
-cp -f tools/sd /sbin/sd
 cp -f tools/netsh /usr/bin/netsh
 cp -f tools/lock /usr/bin/lock
 cp -f tools/udpkg /usr/bin/udpkg

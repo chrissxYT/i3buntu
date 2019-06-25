@@ -21,6 +21,7 @@ zlibd() (printf "\x1f\x8b\x08\x00\x00\x00\x00\x00"|cat - $@|gzip -dc)
 v()     ($EDITOR $@)
 e()     ($EDITOR $(ls | fzf))
 uzip()  (unzip -d "$(echo $1 | sed s/\.zip//g -)" "$1")
+sh()    (sudo shutdown now)
 
 xmodmap -e "clear lock"
 xmodmap -e "keycode 66 = Escape"
