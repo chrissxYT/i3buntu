@@ -159,3 +159,6 @@ nmap
 cowsay
 mupdf
 zathura
+python-lxml
+python-dateutil
+python-requests
