@@ -8,6 +8,7 @@ openssh-client
 curl
 gcc
 g++
+mercurial
 libstartup-notification0
 clang
 make
@@ -68,6 +69,7 @@ openjdk-8-jdk
 apt-transport-https
 fonts-hack-ttf
 fonts-noto-color-emoji
+fonts-symbola
 dotnet-sdk-2.2
 zsh
 htop
@@ -162,3 +164,5 @@ zathura
 python-lxml
 python-dateutil
 python-requests
+cmus
+tcc
