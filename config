@@ -7,7 +7,6 @@ mkdir ~/.config/vifm
 
 ###### Set configs
 cp -f configs/i3/* ~/.config/i3/
-sudo cp -f configs/env /etc/environment
 cp -f configs/vifmrc ~/.config/vifm/vifmrc
 cp -f configs/gtk ~/.config/gtk-3.0/settings.ini
 
@@ -29,10 +28,6 @@ tools/netsh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.
 cp -f configs/zshrc ~/.zshrc
 
 ###### Configure git
-RET=$(pwd)
-cd /usr/share/doc/git/contrib/credential/gnome-keyring
-sudo make
-cd $RET
 git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 git config --global core.editor vim
 git config --global commit.gpgsign true
@@ -40,6 +35,3 @@ git config --global commit.gpgsign true
 ###### X keyboard
 cp configs/xinitrc $HOME/.xinitrc
 cp configs/Xmodmap $HOME/.Xmodmap
-
-###### Change the login shell to zsh
-chsh -s /bin/zsh
