@@ -5,13 +5,8 @@ libwebsockets8
 libev-dev
 ubuntu-drivers-common
 openssh-client
-curl
-gcc
-g++
 mercurial
 libstartup-notification0
-clang
-make
 autoconf
 automake
 x11-xserver-utils

@@ -3,20 +3,11 @@
 ###### Update packages and add ppas
 add-apt-repository -y ppa:yubico/stable
 add-apt-repository -y ppa:nextcloud-devs/client
-apt update
-apt upgrade -y
-
-###### Install main apps, drivers and dependencies
-echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
-apt install -y curl gcc g++ clang make
-[ $7 = 1 ] && snap install vscode --classic
-snap install github-desktop --beta --classic
 curl -L -o pmp.deb https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb
 dpkg -i pmp.deb
 rm -f pmp.deb
 add-apt-repository -y universe
 dpkg --add-architecture i386
-tools/netsh chrissxYT/winstallhq
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 apt-add-repository -y \
         "deb https://download.mono-project.com/repo/ubuntu preview main"
@@ -26,6 +17,15 @@ add-apt-repository -y \
 curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | apt-key add -
 add-apt-repository -y \
         "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ disco main"
+apt update
+apt upgrade -y
+
+###### Install main apps, drivers and dependencies
+echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+apt install -y gcc g++ clang make
+[ $7 = 1 ] && snap install vscode --classic
+snap install github-desktop --beta --classic
+tools/netsh chrissxYT/winstallhq
 apt update
 for p in $(cat packages/apt) ; do apt install -y $p ; done
 for p in $(cat packages/pip) ; do pip install $p ; done

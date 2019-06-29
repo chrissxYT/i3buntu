@@ -5,4 +5,5 @@ git clone https://github.com/chrissxYT/i3buntu.git .i3buntu
 cd .i3buntu
 sudo ./install $(./i3brc)
 ./config
+cd ..
 echo "PLEASE RESTART YOUR COMPUTER NOW"
