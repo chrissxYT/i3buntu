@@ -84,7 +84,7 @@ tor
 lm-sensors
 vifm
 sox
-wifi-radar
+wicd
 libudev-dev
 cmake
 fonts-powerline
