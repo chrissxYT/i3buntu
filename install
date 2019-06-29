@@ -24,16 +24,24 @@ curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 add-apt-repository -y \
    "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
 curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | apt-key add -
-echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ disco main" > /etc/apt/sources.list.d/brave-browser-release-bionic.list
+add-apt-repository -y \
+        "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ disco main"
 apt update
 for p in $(cat apt) ; do apt install -y $p ; done
 for p in $(cat pip) ; do pip install $p ; done
-[ $1 = "b" ] && apt install -y brave-browser
-[ $1 = "o" ] && tools/tools/udpkg "https://download1.operacdn.com/pub/opera/desktop/60.0.3255.109/linux/opera-stable_60.0.3255.109_amd64.deb"
-[ $1 = "f" ] && apt install -y firefox
-[ $1 = "c" ] && tools/tools/udpkg 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+[ "$1" = "b" ] && apt install -y brave-browser
+[ "$1" = "o" ] && tools/tools/udpkg "https://download1.operacdn.com/pub/opera/desktop/60.0.3255.109/linux/opera-stable_60.0.3255.109_amd64.deb"
+[ "$1" = "f" ] && apt install -y firefox
+[ "$1" = "c" ] && tools/tools/udpkg 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
+
+###### Install slmenu
+hg clone https://bitbucket.org/rafaelgg/slmenu
+cd slmenu
+make install clean
+cd ..
+rm -rf slmenu
 
 ###### Get and install imlib2-heic (HEIC for feh)
 git clone https://github.com/vi/imlib2-heic.git im2heic
