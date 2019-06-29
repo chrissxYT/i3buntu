@@ -3,9 +3,7 @@
 ###### Update packages and add ppas
 add-apt-repository -y ppa:yubico/stable
 add-apt-repository -y ppa:nextcloud-devs/client
-curl -L -o pmp.deb https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb
-dpkg -i pmp.deb
-rm -f pmp.deb
+tools/udpkg 'https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb'
 add-apt-repository -y universe
 dpkg --add-architecture i386
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
