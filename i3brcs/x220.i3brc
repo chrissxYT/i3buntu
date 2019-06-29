@@ -1,3 +1,11 @@
 #!/bin/sh
 # the setup i use on my main machine
-echo "b 1 1 1 1 0 0 $USER"
+I3B_BROWSER=b
+I3B_YED=1
+I3B_EOS=1
+I3B_ARDUINO=1
+I3B_TEENSY=1
+I3B_TEAMVIEWER=1
+I3B_FLASHPRINT=0
+I3B_VSCODE=0
+I3B_USER=$USER

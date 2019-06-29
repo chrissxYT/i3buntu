@@ -1,3 +1,11 @@
 #!/bin/sh
 # just a minimal setup, can be used for testing
-echo "b 0 0 0 0 0 0 $USER"
+I3B_BROWSER=b
+I3B_YED=0
+I3B_EOS=0
+I3B_ARDUINO=0
+I3B_TEENSY=0
+I3B_TEAMVIEWER=0
+I3B_FLASHPRINT=0
+I3B_VSCODE=0
+I3B_USER=$USER

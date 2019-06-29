@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source i3brc
+
 ###### Update packages and add ppas
 add-apt-repository -y ppa:yubico/stable
 add-apt-repository -y ppa:nextcloud-devs/client
@@ -21,16 +23,16 @@ apt upgrade -y
 ###### Install main apps, drivers and dependencies
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
 apt install -y gcc g++ clang make
-[ $7 = 1 ] && snap install vscode --classic
+[ "$I3B_VSCODE" = 1 ] && snap install vscode --classic
 snap install github-desktop --beta --classic
 cp -f configs/env /etc/environment
 tools/netsh chrissxYT/winstallhq
 for p in $(cat packages/apt) ; do apt install -y $p ; done
 for p in $(cat packages/pip) ; do pip install $p ; done
-[ "$1" = "b" ] && apt install -y brave-browser
-[ "$1" = "o" ] && tools/udpkg "https://download1.operacdn.com/pub/opera/desktop/60.0.3255.109/linux/opera-stable_60.0.3255.109_amd64.deb"
-[ "$1" = "f" ] && apt install -y firefox
-[ "$1" = "c" ] && tools/udpkg 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+[ "$I3B_BROWSER" = "b" ] && apt install -y brave-browser
+[ "$I3B_BROWSER" = "o" ] && tools/udpkg "https://download1.operacdn.com/pub/opera/desktop/60.0.3255.109/linux/opera-stable_60.0.3255.109_amd64.deb"
+[ "$I3B_BROWSER" = "f" ] && apt install -y firefox
+[ "$I3B_BROWSER" = "c" ] && tools/udpkg 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
 
@@ -50,7 +52,7 @@ cd ..
 rm -rf im2heic
 
 ###### Get and install yEd
-if [[ $2 -eq 1 ]]
+if [[ "$I3B_YED" = 1 ]]
 then
 	curl -L -o yed.sh "https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh"
 	chmod +x yed.sh
@@ -71,8 +73,7 @@ rm -rf sane-sent-c001
 rm -f ss.zip
 
 ###### Get and install the Arduino IDE
-if [[ $3 -eq 1 ]]
-then
+if [ "$I3B_ARDUINO" = 1 ] ; then
 	curl -L "https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz" |\
                 tar xJf -
 	mv arduino-1.8.8 /usr/bin/
@@ -82,30 +83,31 @@ then
 	cd $ret
 fi
 
-if [[ $4 -eq 1 ]]
-then
+if [ "$I3B_TEENSY" = 1 ] ; then
 	###### Get and install the Teensy loader
 	curl -L -o /etc/udev/rules.d/49-teensy.rules "https://www.pjrc.com/teensy/49-teensy.rules"
 	curl -L -o t.tar.gz "https://www.pjrc.com/teensy/teensy_linux64.tar.gz"
 	tar xzf t.tar.gz
 	mv -f teensy /usr/bin
 	rm -f t.tar.gz libpng12.so.0 libusb-0.1.so.4
-	
-	###### Get and install Teensyduino
-	curl -L -o td "https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64"
-	chmod +x td
-	./td
-	rm -f td
+
+        if [ "$I3B_ARDUINO" = 1 ] ; then
+	        ###### Get and install Teensyduino
+	        curl -L -o td "https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64"
+	        chmod +x td
+	        ./td
+	        rm -f td
+        fi
 fi
 
 ###### Get and install TeamViewer
-[ $5 -eq 1 ] && tools/udpkg 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb'
+[ "$I3B_TEAMVIEWER" = 1 ] && tools/udpkg 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb'
 
 ###### Get and install ybacklight
 tools/netsh -c chrissxYT/ybacklight
 
 ###### Get and install FlashPrint
-[ $6 -eq 1 ] && tools/udpkg 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
+[ "$I3B_FLASHPRINT" = 1 ] && tools/udpkg 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
 
 ###### Get and install playerctl
 tools/udpkg 'https://github.com/acrisci/playerctl/releases/download/v2.0.1/playerctl-2.0.1_amd64.deb'
@@ -126,7 +128,7 @@ cd $RET
 
 
 ###### Get and install EOS
-if [[ $2 -eq "1" ]] ; then
+if [[ "$I3B_EOS" = 1 ]] ; then
 	mkdir tmp_eos_stuff
 	cd tmp_eos_stuff
 	curl -L -o eos.zip "https://www.pabst-software.de/lib/exe/fetch.php?media=programme:eos:eos.zip"
@@ -160,8 +162,8 @@ apt -f install -y
 apt autoremove -y
 
 # give the user rights to all of their home directory
-chown -R $8:$8 ~
+chown -R $I3B_USER:$I3B_USER ~
 
 # change the login shell to zsh
 # (have to do this here, so you dont have to put in your pw again)
-chsh -s /bin/zsh $8
+chsh -s /bin/zsh $I3B_USER

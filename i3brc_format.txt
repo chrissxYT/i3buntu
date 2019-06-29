@@ -1,1 +1,0 @@
-browser(b/o/c/f) gympeg_equip(1/0) arduino(1/0) teensy(1/0) teamviewer(1/0) flashprint(1/0) vscode(1/0)

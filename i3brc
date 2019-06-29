@@ -1,8 +1,15 @@
 #!/bin/bash
-if [[ ! -f $HOME/.i3brc ]]
+I3B_BROWSER=b
+I3B_YED=0
+I3B_EOS=0
+I3B_ARDUINO=1
+I3B_TEENSY=1
+I3B_TEAMVIEWER=1
+I3B_FLASHPRINT=0
+I3B_VSCODE=0
+I3B_USER=$USER
+if [[ -f "$HOME/.i3brc" ]]
 then
-	echo "b 0 1 1 1 0 0 $USER"
-else
-        chmod +x $HOME/.i3brc
-	$HOME/.i3brc
+        chmod +x "$HOME/.i3brc"
+	"$HOME/.i3brc"
 fi
