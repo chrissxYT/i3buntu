@@ -19,7 +19,9 @@ export TERM=xterm-256color
 
 zlibd() (printf "\x1f\x8b\x08\x00\x00\x00\x00\x00"|cat - $@|gzip -dc)
 v()     ($EDITOR $@)
+V()     (sudo $EDITOR $@)
 e()     ($EDITOR $(ls | fzf))
+E()     (sudo $EDITOR $(ls | fzf))
 uzip()  (unzip -d "$(echo $1 | sed s/\.zip//g -)" "$1")
 sd()    (sudo shutdown now)
 
