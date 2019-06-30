@@ -3,9 +3,9 @@
 #include <string.h>
 #include <time.h>
 
-#define VERSION "1.2"
+#define VERSION "1.3"
 
-#define arg(s, unix, gnu) (!strcmp(s, unix) || !strcmp(s, gnu))
+#define arg(s, unix, gnu) else if(!strcmp(s, unix) || !strcmp(s, gnu))
 #define url(s) (!strncmp((s), "http://", 7) || \
         !strncmp((s), "https://", 8) || !strncmp((s), "git://", 6))
 
@@ -23,23 +23,26 @@ int main(int argc, char **argv)
         int c = 0;
         char *cmd = "./netsh";
         char *f = "netsh";
+        char *scm = "git";
         for(int i = 1; i < argc; i++)
         {
                 char *s = argv[i];
                 char bfr[strlen(s) + 1024];
                 char buf[strlen(s) + 1024];
-                if(arg(s, "-c", "--clone")) c = !c;
-                else if(arg(s, "-f", "--file")) f = argv[++i];
-                else if(arg(s, "-C", "--command")) cmd = argv[++i];
-                else if(arg(s, "-v", "--version")) puts(VERSION);
+                if(0); //this is just, so our else if macros work
+                arg(s, "-c", "--clone") c = !c;
+                arg(s, "-f", "--file") f = argv[++i];
+                arg(s, "-C", "--command") cmd = argv[++i];
+                arg(s, "-s", "--scm") scm = argv[++i];
+                arg(s, "-v", "--version") puts(VERSION);
                 else if(c)
                 {
                         char dir[16];
                         sprintf(dir, ".netsh%4lx", time(0));
-                        sprintf(bfr, "git clone '%s' %s; \
+                        sprintf(bfr, "%s clone '%s' %s; \
                                         cd %s; %s; cd ..; \
                                         rm -rf %s",
-                                        rurl(s, buf, 1, f),
+                                        scm, rurl(s, buf, 1, f),
                                         dir, dir, cmd, dir);
                         system(bfr);
                 }
