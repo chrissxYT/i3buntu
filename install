@@ -52,11 +52,9 @@ cd ..
 rm -rf im2heic
 
 ###### Get and install yEd
-if [[ "$I3B_YED" = 1 ]]
-then
+if [[ "$I3B_YED" = 1 ]] ; then
 	curl -L -o yed.sh "https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh"
-	chmod +x yed.sh
-	./yed.sh
+	sh yed.sh
 	rm -f yed.sh
 fi
 
@@ -114,18 +112,13 @@ tools/udpkg 'https://github.com/acrisci/playerctl/releases/download/v2.0.1/playe
 
 ###### Get and install the master branch of neofetch
 ###### (the packaged versions don't have the i3buntu fix yet)
-git clone https://github.com/dylanaraps/neofetch.git nf
-cd nf
-make install
-cd ..
-rm -rf nf
+tools/netsh -C "make install" -c dylanaraps/neofetch
 
 ###### Build git libsecret cred helper
 RET=$(pwd)
 cd /usr/share/doc/git/contrib/credential/gnome-keyring
 make
 cd $RET
-
 
 ###### Get and install EOS
 if [[ "$I3B_EOS" = 1 ]] ; then
@@ -149,7 +142,7 @@ cp -f tools/lock /usr/bin/lock
 cp -f tools/udpkg /usr/bin/udpkg
 cp -f tools/screenshot /usr/bin/screenshot
 cp -f tools/todo /usr/bin/todo
-tools/netsh -c chrissxYT/likeu
+tools/netsh -C ./install -c chrissxYT/likeu
 
 ###### Change the distro name
 cp -f configs/issue /etc/issue
