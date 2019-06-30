@@ -44,12 +44,7 @@ cd ..
 rm -rf slmenu
 
 ###### Get and install imlib2-heic (HEIC for feh)
-git clone https://github.com/vi/imlib2-heic.git im2heic
-cd im2heic
-make
-make install
-cd ..
-rm -rf im2heic
+tools/netsh -C "make && make install" -c vi/imlib2-heic
 
 ###### Get and install yEd
 if [[ "$I3B_YED" = 1 ]] ; then
