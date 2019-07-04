@@ -14,6 +14,8 @@ plugins=(git encode64 extract z)
 source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export EDITOR='vim'
+export VISUAL=$EDITOR
+export PAGER='less -R'
 export ARCHFLAGS="-arch x86_64"
 export TERM=xterm-256color
 
@@ -24,6 +26,10 @@ e()     ($EDITOR $(ls | fzf))
 E()     (sudo $EDITOR $(ls | fzf))
 uzip()  (unzip -d "$(echo $1 | sed s/\.zip//g -)" "$1")
 sd()    (sudo shutdown now)
+m()     (make $@)
+mi()    (sudo make install clean)
+p()     (mplayer $@)
+i()     (sudo apt install $@)
 
 xmodmap -e "clear lock"
 xmodmap -e "keycode 66 = Escape"
