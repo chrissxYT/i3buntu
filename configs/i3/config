@@ -17,7 +17,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
+# start dmenu launcher
 bindsym $mod+d exec dmenu_run
 
 # change focus
@@ -189,3 +189,8 @@ bindsym Print exec screenshot
 bindsym $mod+Shift+x exec lock
 bindsym XF86ScreenSaver exec lock
 bindsym XF86Suspend exec lock
+
+bindsym $mod+t exec todo
+
+bindsym $mod+b exec bookmark
+bindsym $mod+Shift+b exec bookmark f
