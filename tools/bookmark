@@ -1,8 +1,13 @@
 #!/bin/sh
 FILE="$HOME/ncl/bookmarks"
 
-[ "$1" = "f" ] && \
-        cat "$FILE" | dmenu -l 20 | xclip -in -selection clipboard \
-&& exit
+echo "" >> "$FILE"
 
-xclip -out -selection clipboard >> "$FILE"
+[ "$1" = "f" ] && \
+        cat "$FILE" | \
+        dmenu -l 20 | \
+        xclip -in -selection clipboard \
+|| \
+        xclip -out -selection clipboard >> "$FILE"
+
+echo "" >> "$FILE"
