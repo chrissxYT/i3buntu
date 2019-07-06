@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-#define VERSION "1.3"
+#define VERSION "1.4"
 
 #define arg(s, unix, gnu) else if(!strcmp(s, unix) || !strcmp(s, gnu))
 #define url(s) (!strncmp((s), "http://", 7) || \
@@ -48,8 +48,12 @@ int main(int argc, char **argv)
                 }
                 else
                 {
-                        sprintf(bfr, "curl -L '%s' | sh",
-                                                rurl(s, buf, 0, f));
+                        char file[16];
+                        sprintf(file, ".netsh%4lx", time(0));
+                        sprintf(bfr, "curl -L -o '%s' '%s'; \
+                                      ./%s; rm -f %s",
+                                     file, rurl(s, buf, 0, f),
+                                     file, file);
                         system(bfr);
                 }
         }
