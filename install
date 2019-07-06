@@ -42,9 +42,7 @@ netsh -s hg -C "make install clean" -c https://bitbucket.org/rafaelgg/slmenu
 
 ###### Get and install yEd
 if [[ "$I3B_YED" = 1 ]] ; then
-	curl -L -o yed.sh "https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh"
-	sh yed.sh
-	rm -f yed.sh
+	netsh https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh
 fi
 
 ###### Get and install sane-sent
