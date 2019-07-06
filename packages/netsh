@@ -1,0 +1,5 @@
+chrissxYT/winstallhq
+-C "make && make install" -c vi/imlib2-heic
+-c chrissxYT/ybacklight
+-C "make install" -c dylanaraps/neofetch
+-C ./install -c chrissxYT/likeu
