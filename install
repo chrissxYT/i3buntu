@@ -48,13 +48,7 @@ if [[ "$I3B_YED" = 1 ]] ; then
 fi
 
 ###### Get and install sane-sent
-curl -L -o ss.zip https://github.com/chrissxYT/sane-sent/archive/c001.zip
-unzip ss.zip
-cd sane-sent-c001
-make install
-cd ..
-rm -rf sane-sent-c001
-rm -f ss.zip
+netsh -c https://github.com/chrissxYT/sane-sent
 
 ###### Get and install the Arduino IDE
 if [ "$I3B_ARDUINO" = 1 ] ; then
@@ -77,10 +71,7 @@ if [ "$I3B_TEENSY" = 1 ] ; then
 
         if [ "$I3B_ARDUINO" = 1 ] ; then
 	        ###### Get and install Teensyduino
-	        curl -L -o td "https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64"
-	        chmod +x td
-	        ./td
-	        rm -f td
+	        netsh https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64
         fi
 fi
 
