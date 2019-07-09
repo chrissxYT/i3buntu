@@ -120,8 +120,8 @@ apt -f install -y
 apt autoremove -y
 
 # give the user rights to all of their home directory
-chown -R $I3B_USER:$I3B_USER ~
+chown -R $(logname):$(logname) ~
 
 # change the login shell to zsh
 # (have to do this here, so you dont have to put in your pw again)
-chsh -s /bin/zsh $I3B_USER
+chsh -s /bin/zsh $(logname)
