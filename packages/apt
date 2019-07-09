@@ -40,6 +40,7 @@ pulseaudio-utils
 gnome-terminal
 i3
 scrot
+fzf
 xserver-xorg-video-intel
 acpi-support
 apport-gtk
