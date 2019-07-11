@@ -142,3 +142,5 @@ python-requests
 cmus
 tcc
 gocr
+cifs-utils
+smbclient
