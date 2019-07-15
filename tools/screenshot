@@ -1,3 +1,7 @@
 #!/bin/sh
-[ ! -d "$HOME/Pictures" ] && mkdir "$HOME/Pictures"
-scrot "$HOME/Pictures/screenshot_$(date +%s).png"
+DIR="$HOME/ncl/Pictures"
+[ $# -eq 1 ] && DIR="$1"
+[ ! -d "$DIR" ] && mkdir "$DIR"
+FILE="$DIR/screenshot_$(date +%s).png"
+scrot "$FILE"
+echo "$FILE"
