@@ -98,16 +98,9 @@ if [[ "$I3B_EOS" = 1 ]] ; then
 fi
 
 ###### Install tools
-cp -f tools/update /usr/bin/update
-cp -f tools/_update /usr/bin/_update
-cp -f tools/mnt /bin/mnt
-cp -f tools/umnt /bin/umnt
-cp -f tools/netsh /usr/bin/netsh
-cp -f tools/lock /usr/bin/lock
-cp -f tools/udpkg /usr/bin/udpkg
-cp -f tools/screenshot /usr/bin/screenshot
-cp -f tools/todo /usr/bin/todo
-cp -f tools/bookmark /usr/bin/bookmark
+cd tools
+make install
+cd ..
 
 ###### Change the distro name
 cp -f configs/issue /etc/issue
