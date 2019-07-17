@@ -144,3 +144,6 @@ tcc
 gocr
 cifs-utils
 smbclient
+wine-staging
+wine
+qrencode
