@@ -3,20 +3,13 @@
 source i3brc
 
 ###### Update packages and add ppas
-add-apt-repository -y ppa:yubico/stable
-add-apt-repository -y ppa:nextcloud-devs/client
 tools/udpkg 'https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb'
-add-apt-repository -y universe
 dpkg --add-architecture i386
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-apt-add-repository -y \
-        "deb https://download.mono-project.com/repo/ubuntu preview main"
-curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
-add-apt-repository -y \
-   "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
-curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | apt-key add -
-add-apt-repository -y \
-        "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ disco main"
+for p in $(cat packages/aku) ; do curl -fsSL $p | apt-key add - ; done
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 76F1A20FF987672F
+rm -rf /etc/apt/sources.list.d
+cp -f configs/sources.list /etc/apt/sources.list
 apt update
 apt upgrade -y
 

@@ -1,4 +1,3 @@
-chrissxYT/winstallhq
 -C "make && make install" -c vi/imlib2-heic
 -C "make install" -c chrissxYT/ybacklight
 -C "make install" -c dylanaraps/neofetch
