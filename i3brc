@@ -8,8 +8,7 @@ I3B_TEAMVIEWER=1
 I3B_FLASHPRINT=0
 I3B_VSCODE=0
 I3B_CM_NAS=0
-if [[ -f "$HOME/.i3brc" ]]
-then
+if [ -f "$HOME/.i3brc" ] ; then
         chmod +x "$HOME/.i3brc"
 	"$HOME/.i3brc"
 fi

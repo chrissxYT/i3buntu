@@ -7,7 +7,7 @@ This project is for setting up a minimal Ubuntu installation with the i3 window 
 
 
 # Requirements
-* A version of Ubuntu Minimal (19.04 recommended, later ones should work, too). The latest version is to be located [here](https://ubuntu.com/download/desktop).
+* A version of Ubuntu Minimal (19.04 recommended, later ones may work, too). The latest version is to be located [here](https://ubuntu.com/download/desktop).
 * An internet connection.
 
 # Installation

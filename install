@@ -1,5 +1,12 @@
 #!/bin/bash
 
+I3B_OPERA_DL_URL="https://download3.operacdn.com/pub/opera/desktop/62.0.3331.66/linux/opera-stable_62.0.3331.66_amd64.deb"
+I3B_MICROSOFT_DL_URL="https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb"
+I3B_YED_DL_URL="https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh"
+I3B_CHROME_DL_URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+I3B_SLMENU_REPO_URL="https://bitbucket.org/rafaelgg/slmenu"
+I3B_SENT_REPO_URL="https://github.com/chrissxYT/sane-sent"
+
 isnap() (snap install $@)
 iapt()  (apt install -y $@)
 udpkg() (tools/udpkg $@)
@@ -7,7 +14,7 @@ udpkg() (tools/udpkg $@)
 source i3brc
 
 ###### Update packages and add ppas
-tools/udpkg 'https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb'
+udpkg $I3B_MICROSOFT_DL_URL
 dpkg --add-architecture i386
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 for p in $(cat packages/aku) ; do curl -fsSL $p | apt-key add - ; done
@@ -19,7 +26,7 @@ apt upgrade -y
 
 ###### Install main apps, drivers and dependencies
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
-apt install -y gcc g++ clang make
+iapt gcc g++ clang make
 [ "$I3B_VSCODE" = 1 ] && isnap vscode --classic
 isnap github-desktop --beta --classic
 cp -f configs/env /etc/environment
@@ -28,24 +35,25 @@ for p in $(cat packages/pip) ; do pip install $p ; done
 packages/netsh
 for p in $(cat packages/udpkg) ; do udpkg $p ; done
 [ "$I3B_BROWSER" = b ] && iapt brave-browser
-[ "$I3B_BROWSER" = o ] && udpkg https://download3.operacdn.com/pub/opera/desktop/62.0.3331.66/linux/opera-stable_62.0.3331.66_amd64.deb
+[ "$I3B_BROWSER" = o ] && udpkg $I3B_OPERA_DL_URL
 [ "$I3B_BROWSER" = f ] && iapt firefox
-[ "$I3B_BROWSER" = c ] && udpkg https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+[ "$I3B_BROWSER" = c ] && udpkg $I3B_CHROME_DL_URL
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
 
 ###### Install slmenu
-netsh -s hg -C "make install" -c https://bitbucket.org/rafaelgg/slmenu
+netsh -s hg -C "make install" -c $I3B_SLMENU_REPO_URL
 
 ###### Get and install yEd
-[ "$I3B_YED" = 1 ] && netsh https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh
+###### (yes, netsh can be used for this, because it is a shell script)
+[ "$I3B_YED" = 1 ] && netsh $I3B_YED_DL_URL
 
 ###### Get and install sane-sent
-netsh -C "make install" -c https://github.com/chrissxYT/sane-sent
+netsh -C "make install" -c $I3B_SENT_REPO_URL
 
 ###### Get and install the Arduino IDE
 if [ "$I3B_ARDUINO" = 1 ] ; then
-	curl -L "https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz" |\
+	curl https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz |\
                 tar xJf -
 	mv arduino-1.8.8 /usr/bin/
         pushd .
@@ -66,16 +74,16 @@ if [ "$I3B_TEENSY" = 1 ] ; then
 fi
 
 ###### Get and install TeamViewer
-[ "$I3B_TEAMVIEWER" = 1 ] && tools/udpkg https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+[ "$I3B_TEAMVIEWER" = 1 ] && udpkg https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 
 ###### Get and install FlashPrint
-[ "$I3B_FLASHPRINT" = 1 ] && tools/udpkg http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb
+[ "$I3B_FLASHPRINT" = 1 ] && udpkg http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb
 
 ###### Build git libsecret cred helper
-RET=$(pwd)
+pushd .
 cd /usr/share/doc/git/contrib/credential/gnome-keyring
 make
-cd $RET
+popd
 
 ###### Get and install EOS
 if [ "$I3B_EOS" = 1 ] ; then
