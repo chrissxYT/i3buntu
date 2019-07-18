@@ -1,4 +1,5 @@
--C "make && make install" -c vi/imlib2-heic
--C "make install" -c chrissxYT/ybacklight
--C "make install" -c dylanaraps/neofetch
--C ./install -c chrissxYT/likeu
+#!/bin/sh
+netsh -C "make && make install" -c vi/imlib2-heic
+netsh -C "make install" -c chrissxYT/ybacklight
+netsh -C "make install" -c dylanaraps/neofetch
+netsh -C ./install -c chrissxYT/likeu

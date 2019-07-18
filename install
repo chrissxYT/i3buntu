@@ -1,5 +1,9 @@
 #!/bin/bash
 
+isnap() (snap install $@)
+iapt()  (apt install -y $@)
+udpkg() (tools/udpkg $@)
+
 source i3brc
 
 ###### Update packages and add ppas
@@ -16,61 +20,56 @@ apt upgrade -y
 ###### Install main apps, drivers and dependencies
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
 apt install -y gcc g++ clang make
-[ "$I3B_VSCODE" = 1 ] && snap install vscode --classic
-snap install github-desktop --beta --classic
+[ "$I3B_VSCODE" = 1 ] && isnap vscode --classic
+isnap github-desktop --beta --classic
 cp -f configs/env /etc/environment
 for p in $(cat packages/apt) ; do apt install -y $p ; done
 for p in $(cat packages/pip) ; do pip install $p ; done
-for p in $(cat packages/netsh) ; do netsh $p ; done
+packages/netsh
 for p in $(cat packages/udpkg) ; do udpkg $p ; done
-[ "$I3B_BROWSER" = "b" ] && apt install -y brave-browser
-[ "$I3B_BROWSER" = "o" ] && tools/udpkg "https://download1.operacdn.com/pub/opera/desktop/60.0.3255.109/linux/opera-stable_60.0.3255.109_amd64.deb"
-[ "$I3B_BROWSER" = "f" ] && apt install -y firefox
-[ "$I3B_BROWSER" = "c" ] && tools/udpkg 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+[ "$I3B_BROWSER" = b ] && iapt brave-browser
+[ "$I3B_BROWSER" = o ] && udpkg https://download3.operacdn.com/pub/opera/desktop/62.0.3331.66/linux/opera-stable_62.0.3331.66_amd64.deb
+[ "$I3B_BROWSER" = f ] && iapt firefox
+[ "$I3B_BROWSER" = c ] && udpkg https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
 
 ###### Install slmenu
-netsh -s hg -C "make install clean" -c https://bitbucket.org/rafaelgg/slmenu
+netsh -s hg -C "make install" -c https://bitbucket.org/rafaelgg/slmenu
 
 ###### Get and install yEd
-if [[ "$I3B_YED" = 1 ]] ; then
-	netsh https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh
-fi
+[ "$I3B_YED" = 1 ] && netsh https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh
 
 ###### Get and install sane-sent
-netsh -c https://github.com/chrissxYT/sane-sent
+netsh -C "make install" -c https://github.com/chrissxYT/sane-sent
 
 ###### Get and install the Arduino IDE
 if [ "$I3B_ARDUINO" = 1 ] ; then
 	curl -L "https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz" |\
                 tar xJf -
 	mv arduino-1.8.8 /usr/bin/
-	ret=$(pwd)
+        pushd .
 	cd /usr/bin/arduino-1.8.8
-	./arduino-linux-setup.sh $USER
-	cd $ret
+        ./arduino-linux-setup.sh $(logname)
+        popd
 fi
 
 if [ "$I3B_TEENSY" = 1 ] ; then
 	###### Get and install the Teensy loader
-	curl -L -o /etc/udev/rules.d/49-teensy.rules "https://www.pjrc.com/teensy/49-teensy.rules"
-	curl -L -o t.tar.gz "https://www.pjrc.com/teensy/teensy_linux64.tar.gz"
-	tar xzf t.tar.gz
+	curl -o /etc/udev/rules.d/49-teensy.rules https://www.pjrc.com/teensy/49-teensy.rules
+	curl https://www.pjrc.com/teensy/teensy_linux64.tar.gz | \
+                tar xzf -
 	mv -f teensy /usr/bin
-	rm -f t.tar.gz libpng12.so.0 libusb-0.1.so.4
+	rm -f libpng12.so.0 libusb-0.1.so.4
 
-        if [ "$I3B_ARDUINO" = 1 ] ; then
-	        ###### Get and install Teensyduino
-	        netsh https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64
-        fi
+        [ "$I3B_ARDUINO" = 1 ] && netsh https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64
 fi
 
 ###### Get and install TeamViewer
-[ "$I3B_TEAMVIEWER" = 1 ] && tools/udpkg 'https://download.teamviewer.com/download/linux/teamviewer_amd64.deb'
+[ "$I3B_TEAMVIEWER" = 1 ] && tools/udpkg https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 
 ###### Get and install FlashPrint
-[ "$I3B_FLASHPRINT" = 1 ] && tools/udpkg 'http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb'
+[ "$I3B_FLASHPRINT" = 1 ] && tools/udpkg http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb
 
 ###### Build git libsecret cred helper
 RET=$(pwd)
@@ -79,10 +78,10 @@ make
 cd $RET
 
 ###### Get and install EOS
-if [[ "$I3B_EOS" = 1 ]] ; then
+if [ "$I3B_EOS" = 1 ] ; then
 	mkdir tmp_eos_stuff
 	cd tmp_eos_stuff
-	curl -L -o eos.zip "https://www.pabst-software.de/lib/exe/fetch.php?media=programme:eos:eos.zip"
+	curl -L -o eos.zip https://www.pabst-software.de/lib/exe/fetch.php?media=programme:eos:eos.zip
 	unzip eos.zip
 	cp -f EOS.exe /usr/bin/eos.exe
 	cd ..
@@ -106,7 +105,7 @@ apt -f install -y
 apt autoremove -y
 
 ###### install the chrissx Media NAS
-[ "$I3B_CM_NAS" = "1" ] && cat configs/cm_nas >> /etc/fstab
+[ "$I3B_CM_NAS" = 1 ] && cat configs/cm_nas >> /etc/fstab
 
 # give the user rights to all of their home directory
 chown -R $(logname):$(logname) ~
