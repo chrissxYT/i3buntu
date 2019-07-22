@@ -17,8 +17,8 @@ source i3brc
 udpkg $I3B_MICROSOFT_DL_URL
 dpkg --add-architecture i386
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-for p in $(cat packages/aku) ; do curl -fsSL $p | apt-key add - ; done
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 76F1A20FF987672F
+for p in $(cat packages/aku) ; do curl -fsSL $p | apt-key add - ; done
 rm -rf /etc/apt/sources.list.d
 cp -f configs/sources.list /etc/apt/sources.list
 apt update
