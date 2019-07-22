@@ -15,6 +15,8 @@ source i3brc
 
 ###### Update packages and add ppas
 udpkg $I3B_MICROSOFT_DL_URL
+add-apt-repository -y ppa:yubico/stable
+add-apt-repository -y ppa:nextcloud-devs/clients
 dpkg --add-architecture i386
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 76F1A20FF987672F
