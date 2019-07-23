@@ -9,7 +9,7 @@ HIST_STAMPS="dd.mm.yyyy"
 
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git encode64 extract z)
+plugins=(colored-man-pages command-not-found git encode64 extract z git-auto-fetch)
 
 source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
@@ -33,18 +33,5 @@ i()     (sudo apt install $@)
 
 xmodmap -e "clear lock"
 xmodmap -e "keycode 66 = Escape"
-#xmodmap -e "keycode 47 = parenleft braceleft"
-#xmodmap -e "keycode 48 = parenright braceright"
-#xmodmap -e "keycode 34 = slash bar"
-#xmodmap -e "keycode 20 = backslash question"
-#xmodmap -e "keycode 135 = Multi_key"
-
-# hard mode
-#xmodmap -e "keycode 9  = NoSymbol"
-#xmodmap -e "keycode 16 = 7 NoSymbol 7 NoSymbol NoSymbol seveneighths NoSymbol"
-#xmodmap -e "keycode 17 = 8 NoSymbol 8 NoSymbol bracketleft trademark bracketleft"
-#xmodmap -e "keycode 18 = 9 NoSymbol 9 NoSymbol bracketright plusminus bracketright"
-#xmodmap -e "keycode 19 = 0 equal 0 equal NoSymbol degree NoSymbol"
-#xmodmap -e "keycode 94 = less greater less greater NoSymbol dead_belowmacron NoSymbol dead_belowmacron less greater NoSymbol dead_belowmacron"
 
 neofetch
