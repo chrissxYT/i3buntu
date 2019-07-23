@@ -4,26 +4,24 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 set laststatus=2
-set number
-set wildmenu
-set wildignore=*.o,*.a,*.la,*.lo,*.swp,*.tab.c,*.tab.h,*.yy.c,.svn,.git
+set number relativenumber
+set so=999
+set colorcolumn=71
+setglobal fileencoding=utf-8
+set encoding=utf-8 termencoding=utf-8 fileencodings=utf-8
+set wildmenu wildignore=*.o,*.a,*.la,*.lo,*.swp,.svn,.git
 set showcmd
-set hlsearch
-set ignorecase
-set smartcase
+set hlsearch ignorecase smartcase
 set backspace=indent,eol,start
-set shiftwidth=8
-set softtabstop=8
-set expandtab
-set autoindent
+set shiftwidth=8 softtabstop=8 expandtab autoindent
 set confirm
-set visualbell
-set t_vb=
-set t_Co=256
+set visualbell t_vb= t_Co=256
 set mouse=a
+set spelllang=de,en
 set notimeout ttimeout ttimeoutlen=5
 set noshowmode
 let g:lightline = {'colorscheme': 'powerline'}
+
 autocmd BufWritePost slides !sent %
 autocmd BufWritePost slides.md !md2pdf % $(echo % | sed s/.md/.pdf/) && mupdf $(echo % | sed s/.md/.pdf/)
 autocmd BufWritePost .vimrc source %
@@ -37,5 +35,10 @@ map <Leader>s :nohl<CR><C-L>
 map <Leader>n 71\|Bhr<CR>
 " this is a really awful and stupid hack but it works for now
 map <Leader>m <Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n<Leader>n
-map <Leader>t :make test<CR>
-map <Leader>x :make<CR>
+if(filereadable("Makefile"))
+        map <Leader>t :make test<CR>
+        map <Leader>x :make<CR>
+        map <Leader>i :!sudo make install<CR>
+endif
+
+autocmd filetype html map <Leader>p i<p><Enter></p><Esc>O
