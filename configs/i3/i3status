@@ -5,6 +5,7 @@ general {
 }
 
 order += "disk /"
+order += "ethernet enp0s25"
 order += "ethernet eth0"
 order += "wireless wlp3s0"
 order += "battery 0"
@@ -24,6 +25,13 @@ cpu_temperature 1 {
 cpu_temperature 2 {
         format = " %degrees°C "
         path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+	separator = false
+	separator_block_width = 0
+}
+
+ethernet enp0s25 {
+	format_up = " %ip (%speed) "
+	format_down = " ethernet_down_remove_pls "
 	separator = false
 	separator_block_width = 0
 }

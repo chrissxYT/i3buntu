@@ -18,6 +18,7 @@ do
 		sed "s/{\"name\":\"wireless\",\"instance\":\"wlp3s0\",\"color\":\"#FF0000\",\"markup\":\"none\",\"full_text\":\" wifi_down_remove_pls \",\"separator\":false,\"separator_block_width\":0},//g" | \
 		sed "s/{\"name\":\"battery\",\"instance\":\"\\/sys\\/class\\/power_supply\\/BAT0\\/uevent\",\"markup\":\"none\",\"full_text\":\" no_battery_remove_pls \",\"separator\":false,\"separator_block_width\":0},//g" | \
 		sed "s/{\"name\":\"ethernet\",\"instance\":\"eth0\",\"color\":\"#FF0000\",\"markup\":\"none\",\"full_text\":\" ethernet_down_remove_pls \",\"separator\":false,\"separator_block_width\":0},//g" | \
+                sed "s/{\"name\":\"ethernet\",\"instance\":\"enp0s25\",\"color\":\"#FF0000\",\"markup\":\"none\",\"full_text\":\" ethernet_down_remove_pls \",\"separator\":false,\"separator_block_width\":0},//g" | \
 		sed "s/{\"name\":\"battery\",\"instance\":\"\/sys\/class\/power_supply\/BAT0\/uevent\",\"markup\":\"none\",\"full_text\":\" . .*% 0,00W \",\"separator\":false,\"separator_block_width\":0},//g" | \
 		sed "s/},{/},{\"name\":\"ellol\",\"full_text\":\"\",\"separator\":false,\"separator_block_width\":0},{/g"
 done
