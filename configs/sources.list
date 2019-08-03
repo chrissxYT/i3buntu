@@ -20,8 +20,3 @@ deb http://ppa.launchpad.net/nextcloud-devs/client/ubuntu disco main
 deb [arch=amd64] https://packages.microsoft.com/ubuntu/19.04/prod disco main
 deb http://ppa.launchpad.net/yubico/stable/ubuntu bionic main
 deb http://ppa.launchpad.net/yubico/stable/ubuntu disco main
-
-#deb http://ftp.spline.de/pub/siduction/extra unstable main
-#deb http://ftp.spline.de/pub/siduction/fixes unstable main contrib non-free
-
-#deb http://ftp.spline.de/pub/aptosid/debian/ sid main fix.main

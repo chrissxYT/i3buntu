@@ -20,7 +20,7 @@ add-apt-repository -y ppa:nextcloud-devs/clients
 dpkg --add-architecture i386
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 76F1A20FF987672F
-for p in $(cat packages/aku) ; do curl -fsSL $p | apt-key add - ; done
+for k in $(ls packages/keys) ; do apt-key add packages/keys/$k ; done
 rm -rf /etc/apt/sources.list.d
 cp -f configs/sources.list /etc/apt/sources.list
 apt update
@@ -36,10 +36,10 @@ for p in $(cat packages/apt) ; do apt install -y $p ; done
 for p in $(cat packages/pip) ; do pip install $p ; done
 packages/netsh
 for p in $(cat packages/udpkg) ; do udpkg $p ; done
-[ "$I3B_BROWSER" = b ] && iapt brave-browser
-[ "$I3B_BROWSER" = o ] && udpkg $I3B_OPERA_DL_URL
-[ "$I3B_BROWSER" = f ] && iapt firefox
-[ "$I3B_BROWSER" = c ] && udpkg $I3B_CHROME_DL_URL
+[ "$I3B_BROWSER" = b* ] && iapt brave-browser
+[ "$I3B_BROWSER" = o* ] && udpkg $I3B_OPERA_DL_URL
+[ "$I3B_BROWSER" = f* ] && iapt firefox
+[ "$I3B_BROWSER" = c* ] && udpkg $I3B_CHROME_DL_URL
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
 
