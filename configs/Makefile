@@ -10,4 +10,5 @@ cp:
 	cp -f /etc/issue.net issue.net
 	cp -f /etc/lsb-release lsbr
 	cp -f /etc/os-release os-release
+	#cp -f /etc/apt/sources.list sources.list
 	@cd i3 && make cp
