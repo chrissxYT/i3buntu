@@ -5,7 +5,9 @@ mkdir ~/.config
 mkdir ~/.config/i3
 
 ###### Set configs
-cp -f configs/i3/* ~/.config/i3/
+cd configs/i3
+make install
+cd ../..
 cp -f configs/gtk ~/.config/gtk-3.0/settings.ini
 
 ###### Install vim plugins
@@ -30,6 +32,6 @@ git config --global credential.helper /usr/share/doc/git/contrib/credential/gnom
 git config --global core.editor vim
 git config --global commit.gpgsign true
 
-###### X keyboard
+###### Install custom keyboard layout
 cp configs/xinitrc $HOME/.xinitrc
 cp configs/Xmodmap $HOME/.Xmodmap
