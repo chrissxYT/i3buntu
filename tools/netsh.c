@@ -3,11 +3,31 @@
 #include <string.h>
 #include <time.h>
 
-#define VERSION "1.4.1"
+#define VERSION "1.4.2"
 
-#define arg(s, unix, gnu) else if(!strcmp(s, unix) || !strcmp(s, gnu))
+#define HELP "netsh "VERSION"\n"\
+             "(c) 2019 Christian Erwin Häußler, chrissx Media\n"\
+             "\n"\
+             "Usage: netsh [OPTIONS] [URL/GitHub] [OPTIONS] [URL/GitHub] ... \n"\
+             "\n"\
+             "  -c, --clone\n"\
+             "    Set or unset the clone flag.\n"\
+             "  -f, --file\n"\
+             "    Set the file used when clone is disabled.\n"\
+             "  -C, --command\n"\
+             "    Set the command executed when clone is enabled.\n"\
+             "  -s , --scm\n"\
+             "    Set the SCM used for cloning. (git and hg are tested)\n"\
+             "  -v, --version\n"\
+             "    Print the version number.\n"\
+             "  -h, --help\n"\
+             "    Print this screen.\n"\
+
+#define ARG(s, unix, gnu) else if(!strcmp(s, "-"unix) || !strcmp(s, "--"gnu))
 #define url(s) (!strncmp((s), "http://", 7) || \
-        !strncmp((s), "https://", 8) || !strncmp((s), "git://", 6))
+        !strncmp((s), "https://", 8) || !strncmp((s), "git://", 6) ||\
+        !strncmp((s), "svn://", 6) || !strncmp((s), "cvs://", 6) || \
+        !strncmp((s), "hg://", 5))
 
 char *rurl(char *u, char *bfr, int c, char *f)
 {
@@ -29,31 +49,31 @@ int main(int argc, char **argv)
                 char *s = argv[i];
                 char bfr[strlen(s) + 1024];
                 char buf[strlen(s) + 1024];
-                if(0); //this is just, so our else if macros work
-                arg(s, "-c", "--clone") c = !c;
-                arg(s, "-f", "--file") f = argv[++i];
-                arg(s, "-C", "--command") cmd = argv[++i];
-                arg(s, "-s", "--scm") scm = argv[++i];
-                arg(s, "-v", "--version") puts(VERSION);
+                char fdb[16];
+                if(0); //yes, this has to be here for our macros to work
+                ARG(s, "c", "clone") c = !c;
+                ARG(s, "f", "file") f = argv[++i];
+                ARG(s, "C", "command") cmd = argv[++i];
+                ARG(s, "s", "scm") scm = argv[++i];
+                ARG(s, "v", "version") puts(VERSION);
+                ARG(s, "h", "help") puts(HELP);
                 else if(c)
                 {
-                        char dir[16];
-                        sprintf(dir, ".netsh%4lx", time(0));
+                        sprintf(fdb, ".netsh%4lx", time(0));
                         sprintf(bfr, "%s clone '%s' %s; \
                                         cd %s; %s; cd ..; \
                                         rm -rf %s",
                                         scm, rurl(s, buf, 1, f),
-                                        dir, dir, cmd, dir);
+                                        fdb, fdb, cmd, fdb);
                         system(bfr);
                 }
                 else
                 {
-                        char file[16];
-                        sprintf(file, ".netsh%4lx", time(0));
-                        sprintf(bfr, "curl -L -o '%s' '%s'; \
+                        sprintf(fdb, ".netsh%4lx", time(0));
+                        sprintf(bfr, "curl -Lo '%s' '%s'; \
                                       chmod +x '%s'; ./%s; rm -f %s",
-                                     file, rurl(s, buf, 0, f),
-                                     file, file, file);
+                                     fdb, rurl(s, buf, 0, f),
+                                     fdb, fdb, fdb);
                         system(bfr);
                 }
         }

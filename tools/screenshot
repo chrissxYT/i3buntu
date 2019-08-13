@@ -1,5 +1,5 @@
 #!/bin/sh
-DIR="$HOME/ncl/Pictures"
+DIR="$HOME/Pictures"
 [ $# -eq 1 ] && DIR="$1"
 [ ! -d "$DIR" ] && mkdir "$DIR"
 FILE="$DIR/screenshot_$(date +%s).png"

@@ -1,4 +1,4 @@
-.PHONY: cp
+.PHONY: cp all clean install
 
 all:
 	gcc netsh.c -O3 -s -o netsh
