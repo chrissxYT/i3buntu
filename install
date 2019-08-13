@@ -1,5 +1,6 @@
 #!/bin/bash
 
+I3B_FLASHPRINT_DL_URL="http://en.fss.flashforge.com/10000/software/a33f804f90a30e66e47bc75b6b6e6d7d.deb"
 I3B_YED_DL_URL="https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh"
 I3B_CHROME_DL_URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 I3B_SLMENU_REPO_URL="https://bitbucket.org/rafaelgg/slmenu"
@@ -71,7 +72,7 @@ fi
 [ "$I3B_TEAMVIEWER" = 1 ] && iapt teamviewer
 
 ###### Get and install FlashPrint
-[ "$I3B_FLASHPRINT" = 1 ] && udpkg http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb
+[ "$I3B_FLASHPRINT" = 1 ] && udpkg "$I3B_FLASHPRINT_DL_URL"
 
 ###### Build git libsecret cred helper
 pushd .
