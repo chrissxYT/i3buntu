@@ -35,7 +35,6 @@ cp -f configs/env /etc/environment
 for p in $(cat packages/apt) ; do apt install -y $p ; done
 for p in $(cat packages/pip) ; do pip install $p ; done
 packages/netsh
-for p in $(cat packages/udpkg) ; do udpkg $p ; done
 [ "$I3B_BROWSER" = b* ] && iapt brave-browser
 [ "$I3B_BROWSER" = o* ] && udpkg $I3B_OPERA_DL_URL
 [ "$I3B_BROWSER" = f* ] && iapt firefox
