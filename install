@@ -114,8 +114,8 @@ cp -f configs/lsbr /etc/lsb-release
 apt -f install -y
 apt autoremove -y
 
-###### install the chrissx Media NAS
-[ "$I3B_CM_NAS" = 1 ] && cat configs/cm_nas >> /etc/fstab
+###### Install the NAS
+echo "$I3B_NAS" >> /etc/fstab
 
 # give the user rights to all of their home directory
 chown -R $(logname):$(logname) ~

@@ -8,4 +8,4 @@ I3B_TEENSY=1
 I3B_TEAMVIEWER=1
 I3B_FLASHPRINT=0
 I3B_VSCODE=0
-I3B_CM_NAS=1
+I3B_NAS='//192.168.86.100/b/ncl_2/xx /home/chrissx/ncl cifs rw,user=chrissx\040Media\040Inc,workgroup=CHRISSX\040MEDIA,vers=3.0,file_mode=0777,dir_mode=0777 0 2'
