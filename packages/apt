@@ -156,3 +156,6 @@ libdbus-glib-1-dev
 yasm
 ranger
 playerctl
+libftdi-dev
+libftdi1-dev
+libhidapi-dev
