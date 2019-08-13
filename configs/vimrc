@@ -42,3 +42,6 @@ if(filereadable("Makefile"))
 endif
 
 autocmd filetype html map <Leader>p i<p><Enter></p><Esc>O
+
+" ZERM setup
+map <Leader>z :set spell<CR><C-L>
