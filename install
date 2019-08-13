@@ -1,6 +1,5 @@
 #!/bin/bash
 
-I3B_OPERA_DL_URL="https://download3.operacdn.com/pub/opera/desktop/62.0.3331.116/linux/opera-stable_62.0.3331.116_amd64.deb"
 I3B_YED_DL_URL="https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh"
 I3B_CHROME_DL_URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 I3B_SLMENU_REPO_URL="https://bitbucket.org/rafaelgg/slmenu"
@@ -13,10 +12,7 @@ udpkg() (tools/udpkg $@)
 source i3brc
 
 ###### Update packages and add ppas
-udpkg $I3B_MICROSOFT_DL_URL
 dpkg --add-architecture i386
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 76F1A20FF987672F
 apt-key add packages/keys.gpg
 rm -rf /etc/apt/sources.list.d
 cp -f configs/sources.list /etc/apt/sources.list
@@ -33,7 +29,7 @@ for p in $(cat packages/apt) ; do apt install -y $p ; done
 for p in $(cat packages/pip) ; do pip install $p ; done
 packages/netsh
 [ "$I3B_BROWSER" = b* ] && iapt brave-browser
-[ "$I3B_BROWSER" = o* ] && udpkg $I3B_OPERA_DL_URL
+[ "$I3B_BROWSER" = o* ] && iapt opera-stable
 [ "$I3B_BROWSER" = f* ] && iapt firefox
 [ "$I3B_BROWSER" = c* ] && udpkg $I3B_CHROME_DL_URL
 # just to make sure icons arent corrupted all the time (happend on my machine)
@@ -72,7 +68,7 @@ if [ "$I3B_TEENSY" = 1 ] ; then
 fi
 
 ###### Get and install TeamViewer
-[ "$I3B_TEAMVIEWER" = 1 ] && udpkg https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+[ "$I3B_TEAMVIEWER" = 1 ] && iapt teamviewer
 
 ###### Get and install FlashPrint
 [ "$I3B_FLASHPRINT" = 1 ] && udpkg http://www.sz3dp.com/upfile/2018/12/03/20181203162713_662.deb
