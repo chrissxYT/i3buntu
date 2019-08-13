@@ -77,7 +77,6 @@ gimp
 audacity
 tor
 lm-sensors
-vifm
 sox
 wicd
 libudev-dev
@@ -155,3 +154,4 @@ gconf-2.0
 libgconf2-dev
 libdbus-glib-1-dev
 yasm
+ranger

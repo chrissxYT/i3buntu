@@ -3,11 +3,9 @@
 ###### Make config directories
 mkdir ~/.config
 mkdir ~/.config/i3
-mkdir ~/.config/vifm
 
 ###### Set configs
 cp -f configs/i3/* ~/.config/i3/
-cp -f configs/vifmrc ~/.config/vifm/vifmrc
 cp -f configs/gtk ~/.config/gtk-3.0/settings.ini
 
 ###### Install vim plugins
