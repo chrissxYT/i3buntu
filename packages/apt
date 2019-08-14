@@ -159,3 +159,9 @@ playerctl
 libftdi-dev
 libftdi1-dev
 libhidapi-dev
+gtk-doc-tools
+gnutls-bin
+valac
+libglib3.0-cil-dev
+libgirepository1.0-dev
+gperf

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+I3B_ARDUINO_DL_URL="https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz"
 I3B_FLASHPRINT_DL_URL="http://en.fss.flashforge.com/10000/software/a33f804f90a30e66e47bc75b6b6e6d7d.deb"
 I3B_YED_DL_URL="https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh"
 I3B_CHROME_DL_URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
@@ -12,13 +13,14 @@ udpkg() (tools/udpkg $@)
 
 source i3brc
 
-###### Update packages and add ppas
+###### Update
 dpkg --add-architecture i386
 apt-key add packages/keys.gpg
 rm -rf /etc/apt/sources.list.d
 cp -f configs/sources.list /etc/apt/sources.list
 apt update
 apt upgrade -y
+tools/likeu -l
 
 ###### Install main apps, drivers and dependencies
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
@@ -48,8 +50,7 @@ netsh -C "make install" -c $I3B_SENT_REPO_URL
 
 ###### Get and install the Arduino IDE
 if [ "$I3B_ARDUINO" = 1 ] ; then
-	curl https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz |\
-                tar xJf -
+	curl "$I3B_ARDUINO_DL_URL" | tar xJf -
 	mv arduino-1.8.8 /usr/bin/
         pushd .
 	cd /usr/bin/arduino-1.8.8
@@ -84,7 +85,7 @@ popd
 if [ "$I3B_EOS" = 1 ] ; then
 	mkdir tmp_eos_stuff
 	cd tmp_eos_stuff
-	curl -L -o eos.zip https://www.pabst-software.de/lib/exe/fetch.php?media=programme:eos:eos.zip
+	curl -Lo eos.zip https://www.pabst-software.de/lib/exe/fetch.php?media=programme:eos:eos.zip
 	unzip eos.zip
 	cp -f EOS.exe /usr/bin/eos.exe
 	cd ..

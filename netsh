@@ -6,4 +6,4 @@ cd .i3buntu
 sudo ./install
 ./config
 cd ..
-echo "PLEASE RESTART YOUR COMPUTER NOW"
+echo 'You might want to restart now...'
