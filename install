@@ -7,8 +7,20 @@ I3B_CHROME_DL_URL="https://dl.google.com/linux/direct/google-chrome-stable_curre
 I3B_SLMENU_REPO_URL="https://bitbucket.org/rafaelgg/slmenu"
 I3B_SENT_REPO_URL="https://github.com/chrissxYT/sane-sent"
 
-isnap() (snap install $@)
-iapt()  (apt install -y $@)
+isnap() (echo "Installing snap \"$@\" might take some time..." ;  snap install $@)
+iapt()  (apt install -y $@ || echo "----------
+
+
+
+
+
+fixme: Installing apt package \"$@\" failed.
+
+
+
+
+
+----------")
 udpkg() (tools/udpkg $@)
 
 source i3brc
