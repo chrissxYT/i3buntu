@@ -21,10 +21,16 @@ fixme: Installing apt package \"$@\" failed.
 
 
 ----------")
-udpkg() (tools/udpkg $@)
-netsh() (tools/netsh $@)
+udpkg() (udpkg $@)
+netsh() (netsh $@)
 
 source i3brc
+
+###### Install tools before doing anything else
+iapt gcc make
+cd tools
+make install clean
+cd ..
 
 ###### Update
 dpkg --add-architecture i386
@@ -34,12 +40,7 @@ cp -f "configs/sources.list/$I3B_SOURCES.sources.list" /etc/apt/sources.list
 apt update
 apt upgrade -y
 apt autoremove -y
-tools/likeu -l
-
-###### You first have to build the tools before using them
-cd tools
-make
-cd ..
+likeu -l
 
 ###### Install main apps, drivers and dependencies
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
@@ -109,13 +110,8 @@ if [ "$I3B_EOS" = 1 ] ; then
 	cp -f EOS.exe /usr/bin/eos.exe
 	cd ..
 	rm -rf tmp_eos_stuff
-        cp -f tools/eos /usr/bin/eos
+        cp -f eos /usr/bin/eos
 fi
-
-###### Install tools
-cd tools
-make install
-cd ..
 
 ###### Change the distro name
 cp -f configs/issue /etc/issue
