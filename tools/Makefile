@@ -12,7 +12,6 @@ cp:
 	cp -f /usr/bin/_update _update
 	cp -f /usr/bin/update update
 	cp -f /usr/bin/udpkg udpkg
-	cp -f /usr/bin/lock lock
 	cp -f /usr/bin/todo todo
 	cp -f /usr/bin/eos eos
 	cp -f /bin/mnt mnt
@@ -24,7 +23,6 @@ install: all
 	cp -f mnt /bin/mnt
 	cp -f umnt /bin/umnt
 	cp -f netsh /usr/bin/netsh
-	cp -f lock /usr/bin/lock
 	cp -f udpkg /usr/bin/udpkg
 	cp -f screenshot /usr/bin/screenshot
 	cp -f todo /usr/bin/todo
