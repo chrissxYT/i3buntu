@@ -114,7 +114,7 @@ fi
 
 ###### Install tools
 cd tools
-make install clean
+make install
 cd ..
 
 ###### Change the distro name
