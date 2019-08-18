@@ -36,6 +36,11 @@ apt upgrade -y
 apt autoremove -y
 tools/likeu -l
 
+###### You first have to build the tools before using them
+cd tools
+make
+cd ..
+
 ###### Install main apps, drivers and dependencies
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
 iapt gcc g++ clang make
