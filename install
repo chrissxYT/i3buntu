@@ -50,10 +50,10 @@ cp -f configs/env /etc/environment
 for p in $(cat packages/apt) ; do apt install -y $p ; done
 for p in $(cat packages/pip) ; do pip install $p ; done
 packages/netsh
-[ "$I3B_BROWSER" = b* ] && iapt brave-browser
-[ "$I3B_BROWSER" = o* ] && iapt opera-stable
-[ "$I3B_BROWSER" = f* ] && iapt firefox
-[ "$I3B_BROWSER" = c* ] && udpkg $I3B_CHROME_DL_URL
+[ "$I3B_BROWSER" = b ] && iapt brave-browser
+[ "$I3B_BROWSER" = o ] && iapt opera-stable
+[ "$I3B_BROWSER" = f ] && iapt firefox
+[ "$I3B_BROWSER" = c ] && udpkg $I3B_CHROME_DL_URL
 # just to make sure icons arent corrupted all the time (happend on my machine)
 apt remove -y breeze-cursor-theme
 
