@@ -30,7 +30,7 @@ source i3brc
 dpkg --add-architecture i386
 apt-key add packages/keys.gpg
 rm -rf /etc/apt/sources.list.d
-cp -f configs/sources.list /etc/apt/sources.list
+cp -f "configs/sources.list/$I3B_SOURCES.sources.list" /etc/apt/sources.list
 apt update
 apt upgrade -y
 apt autoremove -y

@@ -1,0 +1,48 @@
+#deb http://de.archive.ubuntu.com/ubuntu/ disco main restricted universe multiverse
+#deb http://de.archive.ubuntu.com/ubuntu/ disco-updates main restricted universe multiverse
+#deb http://de.archive.ubuntu.com/ubuntu/ disco-backports main restricted universe multiverse
+#deb http://de.archive.ubuntu.com/ubuntu/ disco-security main restricted universe multiverse
+#deb http://archive.canonical.com/ubuntu disco partner
+#deb http://security.ubuntu.com/ubuntu disco main restricted universe multiverse
+#deb http://security.ubuntu.com/ubuntu disco-updates main restricted universe multiverse
+#deb http://security.ubuntu.com/ubuntu disco-backports main restricted universe multiverse
+#deb http://security.ubuntu.com/ubuntu disco-security main restricted universe multiverse
+#deb [arch=amd64] https://download.docker.com/linux/ubuntu/ disco nightly
+#deb https://dl.winehq.org/wine-builds/ubuntu/ disco main
+#deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ disco main
+#deb http://linux.teamviewer.com/deb stable main
+#deb http://linux.teamviewer.com/deb preview main
+#deb http://ppa.launchpad.net/teejee2008/ppa/ubuntu bionic main
+#deb https://download.mono-project.com/repo/ubuntu preview main
+#deb http://ppa.launchpad.net/nextcloud-devs/client/ubuntu bionic main
+#deb http://ppa.launchpad.net/nextcloud-devs/client/ubuntu disco main
+#deb http://ppa.launchpad.net/eosrei/fonts/ubuntu bionic main
+#deb [arch=amd64] https://packages.microsoft.com/ubuntu/19.04/prod disco main
+#deb http://ppa.launchpad.net/yubico/stable/ubuntu bionic main
+#deb http://ppa.launchpad.net/yubico/stable/ubuntu disco main
+#deb https://deb.opera.com/opera-stable/ stable non-free
+
+# internal cache
+deb http://192.168.2.102:3142/de.archive.ubuntu.com/ubuntu/ disco main restricted universe multiverse
+deb http://192.168.2.102:3142/de.archive.ubuntu.com/ubuntu/ disco-updates main restricted universe multiverse
+deb http://192.168.2.102:3142/de.archive.ubuntu.com/ubuntu/ disco-backports main restricted universe multiverse
+deb http://192.168.2.102:3142/de.archive.ubuntu.com/ubuntu/ disco-security main restricted universe multiverse
+deb http://192.168.2.102:3142/archive.canonical.com/ubuntu disco partner
+deb http://192.168.2.102:3142/security.ubuntu.com/ubuntu disco main restricted universe multiverse
+deb http://192.168.2.102:3142/security.ubuntu.com/ubuntu disco-updates main restricted universe multiverse
+deb http://192.168.2.102:3142/security.ubuntu.com/ubuntu disco-backports main restricted universe multiverse
+deb http://192.168.2.102:3142/security.ubuntu.com/ubuntu disco-security main restricted universe multiverse
+deb [arch=amd64] http://192.168.2.102:3142/download.docker.com/linux/ubuntu/ disco nightly
+deb http://192.168.2.102:3142/dl.winehq.org/wine-builds/ubuntu/ disco main
+deb [arch=amd64] http://192.168.2.102:3142/brave-browser-apt-release.s3.brave.com/ disco main
+deb http://192.168.2.102:3142/linux.teamviewer.com/deb stable main
+deb http://192.168.2.102:3142/linux.teamviewer.com/deb preview main
+deb http://192.168.2.102:3142/ppa.launchpad.net/teejee2008/ppa/ubuntu bionic main
+deb http://192.168.2.102:3142/download.mono-project.com/repo/ubuntu preview main
+deb http://192.168.2.102:3142/ppa.launchpad.net/nextcloud-devs/client/ubuntu bionic main
+deb http://192.168.2.102:3142/ppa.launchpad.net/nextcloud-devs/client/ubuntu disco main
+deb http://192.168.2.102:3142/ppa.launchpad.net/eosrei/fonts/ubuntu bionic main
+deb [arch=amd64] http://192.168.2.102:3142/packages.microsoft.com/ubuntu/19.04/prod disco main
+deb http://192.168.2.102:3142/ppa.launchpad.net/yubico/stable/ubuntu bionic main
+deb http://192.168.2.102:3142/ppa.launchpad.net/yubico/stable/ubuntu disco main
+deb http://192.168.2.102:3142/deb.opera.com/opera-stable/ stable non-free
