@@ -176,7 +176,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Sreen brightness controls
+# Screen brightness controls
 bindsym XF86MonBrightnessUp exec ybacklight i200 # increase screen brightness
 bindsym XF86MonBrightnessDown exec ybacklight d200 # decrease screen brightness
 
@@ -185,10 +185,13 @@ bindsym XF86Launch1 exec brave-browser
 
 bindsym Print exec screenshot
 
-# Lock the screen with the lock tool
-bindsym $mod+Shift+x exec lock
-bindsym XF86ScreenSaver exec lock
-bindsym XF86Suspend exec lock
+# Lock the screen
+#bindsym $mod+Shift+x exec lock
+#bindsym XF86ScreenSaver exec lock
+#bindsym XF86Suspend exec lock
+bindsym $mod+Shift+x exec i3lock-fancy -g -p -f Ubuntu
+bindsym XF86ScreenSaver exec i3lock-fancy -g -p -f Ubuntu
+bindsym XF86Suspend exec i3lock-fancy -g -p -f Ubuntu
 
 bindsym $mod+t exec todo
 
