@@ -1,9 +1,11 @@
 #!/bin/sh
-sudo apt update
-sudo apt install -y git
-git clone https://github.com/chrissxYT/i3buntu.git .i3buntu
-cd .i3buntu
-sudo ./install
-./config
-cd ..
-echo 'You might want to restart now...'
+{
+        sudo apt update
+        sudo apt install -y git
+        git clone https://github.com/chrissxYT/i3buntu.git .i3buntu
+        cd .i3buntu
+        sudo ./install
+        ./config
+        cd ..
+        echo 'You might want to restart now...'
+} | tee -a ~/.i3buntu.log
