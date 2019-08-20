@@ -2,4 +2,4 @@
 netsh -C "make && make install" -c vi/imlib2-heic
 netsh -C "make install" -c chrissxYT/ybacklight
 netsh -C "make install" -c dylanaraps/neofetch
-netsh -C ./install -c chrissxYT/likeu
+netsh -C ./install -c chrissxYT/LiKeU
