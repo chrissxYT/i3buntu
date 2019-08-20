@@ -21,8 +21,6 @@ fixme: Installing apt package \"$@\" failed.
 
 
 ----------")
-udpkg() (udpkg $@)
-netsh() (netsh $@)
 
 source i3brc
 
