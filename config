@@ -24,7 +24,7 @@ git submodule update --init --recursive
 cd $ret
 
 ###### Install Oh-my-zsh
-tools/netsh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
+netsh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
 cp -f configs/zshrc ~/.zshrc
 
 ###### Configure git
