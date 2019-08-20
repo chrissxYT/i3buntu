@@ -55,14 +55,14 @@ packages/netsh
 [ "$I3B_BROWSER" = o ] && iapt opera-stable
 [ "$I3B_BROWSER" = f ] && iapt firefox
 [ "$I3B_BROWSER" = c ] && udpkg $I3B_CHROME_DL_URL
-# just to make sure icons arent corrupted all the time (happend on my machine)
-apt remove -y breeze-cursor-theme
+# just to make sure the cursor isnt corrupted all the time (happend on my machine)
+rm -f /etc/alternatives/x-cursor-theme
+ln -s /usr/share/icons/DMZ-White/cursor.theme /etc/alternatives/x-cursor-theme
 
 ###### Install slmenu
 netsh -s hg -C "make install" -c $I3B_SLMENU_REPO_URL
 
 ###### Get and install yEd
-###### (yes, netsh can be used for this, because it is a shell script)
 [ "$I3B_YED" = 1 ] && netsh $I3B_YED_DL_URL
 
 ###### Get and install sane-sent
