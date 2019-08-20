@@ -7,5 +7,6 @@
         sudo ./install
         ./config
         cd ..
-        echo 'You might want to restart now...'
+        echo 'Restarting...'
+        shutdown -r now
 } | tee -a ~/.i3buntu.log
