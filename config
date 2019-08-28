@@ -10,6 +10,14 @@ make install
 cd ../..
 cp -f configs/gtk ~/.config/gtk-3.0/settings.ini
 
+mkdir ~/.fonts
+cp packages/fonts ~/.fonts/dl
+ret=$(pwd)
+cd ~/.fonts
+sh dl
+rm -f dl
+cd "$ret"
+
 ###### Install vim plugins
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
