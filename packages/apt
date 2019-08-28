@@ -149,3 +149,6 @@ libxcb-xvmc0-dev
 python-xcbgen
 libjsoncpp-dev
 i3lock-fancy
+rofi-dev
+qalc
+libqalculate-dev
