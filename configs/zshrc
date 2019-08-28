@@ -27,7 +27,7 @@ E()     (sudo $EDITOR $(ls | fzf))
 uzip()  (unzip -d "$(echo $1 | sed s/\.zip//g -)" "$1")
 sd()    (sudo shutdown $@ now)
 m()     (make $@)
-mi()    (sudo make install clean)
+mi()    (sudo make install)
 p()     (mplayer $@)
 i()     (sudo apt install $@)
 
