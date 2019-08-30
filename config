@@ -40,6 +40,9 @@ git config --global credential.helper /usr/share/doc/git/contrib/credential/gnom
 git config --global core.editor vim
 git config --global commit.gpgsign true
 
+###### Install wallpapers
+git clone https://github.com/chrissxyt/walls ~/.walls
+
 ###### Install custom keyboard layout
 cp configs/xinitrc $HOME/.xinitrc
 cp configs/Xmodmap $HOME/.Xmodmap
