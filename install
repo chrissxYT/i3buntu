@@ -4,8 +4,6 @@ I3B_ARDUINO_DL_URL="https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz"
 I3B_FLASHPRINT_DL_URL="http://en.fss.flashforge.com/10000/software/a33f804f90a30e66e47bc75b6b6e6d7d.deb"
 I3B_YED_DL_URL="https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh"
 I3B_CHROME_DL_URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-I3B_SLMENU_REPO_URL="https://bitbucket.org/rafaelgg/slmenu"
-I3B_SENT_REPO_URL="https://github.com/chrissxYT/sane-sent"
 
 isnap() (echo "Installing snap \"$@\" might take some time..." ;  snap install $@)
 iapt()  (apt install -y $@ || echo "----------
@@ -24,8 +22,10 @@ fixme: Installing apt package \"$@\" failed.
 
 source i3brc
 
-###### Install tools before doing anything else
-iapt gcc make
+###### Install tools before doing anything else (i also put wicd in
+###### here, because it is one of the few things requiring user
+###### interaction)
+iapt wicd gcc make
 cd tools
 make install clean
 cd ..
@@ -57,14 +57,8 @@ likeu -l
 rm -f /etc/alternatives/x-cursor-theme
 ln -s /usr/share/icons/DMZ-White/cursor.theme /etc/alternatives/x-cursor-theme
 
-###### Install slmenu
-netsh -s hg -C "make install" -c $I3B_SLMENU_REPO_URL
-
 ###### Get and install yEd
 [ "$I3B_YED" = 1 ] && netsh $I3B_YED_DL_URL
-
-###### Get and install sane-sent
-netsh -C "make install" -c $I3B_SENT_REPO_URL
 
 ###### Get and install the Arduino IDE
 if [ "$I3B_ARDUINO" = 1 ] ; then
@@ -92,6 +86,12 @@ fi
 
 ###### Get and install FlashPrint
 [ "$I3B_FLASHPRINT" = 1 ] && udpkg "$I3B_FLASHPRINT_DL_URL"
+
+###### Run Gamix
+[ "$I3B_GAMIX" = 1 ] && netsh -C "./gamix.sh" -c chrissxYT/gamix
+
+###### Install FL Studio
+[ "$I3B_FL" = 1 ] && curl -Lo fl.exe https://support.image-line.com/redirect/flstudio20_win_installer && wine fl.exe
 
 ###### Build git libsecret cred helper
 pushd .

@@ -2,4 +2,6 @@
 netsh -C "make && make install" -c vi/imlib2-heic
 netsh -C "make install" -c chrissxYT/ybacklight
 netsh -C "make install" -c dylanaraps/neofetch
-netsh -C ./install -c chrissxYT/LiKeU
+netsh -C "make" -c chrissxYT/LiKeU
+netsh -s hg -C "make install" -c "https://bitbucket.org/rafaelgg/slmenu"
+netsh -C "make install" -c chrissxYT/sane-sent
