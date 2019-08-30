@@ -41,7 +41,7 @@ apt autoremove -y
 
 ###### Install main apps, drivers and dependencies
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
-iapt gcc g++ clang make
+iapt g++ clang
 [ "$I3B_VSCODE" = 1 ] && isnap vscode --classic
 isnap github-desktop --beta --classic
 cp -f configs/env /etc/environment

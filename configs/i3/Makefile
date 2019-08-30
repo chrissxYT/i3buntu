@@ -7,3 +7,8 @@ install:
 	cp -f config ~/.config/i3/config
 	cp -f i3status.sh ~/.config/i3/i3status.sh
 	cp -f i3status ~/.config/i3/i3status
+
+update:
+	cp -f config ~/.config/i3/config
+	cp -f i3status.sh ~/.config/i3/i3status.sh
+	cp -f i3status ~/.config/i3/i3status

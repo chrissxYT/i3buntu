@@ -1,0 +1,6 @@
+#!/bin/sh
+cd configs
+make update
+cd ../packages
+sudo make update
+cd ..

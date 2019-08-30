@@ -1,0 +1,5 @@
+install:
+	@./i
+
+update:
+	@./u

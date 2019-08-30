@@ -4,10 +4,30 @@ cp:
 	cp -f ~/.xinitrc xinitrc
 	cp -f ~/.Xmodmap Xmodmap
 	cp -f /etc/environment env
-	cp -f ~/.config/vifm/vifmrc vifmrc
 	cp -f ~/.config/gtk-3.0/settings.ini gtk
 	cp -f /etc/issue issue
 	cp -f /etc/issue.net issue.net
 	cp -f /etc/lsb-release lsbr
 	cp -f /etc/os-release os-release
 	@cd i3 && make cp
+
+install:
+	cp -f vimrc ~/.vimrc
+	cp -f zshrc ~/.zshrc
+	cp -f xinitrc ~/.xinitrc
+	cp -f Xmodmap ~/.Xmodmap
+	cp -f env /etc/environment
+	cp -f gtk ~/.config/gtk-3.0/settings.ini
+	cp -f issue /etc/issue
+	cp -f issue.net /etc/issue.net
+	cp -f lsbr /etc/lsb-release
+	cp -f os-release /etc/os-release
+	@cd i3 && make install
+
+update:
+	cp -f vimrc ~/.vimrc
+	cp -f zshrc ~/.zshrc
+	cp -f xinitrc ~/.xinitrc
+	cp -f Xmodmap ~/.Xmodmap
+	cp -f gtk ~/.config/gtk-3.0/settings.ini
+	@cd i3 && make update

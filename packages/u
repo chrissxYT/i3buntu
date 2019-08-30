@@ -1,0 +1,4 @@
+#!/bin/sh
+for p in $(cat apt) ; do apt install -y $p ; done
+for p in $(cat pip) ; do pip install $p ; done
+./netsh
