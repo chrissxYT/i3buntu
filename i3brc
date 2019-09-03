@@ -11,7 +11,8 @@ I3B_VSCODE=0
 I3B_FL=0
 I3B_GAMIX=0
 I3B_NAS=""
-I3C_SOURCES="default"
+I3B_SOURCES="default"
+I3B_GHIDRA=0
 if [ -f "$HOME/.i3brc" ] ; then
 	source "$HOME/.i3brc"
 fi

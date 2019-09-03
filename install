@@ -4,6 +4,7 @@ I3B_ARDUINO_DL_URL="https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz"
 I3B_FLASHPRINT_DL_URL="http://en.fss.flashforge.com/10000/software/a33f804f90a30e66e47bc75b6b6e6d7d.deb"
 I3B_YED_DL_URL="https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh"
 I3B_CHROME_DL_URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+I3B_GHIDRA_DL_URL="https://ghidra-sre.org/ghidra_9.0.4_PUBLIC_20190516.zip"
 
 isnap() (echo "Installing snap \"$@\" might take some time..." ;  snap install $@)
 iapt()  (apt install -y $@ || echo "----------
@@ -79,6 +80,15 @@ if [ "$I3B_TEENSY" = 1 ] ; then
 	rm -f libpng12.so.0 libusb-0.1.so.4
 
         [ "$I3B_ARDUINO" = 1 ] && netsh https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64
+fi
+
+if [ "$I3B_GHIDRA" = 1 ] ; then
+        pushd .
+        cd
+        curl -Lo gh.zip "$I3B_GHIDRA_DL_URL"
+        unzip gh.zip
+        rm -f gh.zip
+        popd
 fi
 
 ###### Get and install TeamViewer
