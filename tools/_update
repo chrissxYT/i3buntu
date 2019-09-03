@@ -8,4 +8,6 @@ cp -f $HOME/.i3buntu/configs/issue.net /etc/issue.net
 cp -f $HOME/.i3buntu/configs/os-release /etc/os-release
 cp -f $HOME/.i3buntu/configs/lsbr /etc/lsb-release
 likeu -l
+pip install -U youtube-dl
+pip3 install -U instalooter
 apt autoremove -y
