@@ -106,6 +106,9 @@ fi
 ###### Install FL Studio
 [ "$I3B_FL" = 1 ] && curl -Lo fl.exe https://support.image-line.com/redirect/flstudio20_win_installer && wine fl.exe
 
+###### Install Discord
+[ "$I3B_DISCORD" = 1 ] && udpkg 'https://discordapp.com/api/download?platform=linux&format=deb'
+
 ###### Build git libsecret cred helper
 pushd .
 cd /usr/share/doc/git/contrib/credential/gnome-keyring
