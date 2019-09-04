@@ -21,6 +21,8 @@ fixme: Installing apt package \"$@\" failed.
 
 ----------")
 
+apt_update() (rm -rf /etc/apt/sources.list.d ; apt update)
+
 source i3brc
 
 ###### Install tools before doing anything else (i also put wicd in
@@ -34,9 +36,8 @@ cd ..
 ###### Update
 dpkg --add-architecture i386
 apt-key add packages/keys.gpg
-rm -rf /etc/apt/sources.list.d
 cp -f "configs/sources.list/$I3B_SOURCES.sources.list" /etc/apt/sources.list
-apt update
+apt_update
 apt upgrade -y
 apt autoremove -y
 
@@ -55,7 +56,8 @@ likeu -l
 [ "$I3B_BROWSER" = o ] && iapt opera-stable
 [ "$I3B_BROWSER" = f ] && iapt firefox
 [ "$I3B_BROWSER" = c ] && udpkg $I3B_CHROME_DL_URL
-# just to make sure the cursor isnt corrupted all the time (happend on my machine)
+# just to make sure the cursor isnt changed to breeze all the time
+# (happend on my machine)
 rm -f /etc/alternatives/x-cursor-theme
 ln -s /usr/share/icons/DMZ-White/cursor.theme /etc/alternatives/x-cursor-theme
 
@@ -141,6 +143,7 @@ cp -f configs/os-release /etc/os-release
 cp -f configs/lsbr /etc/lsb-release
 
 ###### Finish up everything
+apt_update
 apt -f install -y
 apt autoremove -y
 
