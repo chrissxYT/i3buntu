@@ -30,7 +30,7 @@ libnm-glib-vpn1
 usb-creator-common
 usb-creator-gtk
 openjdk-8-jdk
-openjdk-12-jdk
+openjdk-13-jdk
 apt-transport-https
 fonts-noto-color-emoji
 fonts-symbola
