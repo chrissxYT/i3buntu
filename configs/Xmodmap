@@ -10,3 +10,4 @@ keycode 19 = 0 equal 0 equal NoSymbol degree
 keycode 94 = less greater less greater
 keycode 135 = Multi_key
 keycode 21 = Multi_key
+keycode 49 = asciicircum degree asciicircum degree acute grave 2 dead_circumflex dead_circumflex 5
