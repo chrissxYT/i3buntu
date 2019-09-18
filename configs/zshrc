@@ -34,4 +34,6 @@ i()     (sudo apt install $@)
 xmodmap -e "clear lock"
 xmodmap -e "keycode 66 = Escape"
 
+source /etc/environment
+
 neofetch
