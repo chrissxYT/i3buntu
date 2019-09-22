@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-#define VERSION "1.4.2"
+#define VERSION "1.5"
 
 #define HELP "netsh "VERSION"\n"\
              "(c) 2019 Christian Erwin Häußler, chrissx Media\n"\
@@ -28,11 +28,13 @@
         !strncmp((s), "https://", 8) || !strncmp((s), "git://", 6) ||\
         !strncmp((s), "svn://", 6) || !strncmp((s), "cvs://", 6) || \
         !strncmp((s), "hg://", 5))
+#define EXEC(s) int __exec_rc = system(s); if(__exec_rc) printf("Got error from system(\"%s\"): %d\n", s, __exec_rc)
 
 char *rurl(char *u, char *bfr, int c, char *f)
 {
         if(url(u)) return u;
-        sprintf(bfr, c ? "https://github.com/%s" :
+        else if(!strncmp(u, "bb://", 5) && c) sprintf(bfr, "https://bitbucket.org/%s", u + 5);
+        else sprintf(bfr, c ? "https://github.com/%s" :
                 "https://github.com/%s/raw/master/%s",
                 u, f);
         return bfr;
@@ -60,21 +62,21 @@ int main(int argc, char **argv)
                 else if(c)
                 {
                         sprintf(fdb, ".netsh%4lx", time(0));
-                        sprintf(bfr, "%s clone '%s' %s; \
-                                        cd %s; %s; cd ..; \
+                        sprintf(bfr, "%s clone '%s' %s && \
+                                        cd %s && %s; cd ..; \
                                         rm -rf %s",
                                         scm, rurl(s, buf, 1, f),
                                         fdb, fdb, cmd, fdb);
-                        system(bfr);
+                        EXEC(bfr);
                 }
                 else
                 {
                         sprintf(fdb, ".netsh%4lx", time(0));
                         sprintf(bfr, "curl -Lo '%s' '%s'; \
-                                      chmod +x '%s'; ./%s; rm -f %s",
+                                      chmod +x '%s'&& ./%s; rm -f %s",
                                      fdb, rurl(s, buf, 0, f),
                                      fdb, fdb, fdb);
-                        system(bfr);
+                        EXEC(bfr);
                 }
         }
         return 0;
