@@ -11,6 +11,8 @@ order += "wireless wlp3s0"
 order += "battery 0"
 order += "cpu_temperature 1"
 order += "cpu_temperature 2"
+order += "cpu_temperature 3"
+order += "cpu_temperature 4"
 order += "cpu_usage"
 order += "volume master"
 order += "tztime local"
@@ -25,6 +27,20 @@ cpu_temperature 1 {
 cpu_temperature 2 {
         format = " %degrees°C "
         path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+	separator = false
+	separator_block_width = 0
+}
+
+cpu_temperature 3 {
+        format = " %degrees°C "
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input"
+	separator = false
+	separator_block_width = 0
+}
+
+cpu_temperature 4 {
+        format = " %degrees°C "
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input"
 	separator = false
 	separator_block_width = 0
 }
