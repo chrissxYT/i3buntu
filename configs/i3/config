@@ -211,7 +211,7 @@ bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -
 new_window normal 0
 new_float normal 0
 
-bindsym $mod+u border none
+bindsym $mod+u border pixel 0
 bindsym $mod+n border normal 0
 
 bindsym $mod+q split toggle
@@ -228,3 +228,13 @@ bindsym $mod+q split toggle
 #client.urgent           #ff0000            #ff0000        #ffffff        #268BD2
 #client.placeholder      #000000            #848484        #FFFFFF        #268BD2
 #client.background       #202020
+
+
+gaps inner 10
+border_radius 5
+
+for_window [class=".*"] border pixel 0
+hide_edge_borders both
+
+bindsym $mod+Mod1+h split h
+bindsym $mod+Mod1+v split v
