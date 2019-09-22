@@ -161,3 +161,8 @@ libdbusmenu-gtk4
 xclip
 gradle
 pandoc
+libstartup-notification0-dev
+libxcb-xinerama0-dev
+libxcb-xkb-dev
+libxkbcommon-x11-dev
+libyajl-dev
