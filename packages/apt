@@ -22,7 +22,6 @@ qml-module-qtquick2
 qml-module-qtquick-controls
 qml-module-qtquick-dialogs
 btpd
-i3
 scrot
 fzf
 apport-gtk
