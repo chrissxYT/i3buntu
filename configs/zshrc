@@ -1,6 +1,7 @@
 export ZSH="/home/$USER/.oh-my-zsh"
 ZSH_THEME="agnoster"
-export UPDATE_ZSH_DAYS=7
+# i wouldnt know of a variable to turn this completely off
+export UPDATE_ZSH_DAYS=133700
 
 DISABLE_UPDATE_PROMPT="true"
 #DISABLE_AUTO_TITLE="true"
@@ -9,11 +10,11 @@ HIST_STAMPS="dd.mm.yyyy"
 
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages command-not-found git encode64 extract z git-auto-fetch)
+plugins=(colored-man-pages command-not-found git encode64 extract git-auto-fetch)
 
 source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
-export EDITOR='vim'
+export EDITOR=vim
 export VISUAL=$EDITOR
 export PAGER='less -R'
 export ARCHFLAGS="-arch x86_64"
@@ -31,7 +32,7 @@ mi()    (sudo make install)
 p()     (mplayer $@)
 i()     (sudo apt install $@)
 
-sh -c '{ xmodmap -e "clear lock" ; xmodmap -e "keycode 66 = Escape" ; feh --bg-fill .walls/walls/38 ; } &'
+sh -c '{ xmodmap -e "clear lock" >/dev/null ; xmodmap -e "keycode 66 = Escape"  >/dev/null ; feh --bg-fill .walls/walls/38 >/dev/null ; } &'
 
 source /etc/environment
 
