@@ -1,6 +1,6 @@
 #!/bin/bash
 # can be b, f, c or o
-I3B_BROWSER=b
+I3B_BROWSER=brave-browser
 I3B_YED=0
 I3B_EOS=0
 I3B_ARDUINO=1
@@ -14,6 +14,7 @@ I3B_NAS=""
 I3B_SOURCES="default"
 I3B_GHIDRA=0
 I3B_DISCORD=0
+I3B_TERM=kitty
 if [ -f "$HOME/.i3brc" ] ; then
 	source "$HOME/.i3brc"
 fi

@@ -16,6 +16,8 @@ cp:
 	cp -f /usr/bin/eos eos
 	cp -f /bin/mnt mnt
 	cp -f /bin/umnt umnt
+	cp -f /usr/bin/i3b-term i3b-term
+	cp -f /usr/bin/i3b-browser i3b-browser
 
 install: all
 	cp -f update /usr/bin/update
@@ -27,3 +29,5 @@ install: all
 	cp -f screenshot /usr/bin/screenshot
 	cp -f todo /usr/bin/todo
 	cp -f bookmark /usr/bin/bookmark
+	cp -f i3b-term /usr/bin/i3b-term
+	cp -f i3b-browser /usr/bin/i3b-browser

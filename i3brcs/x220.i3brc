@@ -1,6 +1,6 @@
 #!/bin/sh
 # the setup i use on my main machine
-I3B_BROWSER=b
+I3B_BROWSER=brave-browser
 I3B_YED=1
 I3B_EOS=1
 I3B_ARDUINO=1

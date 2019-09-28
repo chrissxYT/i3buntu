@@ -1,5 +1,5 @@
 #!/bin/sh
-I3B_BROWSER=b
+I3B_BROWSER=brave-browser
 I3B_YED=0
 I3B_EOS=0
 I3B_ARDUINO=0
