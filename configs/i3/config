@@ -184,7 +184,7 @@ bindsym XF86MonBrightnessUp exec ybacklight i200 # increase screen brightness
 bindsym XF86MonBrightnessDown exec ybacklight d200 # decrease screen brightness
 
 bindsym XF86AudioMicMute exec i3b-term
-bindsym XF86Launch1 exec brave-browser
+bindsym XF86Launch1 exec i3b-browser
 
 bindsym Print exec screenshot
 bindsym $mod+Print exec gnome-screenshot -i

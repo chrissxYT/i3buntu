@@ -32,7 +32,7 @@ mi()    (sudo make install)
 p()     (mplayer $@)
 i()     (sudo apt install $@)
 
-sh -c '{ xmodmap -e "clear lock" >/dev/null ; xmodmap -e "keycode 66 = Escape"  >/dev/null ; feh --bg-fill .walls/walls/38 >/dev/null ; } &'
+sh -c '{ xmodmap -e "clear lock" ; xmodmap -e "keycode 66 = Escape" ; feh --bg-fill ~/.walls/walls/38 ; } & >/dev/null'
 
 source /etc/environment
 
