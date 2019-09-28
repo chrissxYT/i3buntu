@@ -165,3 +165,6 @@ libxcb-xinerama0-dev
 libxcb-xkb-dev
 libxkbcommon-x11-dev
 libyajl-dev
+gnome-terminal
+xterm
+kitty

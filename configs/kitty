@@ -1,0 +1,37 @@
+font_size 20
+background #2d2d2d
+foreground #eeeeec
+enable_audio_bell yes
+scrollback_lines -1
+mouse_hide_wait -1
+url_color #eeeeec
+url_style single
+repaint_delay 1
+sync_to_monitor yes
+input_delay 2
+close_on_child_death yes
+allow_remote_control no
+
+color0 #2E3436
+color8 #555753
+
+color1 #CC0000
+color9 #EF2929
+
+color2 #4E9A06
+color10 #8AE234
+
+color3 #C4A000
+color11 #FCE94F
+
+color4 #3465A4
+color12 #729FCF
+
+color5 #75507B
+color13 #AD7FA8
+
+color6 #06989A
+color14 #34E2E2
+
+color7 #D3D7CF
+color15 #EEEEEC
