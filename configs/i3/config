@@ -15,7 +15,7 @@ title_align center
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3b-term
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -183,7 +183,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessUp exec ybacklight i200 # increase screen brightness
 bindsym XF86MonBrightnessDown exec ybacklight d200 # decrease screen brightness
 
-bindsym XF86AudioMicMute exec i3-sensible-terminal
+bindsym XF86AudioMicMute exec i3b-term
 bindsym XF86Launch1 exec brave-browser
 
 bindsym Print exec screenshot
