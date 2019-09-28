@@ -1,5 +1,2 @@
 install:
 	@./i
-
-update:
-	@./u

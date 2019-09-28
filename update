@@ -2,5 +2,7 @@
 cd configs
 make update
 cd ../packages
-sudo make update
+sudo make install
+cd ../tools
+sudo make install
 cd ..
