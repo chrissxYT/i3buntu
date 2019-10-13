@@ -1,8 +1,8 @@
 #!/bin/sh
-cd configs
-make update
+cd tools
+sudo make install
 cd ../packages
 sudo make install
-cd ../tools
-sudo make install
+cd ../configs
+make update
 cd ..
