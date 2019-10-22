@@ -1,6 +1,6 @@
 #!/bin/sh
 cd tools
-sudo make install
+sudo make install clean
 cd ../packages
 sudo make install
 cd ../configs

@@ -168,3 +168,5 @@ libyajl-dev
 gnome-terminal
 xterm
 kitty
+libasound2-dev
+libpulse-dev
