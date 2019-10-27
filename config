@@ -1,6 +1,9 @@
 #!/bin/sh
 
 I3B_OMZSH_DL_URL='https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
+I3B_YCM_FLAGS="--clang-completer --cs-completer --java-completer --go-completer --rust-completer"
+
+source ~/.i3brc
 
 ###### Make config directories
 mkdir -p ~/.config
@@ -31,7 +34,7 @@ git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouComplet
 ret=$(pwd)
 cd ~/.vim/bundle/YouCompleteMe
 git submodule update --init --recursive
-./install.py --clang-completer --cs-completer --java-completer --go-completer --rust-completer
+./install.py $I3B_YCM_FLAGS
 cd $ret
 
 ###### Install Oh-my-zsh
