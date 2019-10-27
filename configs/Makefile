@@ -10,7 +10,7 @@ cp:
 	cp -f /etc/lsb-release lsbr
 	cp -f /etc/os-release os-release
 	cp -f ~/.config/kitty/kitty.conf kitty
-	@cd i3 && make cp
+	@cd i3 && make -s cp
 
 install:
 	cp -f vimrc ~/.vimrc
@@ -24,7 +24,7 @@ install:
 	cp -f lsbr /etc/lsb-release
 	cp -f os-release /etc/os-release
 	cp -f kitty ~/.config/kitty/kitty.conf
-	@cd i3 && make install
+	@cd i3 && make -s install
 
 update:
 	cp -f vimrc ~/.vimrc
@@ -33,4 +33,4 @@ update:
 	cp -f Xmodmap ~/.Xmodmap
 	cp -f gtk ~/.config/gtk-3.0/settings.ini
 	cp -f kitty ~/.config/kitty/kitty.conf
-	@cd i3 && make update
+	@cd i3 && make -s update

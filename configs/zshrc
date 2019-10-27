@@ -10,7 +10,7 @@ HIST_STAMPS="dd.mm.yyyy"
 
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages command-not-found git encode64 extract git-auto-fetch)
+plugins=(pip colored-man-pages command-not-found git encode64 extract github)
 
 source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
