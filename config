@@ -1,5 +1,7 @@
 #!/bin/sh
 
+I3B_OMZSH_DL_URL='https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
+
 ###### Make config directories
 mkdir -p ~/.config
 mkdir -p ~/.config/i3
@@ -33,7 +35,7 @@ git submodule update --init --recursive
 cd $ret
 
 ###### Install Oh-my-zsh
-netsh 'https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
+netsh $I3B_OMZSH_DL_URL
 cp -f configs/zshrc ~/.zshrc
 
 ###### Configure git
