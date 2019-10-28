@@ -147,7 +147,9 @@ libxcb-xv0-dev
 libxcb-xvmc0-dev
 python-xcbgen
 libjsoncpp-dev
+i3status
 i3lock-fancy
+suckless-tools
 rofi-dev
 qalc
 libqalculate-dev

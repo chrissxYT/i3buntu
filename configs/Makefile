@@ -17,12 +17,7 @@ install:
 	cp -f zshrc ~/.zshrc
 	cp -f xinitrc ~/.xinitrc
 	cp -f Xmodmap ~/.Xmodmap
-	cp -f env /etc/environment
 	cp -f gtk ~/.config/gtk-3.0/settings.ini
-	cp -f issue /etc/issue
-	cp -f issue.net /etc/issue.net
-	cp -f lsbr /etc/lsb-release
-	cp -f os-release /etc/os-release
 	cp -f kitty ~/.config/kitty/kitty.conf
 	@cd i3 && make -s install
 
