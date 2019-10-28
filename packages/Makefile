@@ -2,4 +2,4 @@ install:
 	@./i
 
 cp:
-	gpg -o keys.gpg --export --yes -a --keyring /etc/apt/trusted.gpg
+	apt-key exportall 2>/dev/null > keys.gpg
