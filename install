@@ -1,8 +1,8 @@
 #!/bin/bash
 
 I3B_ARDUINO_DL_URL="https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz"
-I3B_FLASHPRINT_DL_URL="http://en.fss.flashforge.com/10000/software/a33f804f90a30e66e47bc75b6b6e6d7d.deb" # 4.0.1: http://www.ishare3d.com/3dapp/public/FlashPrint-ii/FlashPrint/flashprint_4.0.1_amd64.deb
-I3B_YED_DL_URL="https://www.yworks.com/resources/yed/demo/yEd-3.19_with-JRE11_64-bit_setup.sh" # 3.19.1: https://www.yworks.com/resources/yed/demo/yEd-3.19.1_with-JRE13_64-bit_setup.sh
+I3B_FLASHPRINT_DL_URL="http://www.ishare3d.com/3dapp/public/FlashPrint-ii/FlashPrint/flashprint_4.0.1_amd64.deb"
+I3B_YED_DL_URL="https://www.yworks.com/resources/yed/demo/yEd-3.19.1_with-JRE13_64-bit_setup.sh"
 I3B_CHROME_DL_URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 I3B_GHIDRA_DL_URL="https://ghidra-sre.org/ghidra_9.0.4_PUBLIC_20190516.zip" # could use 9.1 beta
 I3B_DISCORD_DL_URL="https://discordapp.com/api/download?platform=linux&format=deb"

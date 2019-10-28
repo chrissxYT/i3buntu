@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 I3B_OMZSH_DL_URL='https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh'
 I3B_YCM_FLAGS="--clang-completer --cs-completer --java-completer --go-completer --rust-completer"
