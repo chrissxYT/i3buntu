@@ -84,7 +84,8 @@ python-pip
 python3-pip
 golang
 rustc
-libgnome-keyring-dev
+libsecret-1-0
+libsecret-1-dev
 virtualbox
 latex209-base
 latex209-bin

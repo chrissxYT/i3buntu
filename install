@@ -124,7 +124,7 @@ fi
 
 ###### Build git libsecret cred helper
 pushd .
-cd /usr/share/doc/git/contrib/credential/gnome-keyring
+cd /usr/share/doc/git/contrib/credential/libsecret
 make
 popd
 

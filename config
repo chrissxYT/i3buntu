@@ -42,7 +42,7 @@ netsh $I3B_OMZSH_DL_URL
 cp -f configs/zshrc ~/.zshrc
 
 ###### Configure git
-git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 git config --global core.editor vim
 git config --global commit.gpgsign true
 
