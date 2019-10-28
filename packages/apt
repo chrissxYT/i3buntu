@@ -61,7 +61,7 @@ flex
 bison
 libelf-dev
 yubikey-manager-qt
-nextcloud-client
+nextcloud-desktop
 yubikey-personalization-gui
 yubioath-desktop
 thunderbird
