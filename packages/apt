@@ -4,7 +4,6 @@ libwebsockets-dev
 mercurial
 autoconf
 arandr
-python-gconf
 libpng-dev
 libusb-dev
 lxappearance

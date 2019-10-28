@@ -13,8 +13,6 @@ deb [arch=amd64] http://192.168.2.102:3142/brave-browser-apt-release.s3.brave.co
 deb http://192.168.2.102:3142/linux.teamviewer.com/deb stable main
 deb http://192.168.2.102:3142/ppa.launchpad.net/teejee2008/ppa/ubuntu eoan main
 deb http://192.168.2.102:3142/download.mono-project.com/repo/ubuntu preview main
-deb http://192.168.2.102:3142/ppa.launchpad.net/nextcloud-devs/client/ubuntu bionic main
-deb http://192.168.2.102:3142/ppa.launchpad.net/nextcloud-devs/client/ubuntu eoan main
 deb http://192.168.2.102:3142/ppa.launchpad.net/eosrei/fonts/ubuntu bionic main
 deb [arch=amd64] http://192.168.2.102:3142/packages.microsoft.com/ubuntu/19.04/prod disco main
 deb http://192.168.2.102:3142/ppa.launchpad.net/yubico/stable/ubuntu bionic main
