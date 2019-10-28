@@ -18,6 +18,7 @@ deb [arch=amd64] http://192.168.2.102:3142/packages.microsoft.com/ubuntu/19.04/p
 deb http://192.168.2.102:3142/ppa.launchpad.net/yubico/stable/ubuntu bionic main
 deb http://192.168.2.102:3142/ppa.launchpad.net/yubico/stable/ubuntu eoan main
 deb http://192.168.2.102:3142/deb.opera.com/opera-stable/ stable non-free
+deb [arch=amd64] http://192.168.2.102:3142/dl.google.com/linux/chrome/deb/ stable main
 deb http://192.168.2.102:3142/ppa.launchpad.net/freecad-maintainers/freecad-stable/ubuntu disco main
 deb http://192.168.2.102:3142/ppa.launchpad.net/gezakovacs/ppa/ubuntu eoan main
 deb http://192.168.2.102:3142/download.opensuse.org/repositories/home:/strycore/xUbuntu_19.04/ ./
