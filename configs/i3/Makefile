@@ -4,11 +4,13 @@ cp:
 	cp -f ~/.config/i3/i3status i3status
 
 install:
+	mkdir -p ~/.config/i3
 	cp -f config ~/.config/i3/config
 	cp -f i3status.sh ~/.config/i3/i3status.sh
 	cp -f i3status ~/.config/i3/i3status
 
 update:
+	mkdir -p ~/.config/i3
 	cp -f config ~/.config/i3/config
 	cp -f i3status.sh ~/.config/i3/i3status.sh
 	cp -f i3status ~/.config/i3/i3status

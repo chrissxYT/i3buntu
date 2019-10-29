@@ -5,17 +5,12 @@ I3B_YCM_FLAGS="--clang-completer --cs-completer --java-completer --go-completer 
 
 source i3brc
 
-###### Make config directories
-mkdir -p ~/.config
-mkdir -p ~/.config/i3
-mkdir -p ~/.config/kitty
-
 ###### Set configs
-cd configs/i3
+cd configs
 make install
-cd ../..
-cp -f configs/gtk ~/.config/gtk-3.0/settings.ini
+cd ..
 
+###### Install fonts
 mkdir ~/.fonts
 cp packages/fonts ~/.fonts/dl
 ret=$(pwd)
@@ -29,7 +24,6 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline.vim
 git clone https://github.com/w0rp/ale ~/.vim/bundle/ale
-cp -f configs/vimrc ~/.vimrc
 git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
 ret=$(pwd)
 cd ~/.vim/bundle/YouCompleteMe
@@ -48,7 +42,3 @@ git config --global commit.gpgsign true
 
 ###### Install wallpapers
 git clone https://github.com/chrissxyt/walls ~/.walls
-
-###### Install custom keyboard layout
-cp configs/xinitrc $HOME/.xinitrc
-cp configs/Xmodmap $HOME/.Xmodmap

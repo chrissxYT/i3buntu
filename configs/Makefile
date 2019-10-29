@@ -10,22 +10,31 @@ cp:
 	cp -f /etc/lsb-release lsbr
 	cp -f /etc/os-release os-release
 	cp -f ~/.config/kitty/kitty.conf kitty
-	@cd i3 && make -s cp
+	cp -f ~/.config/youtube-dl/config ytdl
+	@cd i3 && make cp
 
 install:
 	cp -f vimrc ~/.vimrc
 	cp -f zshrc ~/.zshrc
 	cp -f xinitrc ~/.xinitrc
 	cp -f Xmodmap ~/.Xmodmap
+	mkdir -p ~/.config/gtk-3.0
+	mkdir -p ~/.config/kitty
+	mkdir -p ~/.config/youtube-dl
 	cp -f gtk ~/.config/gtk-3.0/settings.ini
 	cp -f kitty ~/.config/kitty/kitty.conf
-	@cd i3 && make -s install
+	cp -f ytdl ~/.config/youtube-dl/config
+	@cd i3 && make install
 
 update:
 	cp -f vimrc ~/.vimrc
 	cp -f zshrc ~/.zshrc
 	cp -f xinitrc ~/.xinitrc
 	cp -f Xmodmap ~/.Xmodmap
+	mkdir -p ~/.config/gtk-3.0
+	mkdir -p ~/.config/kitty
+	mkdir -p ~/.config/youtube-dl
 	cp -f gtk ~/.config/gtk-3.0/settings.ini
 	cp -f kitty ~/.config/kitty/kitty.conf
-	@cd i3 && make -s update
+	cp -f ytdl ~/.config/youtube-dl/config
+	@cd i3 && make update
