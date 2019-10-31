@@ -1,0 +1,7 @@
+#!/bin/bash
+curl "$I3B_ARDUINO_DL_URL" | tar xJf -
+mv arduino-1.8.8 /usr/bin/
+pushd .
+cd /usr/bin/arduino-1.8.8
+./arduino-linux-setup.sh $(logname)
+popd

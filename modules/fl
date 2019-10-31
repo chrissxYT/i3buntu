@@ -1,0 +1,3 @@
+curl -Lo fl.exe https://support.image-line.com/redirect/flstudio20_win_installer
+wine fl.exe
+rm -f fl.exe

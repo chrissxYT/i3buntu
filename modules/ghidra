@@ -1,0 +1,7 @@
+#!/bin/bash
+pushd .
+cd
+curl -Lo gh.zip "$I3B_GHIDRA_DL_URL"
+unzip gh.zip
+rm -f gh.zip
+popd

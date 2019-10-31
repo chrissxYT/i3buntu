@@ -6,32 +6,15 @@ I3B_YED_DL_URL="https://www.yworks.com/resources/yed/demo/yEd-3.19.1_with-JRE13_
 I3B_GHIDRA_DL_URL="https://ghidra-sre.org/ghidra_9.0.4_PUBLIC_20190516.zip" # could use 9.1 beta
 I3B_DISCORD_DL_URL="https://discordapp.com/api/download?platform=linux&format=deb"
 
-isnap() (echo "Installing snap \"$@\" might take some time..." ; snap install $@ || echo "----------
-
-
-
-
-
-fixme: Installing snap package \"$@\" failed.
-
-
-
-
-
+fixme() (echo "----------
+\n\n\n\n\n
+fixme: Installing $1 package(s)/module \"$2\" failed.
+\n\n\n\n\n
 ----------")
-iapt()  (apt install -y $@ || echo "----------
 
-
-
-
-
-fixme: Installing apt package \"$@\" failed.
-
-
-
-
-
-----------")
+isnap() (echo "Installing snap \"$1\"..." ; snap install $@ || fixme snap "$1")
+iapt()  (apt install -y $@ || fixme apt "$@")
+imod()  (source "modules/$1" || fixme i3buntu "$1")
 
 apt_update() (rm -rf /etc/apt/sources.list.d ; apt update)
 
@@ -64,47 +47,30 @@ for p in $(cat packages/pip) ; do pip install $p ; done
 for p in $(cat packages/pip3) ; do pip3 install $p ; done
 packages/netsh
 likeu -l
-[[ "$I3B_BROWSER" == "b"* ]] && iapt brave-browser
-[[ "$I3B_BROWSER" == "o"* ]] && iapt opera-stable
-[[ "$I3B_BROWSER" == "f"* ]] && iapt firefox
-[[ "$I3B_BROWSER" == "c"* ]] && iapt google-chrome-stable
+[[ "$I3B_BROWSER" == *"brave"* ]] && iapt brave-browser
+[[ "$I3B_BROWSER" == *"opera"* ]] && iapt opera-stable
+[[ "$I3B_BROWSER" == *"firefox"* ]] && iapt firefox
+[[ "$I3B_BROWSER" == *"chrome"* ]] && iapt google-chrome-stable
 # just to make sure the cursor isnt changed to breeze all the time
 # (happend on my machine)
 rm -f /etc/alternatives/x-cursor-theme
 ln -s /usr/share/icons/DMZ-White/cursor.theme /etc/alternatives/x-cursor-theme
 
 ###### Get and install yEd
-[ "$I3B_YED" = 1 ] && netsh $I3B_YED_DL_URL
+[ "$I3B_YED" = 1 ] && netsh "$I3B_YED_DL_URL"
 
 ###### Get and install the Arduino IDE
-if [ "$I3B_ARDUINO" = 1 ] ; then
-	curl "$I3B_ARDUINO_DL_URL" | tar xJf -
-	mv arduino-1.8.8 /usr/bin/
-        pushd .
-	cd /usr/bin/arduino-1.8.8
-        ./arduino-linux-setup.sh $(logname)
-        popd
-fi
+[ "$I3B_ARDUINO" = 1 ] && imod arduino
 
 if [ "$I3B_TEENSY" = 1 ] ; then
 	###### Get and install the Teensy loader
-	curl -o /etc/udev/rules.d/49-teensy.rules https://www.pjrc.com/teensy/49-teensy.rules
-	curl https://www.pjrc.com/teensy/teensy_linux64.tar.gz | \
-                tar xzf -
-	mv -f teensy /usr/bin
-	rm -f libpng12.so.0 libusb-0.1.so.4
+        imod teensy
 
         [ "$I3B_ARDUINO" = 1 ] && netsh https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64
 fi
 
-if [ "$I3B_GHIDRA" = 1 ] ; then
-        pushd .
-        cd
-        curl -Lo gh.zip "$I3B_GHIDRA_DL_URL"
-        unzip gh.zip
-        rm -f gh.zip
-        popd
-fi
+###### Get and install Ghidra
+[ "$I3B_GHIDRA" = 1 ] && imod ghidra
 
 ###### Get and install TeamViewer
 [ "$I3B_TEAMVIEWER" = 1 ] && iapt teamviewer
@@ -116,40 +82,19 @@ fi
 [ "$I3B_GAMIX" = 1 ] && netsh -C "./gamix.sh" -c chrissxYT/gamix
 
 ###### Install FL Studio
-[ "$I3B_FL" = 1 ] && curl -Lo fl.exe https://support.image-line.com/redirect/flstudio20_win_installer && wine fl.exe && rm -f fl.exe
+[ "$I3B_FL" = 1 ] && imod fl
 
 ###### Install Discord
-[ "$I3B_DISCORD" = 1 ] && udpkg $I3B_DISCORD_DL_URL
+[ "$I3B_DISCORD" = 1 ] && udpkg "$I3B_DISCORD_DL_URL"
 
 ###### Build git libsecret cred helper
-pushd .
-cd /usr/share/doc/git/contrib/credential/libsecret
-make
-popd
+imod gitsecret
 
 ###### Get and install rofi-calc
-git clone https://github.com/svenstaro/rofi-calc.git rc
-cd rc
-autoreconf -i
-mkdir build
-cd build
-../configure
-make
-make install
-cd ../..
-rm -rf rc
+imod rofi-calc
 
 ###### Get and install EOS
-if [ "$I3B_EOS" = 1 ] ; then
-	mkdir tmp_eos_stuff
-	cd tmp_eos_stuff
-	curl -Lo eos.zip https://www.pabst-software.de/lib/exe/fetch.php?media=programme:eos:eos.zip
-	unzip eos.zip
-	cp -f EOS.exe /usr/bin/eos.exe
-	cd ..
-	rm -rf tmp_eos_stuff
-        cp -f eos /usr/bin/eos
-fi
+[ "$I3B_EOS" = 1 ] && imod eos
 
 ###### Change the distro name
 cp -f configs/issue /etc/issue
@@ -158,7 +103,7 @@ cp -f configs/os-release /etc/os-release
 cp -f configs/lsbr /etc/lsb-release
 
 ###### Set the locales
-sudo cp configs/locale /etc/default/locale
+cp configs/locale /etc/default/locale
 
 ###### Finish up everything
 apt_update
@@ -169,8 +114,8 @@ apt autoremove -y
 echo "$I3B_NAS" >> /etc/fstab
 
 # give the user rights to all of their home directory
-chown -R $(logname):$(logname) ~
+chown -R "$(logname):$(logname)" ~
 
 # change the login shell to zsh
 # (have to do this here, so you dont have to put in your pw again)
-chsh -s /bin/zsh $(logname)
+chsh -s /bin/zsh "$(logname)"
