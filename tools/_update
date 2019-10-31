@@ -1,17 +1,20 @@
 #!/bin/sh
+h=/home/$(logname)
 apt update
 apt full-upgrade -y
 apt -f install -y
 apt autoremove -y
-cp -f $HOME/.i3buntu/configs/issue /etc/issue
-cp -f $HOME/.i3buntu/configs/issue.net /etc/issue.net
-cp -f $HOME/.i3buntu/configs/os-release /etc/os-release
-cp -f $HOME/.i3buntu/configs/lsbr /etc/lsb-release
+cp -f "$h/.i3buntu/configs/issue" /etc/issue
+cp -f "$h/.i3buntu/configs/issue.net" /etc/issue.net
+cp -f "$h/.i3buntu/configs/os-release" /etc/os-release
+cp -f "$h/.i3buntu/configs/lsbr" /etc/lsb-release
 likeu -l
 pip install -U youtube-dl
 pip3 install -U instalooter
 apt autoremove -y
 ret=$(pwd)
-cd ~/.oh-my-zsh
+cd "$h/.oh-my-zsh"
+git pull
+cd "$h/.i3buntu"
 git pull
 cd "$ret"
