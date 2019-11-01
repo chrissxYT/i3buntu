@@ -12,6 +12,8 @@ likeu -l
 pip install -U youtube-dl
 pip3 install -U instalooter
 apt autoremove -y
+rm -f /etc/alternatives/x-cursor-theme
+ln -s /usr/share/icons/DMZ-White/cursor.theme /etc/alternatives/x-cursor-theme
 ret=$(pwd)
 cd "$h/.oh-my-zsh"
 git pull
