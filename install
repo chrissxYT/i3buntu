@@ -5,16 +5,18 @@ I3B_FLASHPRINT_DL_URL="http://www.ishare3d.com/3dapp/public/FlashPrint-ii/FlashP
 I3B_YED_DL_URL="https://www.yworks.com/resources/yed/demo/yEd-3.19.1_with-JRE13_64-bit_setup.sh"
 I3B_GHIDRA_DL_URL="https://ghidra-sre.org/ghidra_9.0.4_PUBLIC_20190516.zip" # could use 9.1 beta
 I3B_DISCORD_DL_URL="https://discordapp.com/api/download?platform=linux&format=deb"
+I3B_TEENSYDUINO_DL_URL="https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64"
 
-fixme() (echo "----------
-\n\n\n\n\n
+fixme() (echo -e "----------\n\n\n\n\n\n
 fixme: Installing $1 package(s)/module \"$2\" failed.
-\n\n\n\n\n
-----------")
+\n\n\n\n\n\n----------")
 
 isnap() (echo "Installing snap \"$1\"..." ; snap install $@ || fixme snap "$1")
 iapt()  (apt install -y $@ || fixme apt "$@")
+ipip()  (pip install $@ || fixme pip "$@")
+ipip3() (pip3 install $@ || fixme pip3 "$@")
 imod()  (source "modules/$1" || fixme i3buntu "$1")
+insh()  (netsh $@ || fixme netsh "$@")
 
 apt_update() (rm -rf /etc/apt/sources.list.d ; apt update)
 
@@ -42,10 +44,10 @@ iapt g++ clang
 [ "$I3B_VSCODE" = 1 ] && isnap vscode --classic
 isnap github-desktop --beta --classic
 cp -f configs/env /etc/environment
-for p in $(cat packages/apt) ; do apt install -y $p ; done
-for p in $(cat packages/pip) ; do pip install $p ; done
-for p in $(cat packages/pip3) ; do pip3 install $p ; done
-packages/netsh
+for p in $(cat packages/apt) ; do iapt $p ; done
+for p in $(cat packages/pip) ; do ipip $p ; done
+for p in $(cat packages/pip3) ; do ipip3 $p ; done
+packages/netsh || fixme netsh "any of the general ones"
 likeu -l
 [[ "$I3B_BROWSER" == *"brave"* ]] && iapt brave-browser
 [[ "$I3B_BROWSER" == *"opera"* ]] && iapt opera-stable
@@ -57,7 +59,7 @@ rm -f /etc/alternatives/x-cursor-theme
 ln -s /usr/share/icons/DMZ-White/cursor.theme /etc/alternatives/x-cursor-theme
 
 ###### Get and install yEd
-[ "$I3B_YED" = 1 ] && netsh "$I3B_YED_DL_URL"
+[ "$I3B_YED" = 1 ] && insh "$I3B_YED_DL_URL"
 
 ###### Get and install the Arduino IDE
 [ "$I3B_ARDUINO" = 1 ] && imod arduino
@@ -66,7 +68,7 @@ if [ "$I3B_TEENSY" = 1 ] ; then
 	###### Get and install the Teensy loader
         imod teensy
 
-        [ "$I3B_ARDUINO" = 1 ] && netsh https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64
+        [ "$I3B_ARDUINO" = 1 ] && insh "$I3B_TEENSYDUINO_DL_URL"
 fi
 
 ###### Get and install Ghidra
@@ -79,7 +81,7 @@ fi
 [ "$I3B_FLASHPRINT" = 1 ] && udpkg "$I3B_FLASHPRINT_DL_URL"
 
 ###### Run Gamix
-[ "$I3B_GAMIX" = 1 ] && netsh -C "./gamix.sh" -c chrissxYT/gamix
+[ "$I3B_GAMIX" = 1 ] && insh -C "./gamix.sh" -c chrissxYT/gamix
 
 ###### Install FL Studio
 [ "$I3B_FL" = 1 ] && imod fl

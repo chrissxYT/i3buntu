@@ -1,5 +1,5 @@
 #!/bin/bash
 curl -o /etc/udev/rules.d/49-teensy.rules https://www.pjrc.com/teensy/49-teensy.rules
 curl https://www.pjrc.com/teensy/teensy_linux64.tar.gz | tar xzf -
-mv -f teensy /usr/bin
+mv -f teensy /usr/bin/
 rm -f libpng12.so.0 libusb-0.1.so.4
