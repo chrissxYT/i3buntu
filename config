@@ -32,7 +32,7 @@ git submodule update --init --recursive
 cd $ret
 
 ###### Install Oh-my-zsh
-netsh $I3B_OMZSH_DL_URL
+modules/ohmyzsh
 cp -f configs/zshrc ~/.zshrc
 
 ###### Configure git
