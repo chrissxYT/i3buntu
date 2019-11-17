@@ -22,6 +22,12 @@ apt_update() (rm -rf /etc/apt/sources.list.d ; apt update)
 
 source i3brc
 
+# install sources.list
+cp -f "configs/sources.list/$I3B_SOURCES.sources.list" /etc/apt/sources.list
+dpkg --add-architecture i386
+apt-key add packages/keys.gpg
+apt_update
+
 ###### Install tools before doing anything else (i also put wicd in
 ###### here, because it is one of the few things requiring user
 ###### interaction)
@@ -31,10 +37,6 @@ make install clean
 cd ..
 
 ###### Update
-dpkg --add-architecture i386
-apt-key add packages/keys.gpg
-cp -f "configs/sources.list/$I3B_SOURCES.sources.list" /etc/apt/sources.list
-apt_update
 apt upgrade -y
 apt autoremove -y
 
