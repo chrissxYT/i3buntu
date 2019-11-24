@@ -34,4 +34,5 @@ curl -Lo SFMono-Regular.otf        https://github.com/ZulwiyozaPutra/SF-Mono-Fon
 curl -Lo SFMono-RegularItalic.otf  https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-RegularItalic.otf
 curl -Lo SFMono-Semibold.otf       https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-Semibold.otf
 curl -Lo SFMono-SemiboldItalic.otf https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-SemiboldItalic.otf
+curl -Lo Abel.ttf https://github.com/google/fonts/raw/master/ofl/abel/Abel-Regular.ttf
 curl -o Woodcut.ttf https://zerm.chrissx.ga/Woodcut.ttf
