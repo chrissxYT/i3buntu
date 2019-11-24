@@ -3,13 +3,15 @@
 #include <string.h>
 #include <time.h>
 
-#define VERSION "1.5"
+#define VERSION "1.6"
 
 #define HELP "netsh "VERSION"\n"\
              "(c) 2019 Christian Erwin Häußler, chrissx Media\n"\
              "\n"\
-             "Usage: netsh [OPTIONS] [URL/GitHub] [OPTIONS] [URL/GitHub] ... \n"\
+             "Usage: netsh [OPTIONS] [URL/repo] [OPTIONS] [URL/repo] ... \n"\
              "\n"\
+             "  --\n"\
+             "    Finish the options and treat all remaining arguments as repos/URLs.\n"\
              "  -c, --clone\n"\
              "    Set or unset the clone flag.\n"\
              "  -f, --file\n"\
@@ -23,7 +25,8 @@
              "  -h, --help\n"\
              "    Print this screen.\n"\
 
-#define ARG(s, unix, gnu) else if(!strcmp(s, "-"unix) || !strcmp(s, "--"gnu))
+#define ARGSTART if(!strcmp(s, "--")) argsended = 1
+#define ARG(s, unix, gnu) else if(!argsended && (!strcmp(s, "-"unix) || !strcmp(s, "--"gnu)))
 #define url(s) (!strncmp((s), "http://", 7) || \
         !strncmp((s), "https://", 8) || !strncmp((s), "git://", 6) ||\
         !strncmp((s), "svn://", 6) || !strncmp((s), "cvs://", 6) || \
@@ -42,7 +45,7 @@ char *rurl(char *u, char *bfr, int c, char *f)
 
 int main(int argc, char **argv)
 {
-        int c = 0;
+        int c = 0, argsended = 0;
         char *cmd = "./netsh";
         char *f = "netsh";
         char *scm = "git";
@@ -52,7 +55,7 @@ int main(int argc, char **argv)
                 char bfr[strlen(s) + 1024];
                 char buf[strlen(s) + 1024];
                 char fdb[16];
-                if(0); //yes, this has to be here for our macros to work
+                ARGSTART;
                 ARG(s, "c", "clone") c = !c;
                 ARG(s, "f", "file") f = argv[++i];
                 ARG(s, "C", "command") cmd = argv[++i];
