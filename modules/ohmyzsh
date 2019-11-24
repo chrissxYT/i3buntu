@@ -5,13 +5,7 @@
 
 umask g-w,o-w
 
-if [ "$OSTYPE" = cygwin ] && git --version | grep -q msysgit; then
-	echo 'Windows/MSYS Git is not supported on Cygwin'
-	echo 'Make sure the Cygwin git package is installed and is first on the $PATH'
-	exit 1
-fi
-
-git clone -c core.eol=lf -c core.autocrlf=false \
+git clone -c core.eol=lf \
 	-c fsck.zeroPaddedFilemode=ignore \
 	-c fetch.fsck.zeroPaddedFilemode=ignore \
 	-c receive.fsck.zeroPaddedFilemode=ignore \
