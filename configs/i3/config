@@ -204,10 +204,6 @@ bindsym $mod+Shift+b exec bookmark f
 
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort"
 
-#assign [class="brave-browser"] $ws1
-#assign [class="thunderbird"] $ws9
-#assign [class="discord"] $ws10
-
 new_window normal 0
 new_float normal 0
 
@@ -215,20 +211,6 @@ bindsym $mod+u border pixel 0
 bindsym $mod+n border normal 0
 
 bindsym $mod+q split toggle
-
-#set $ws1 brave
-#set $ws9 thunderbird
-#set $ws10 discord
-
-
-
-#client.focused           #a0a0a0     #b0b0b0      #191919     #bdbdbd       #d0d0d0
-#client.focused_inactive  #3a3a3a      #3a3a3a     #e1e1e1     #565656       #d0d0d0
-#client.unfocused         #3a3a3a      #3a3a3a      #e1e1e1     #565656       #d0d0d0
-#client.urgent           #ff0000            #ff0000        #ffffff        #268BD2
-#client.placeholder      #000000            #848484        #FFFFFF        #268BD2
-#client.background       #202020
-
 
 gaps inner 10
 border_radius 5
@@ -238,3 +220,8 @@ hide_edge_borders both
 
 bindsym $mod+Mod1+h split h
 bindsym $mod+Mod1+v split v
+
+exec_always compton
+exec_always feh --bg-fill ~/.walls/walls/38
+exec_always xmodmap -e "clear lock"
+exec_always xmodmap -e "keycode 66 = Escape"

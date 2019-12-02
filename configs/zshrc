@@ -1,10 +1,8 @@
-export ZSH="/home/$USER/.oh-my-zsh"
+export ZSH="/home/$(logname)/.oh-my-zsh"
 ZSH_THEME="agnoster"
-# i wouldnt know of a variable to turn this completely off
-export UPDATE_ZSH_DAYS=133700
+export DISABLE_AUTO_UPDATE="true"
 
 DISABLE_UPDATE_PROMPT="true"
-#DISABLE_AUTO_TITLE="true"
 ENABLE_CORRECTION="false"
 HIST_STAMPS="dd.mm.yyyy"
 
@@ -25,14 +23,12 @@ v()     ($EDITOR $@)
 V()     (sudo $EDITOR $@)
 e()     ($EDITOR $(ls | fzf))
 E()     (sudo $EDITOR $(ls | fzf))
-uzip()  (unzip -d "$(echo $1 | sed s/\.zip//g -)" "$1")
+uzip()  (unzip -d "$(echo "$1" | sed s/\.zip//g -)" "$1")
 sd()    (sudo shutdown $@ now)
 m()     (make $@)
 mi()    (sudo make install)
 p()     (mplayer $@)
 i()     (sudo apt install $@)
-
-sh -c '{ xmodmap -e "clear lock" ; xmodmap -e "keycode 66 = Escape" ; feh --bg-fill ~/.walls/walls/38 ; } & >/dev/null'
 
 source /etc/environment
 
