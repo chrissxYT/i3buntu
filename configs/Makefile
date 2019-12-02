@@ -11,6 +11,7 @@ cp:
 	cp -f /etc/os-release os-release
 	cp -f ~/.config/kitty/kitty.conf kitty
 	cp -f ~/.config/youtube-dl/config ytdl
+	cp -f ~/.config/compton.conf compton.conf
 	@cd i3 && make cp
 
 install:
@@ -24,6 +25,7 @@ install:
 	cp -f gtk ~/.config/gtk-3.0/settings.ini
 	cp -f kitty ~/.config/kitty/kitty.conf
 	cp -f ytdl ~/.config/youtube-dl/config
+	cp -f compton.conf ~/.config/compton.conf
 	@cd i3 && make install
 
 update:
@@ -37,4 +39,5 @@ update:
 	cp -f gtk ~/.config/gtk-3.0/settings.ini
 	cp -f kitty ~/.config/kitty/kitty.conf
 	cp -f ytdl ~/.config/youtube-dl/config
+	cp -f compton.conf ~/.config/compton.conf
 	@cd i3 && make update
