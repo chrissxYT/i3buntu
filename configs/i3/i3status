@@ -47,28 +47,28 @@ cpu_temperature 4 {
 
 ethernet enp0s25 {
 	format_up = " %ip (%speed) "
-	format_down = " ethernet_down_remove_pls "
+	format_down = "can't read ethernet"
 	separator = false
 	separator_block_width = 0
 }
 
 ethernet eth0 {
 	format_up = " %ip (%speed) "
-	format_down = " ethernet_down_remove_pls "
+	format_down = "can't read ethernet"
 	separator = false
 	separator_block_width = 0
 }
 
 wireless wlp3s0 {
         format_up = " 📶 %essid %ip (%quality, %bitrate, %frequency) "
-        format_down = " wifi_down_remove_pls "
+        format_down = "can't read wifi"
 	separator = false
 	separator_block_width = 0
 }
 
 battery 0 {
         format = " %status %percentage %remaining %consumption (%emptytime) "
-        format_down = " no_battery_remove_pls "
+        format_down = "can't read battery"
         status_chr = "⚡"
         status_bat = "🔋"
         status_unk = "❔"
