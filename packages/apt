@@ -172,3 +172,6 @@ kitty
 libasound2-dev
 libpulse-dev
 hub
+acpi
+thefuck
+compton
