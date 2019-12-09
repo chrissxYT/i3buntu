@@ -83,7 +83,7 @@ fi
 [ "$I3B_FLASHPRINT" = 1 ] && udpkg "$I3B_FLASHPRINT_DL_URL"
 
 ###### Run Gamix
-[ "$I3B_GAMIX" = 1 ] && insh -C "./gamix.sh" -c chrissxYT/gamix
+[ "$I3B_GAMIX" = 1 ] && insh -C "./gamix.sh ns" -c chrissxYT/gamix
 
 ###### Install FL Studio
 [ "$I3B_FL" = 1 ] && imod fl
