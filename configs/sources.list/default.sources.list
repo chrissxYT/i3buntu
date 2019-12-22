@@ -14,7 +14,7 @@ deb http://linux.teamviewer.com/deb stable main
 deb http://ppa.launchpad.net/teejee2008/ppa/ubuntu bionic main
 deb https://download.mono-project.com/repo/ubuntu preview main
 deb http://ppa.launchpad.net/eosrei/fonts/ubuntu bionic main
-deb [arch=amd64] https://packages.microsoft.com/ubuntu/19.04/prod disco main
+deb [arch=amd64] https://packages.microsoft.com/ubuntu/19.10/prod eoan main
 deb http://ppa.launchpad.net/yubico/stable/ubuntu bionic main
 deb http://ppa.launchpad.net/yubico/stable/ubuntu eoan main
 deb https://deb.opera.com/opera-stable/ stable non-free
