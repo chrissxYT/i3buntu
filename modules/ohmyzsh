@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Parts of this script are stolen straight from oh-my-zsh:
-# https://github.com/robbyrussell/oh-my-zsh
+# https://github.com/ohmyzsh/ohmyzsh
 
 umask g-w,o-w
 
@@ -9,7 +9,7 @@ git clone -c core.eol=lf \
 	-c fsck.zeroPaddedFilemode=ignore \
 	-c fetch.fsck.zeroPaddedFilemode=ignore \
 	-c receive.fsck.zeroPaddedFilemode=ignore \
-	--depth=1 "https://github.com/robbyrussell/oh-my-zsh.git" \
+	--depth=1 "https://github.com/ohmyzsh/ohmyzsh.git" \
         "~/.oh-my-zsh" \
         || { error "git clone of oh-my-zsh repo failed" ; exit 1 ; }
 
