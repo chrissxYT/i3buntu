@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-#define VERSION "1.6"
+#define VERSION "1.6.1"
 
 #define HELP "netsh "VERSION"\n"\
              "(c) 2019 Christian Erwin Häußler, chrissx Media\n"\
@@ -18,7 +18,7 @@
              "    Set the file used when clone is disabled.\n"\
              "  -C, --command\n"\
              "    Set the command executed when clone is enabled.\n"\
-             "  -s , --scm\n"\
+             "  -s, --scm\n"\
              "    Set the SCM used for cloning. (git and hg are tested)\n"\
              "  -v, --version\n"\
              "    Print the version number.\n"\
