@@ -5,4 +5,5 @@ netsh -C "make install" -c dylanaraps/neofetch
 netsh -C "make" -c chrissxYT/LiKeU
 netsh -s hg -C "make install" -c bb://rafaelgg/slmenu
 netsh -C "make install" -c chrissxYT/sane-sent
-netsh -C 'autoreconf ; automake --add-missing ; autoreconf ; ./configure ; cd x86_64-pc-linux-gnu ; make -j8 ; make install ; cd ..' -c resloved/i3
+netsh -C "make install" -c younix/lel
+netsh -C "autoreconf -fi ; ./configure ; cd x86_64-pc-linux-gnu ; make -j8 ; make install ; cd .." -c resloved/i3
