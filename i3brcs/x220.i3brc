@@ -1,11 +1,11 @@
 #!/bin/sh
-# the setup i use on my main machine
+# the setup i use on my main laptop
 I3B_BROWSER=brave-browser
-I3B_YED=1
-I3B_EOS=1
+I3B_YED=0
+I3B_EOS=0
 I3B_ARDUINO=1
 I3B_TEENSY=1
-I3B_TEAMVIEWER=1
+I3B_TEAMVIEWER=0
 I3B_FLASHPRINT=1
 I3B_VSCODE=0
 I3B_FL=1
