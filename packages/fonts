@@ -35,4 +35,11 @@ curl -Lo SFMono-RegularItalic.otf  https://github.com/ZulwiyozaPutra/SF-Mono-Fon
 curl -Lo SFMono-Semibold.otf       https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-Semibold.otf
 curl -Lo SFMono-SemiboldItalic.otf https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-SemiboldItalic.otf
 curl -Lo Abel.ttf https://github.com/google/fonts/raw/master/ofl/abel/Abel-Regular.ttf
-curl -o Woodcut.ttf https://zerm.chrissx.ga/Woodcut.ttf
+curl -Lo FrankRuhl-Regular.ttf https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Regular.ttf
+curl -Lo FrankRuhl-Black.ttf https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Black.ttf
+curl -Lo FrankRuhl-Bold.ttf https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Bold.ttf
+curl -Lo FrankRuhl-Light.ttf https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Light.ttf
+curl -Lo FrankRuhl-Medium.ttf https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Medium.ttf
+curl -Lo Roboto-MediumItalic.ttf https://github.com/google/fonts/raw/master/apache/roboto/Roboto-MediumItalic.ttf
+curl -Lo FRL-Medium.ttf https://github.com/google/fonts/raw/master/ofl/frankruhllibre/FrankRuhlLibre-Medium.ttf
+curl -o Woodcut.ttf https://zerm.eu/Woodcut.ttf
