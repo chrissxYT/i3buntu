@@ -1,7 +1,5 @@
 #!/bin/bash
 
-I3B_YCM_FLAGS="--clang-completer --cs-completer --java-completer --go-completer --rust-completer"
-
 source i3brc
 
 ###### Set configs
@@ -10,13 +8,7 @@ make install
 cd ..
 
 ###### Install fonts
-mkdir ~/.fonts
-cp packages/fonts ~/.fonts/dl
-ret=$(pwd)
-cd ~/.fonts
-sh dl
-rm -f dl
-cd "$ret"
+packages/fonts
 
 ###### Install vim plugins
 mkdir -p ~/.vim/autoload ~/.vim/bundle
