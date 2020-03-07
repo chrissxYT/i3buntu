@@ -1,2 +1,9 @@
 #!/bin/sh
-sudo _update
+h=/home/$(logname)
+sudo h=$h _update
+ret=$(pwd)
+cd "$h/.oh-my-zsh"
+git pull
+cd "$h/.i3buntu"
+git pull
+cd "$ret"

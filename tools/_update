@@ -1,5 +1,4 @@
 #!/bin/sh
-h=/home/$(logname)
 apt update
 apt full-upgrade -y
 apt -f install -y
@@ -14,9 +13,3 @@ pip3 install -U instalooter
 apt autoremove -y
 rm -f /etc/alternatives/x-cursor-theme
 ln -s /usr/share/icons/DMZ-White/cursor.theme /etc/alternatives/x-cursor-theme
-ret=$(pwd)
-cd "$h/.oh-my-zsh"
-git pull
-cd "$h/.i3buntu"
-git pull
-cd "$ret"
