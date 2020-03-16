@@ -1,3 +1,9 @@
 --xattrs
---playlist-reverse
+--xattr-set-filesize
+--playlist-random
 --no-part
+--hls-prefer-native
+--no-call-home
+--prefer-free-formats
+-f bestvideo+bestaudio
+-icw
