@@ -1,12 +1,5 @@
 #!/bin/bash
 
-I3B_ARDUINO_DL_URL="https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz"
-I3B_FLASHPRINT_DL_URL="http://en.fss.flashforge.com/10000/software/4455a73481c89c161847e1f89dd89cf2.deb"
-I3B_YED_DL_URL="https://www.yworks.com/resources/yed/demo/yEd-3.19.1.1_with-JRE13_64-bit_setup.sh"
-I3B_GHIDRA_DL_URL="https://ghidra-sre.org/ghidra_9.1.2_PUBLIC_20200212.zip"
-I3B_DISCORD_DL_URL="https://discordapp.com/api/download?platform=linux&format=deb"
-I3B_TEENSYDUINO_DL_URL="https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64"
-
 fixme() (echo -e "----------\n\n\n\n\n\n
 fixme: Installing $1 package(s)/module \"$2\" failed.
 \n\n\n\n\n\n----------")
@@ -19,6 +12,8 @@ imod()  (source "modules/$1" || fixme i3buntu "$1")
 insh()  (netsh $@ || fixme netsh "$@")
 
 apt_update() (rm -rf /etc/apt/sources.list.d ; apt update)
+
+source urls
 
 source i3brc
 
@@ -55,23 +50,25 @@ likeu -l
 [[ "$I3B_BROWSER" == *"opera"* ]] && iapt opera-stable
 [[ "$I3B_BROWSER" == *"firefox"* ]] && iapt firefox
 [[ "$I3B_BROWSER" == *"chrome"* ]] && iapt google-chrome-stable
-# just to make sure the cursor isnt changed to breeze all the time
-# (happend on my machine)
+
+###### set the cursor to something making sense
 rm -f /etc/alternatives/x-cursor-theme
 ln -s /usr/share/icons/DMZ-White/cursor.theme /etc/alternatives/x-cursor-theme
 
 ###### Get and install yEd
 [ "$I3B_YED" = 1 ] && insh "$I3B_YED_DL_URL"
 
+###### Get and install BlueJ
+[ "$I3B_BLUEJ" = 1 ] && udpkg "$I3B_BLUEJ_DL_URL"
+
 ###### Get and install the Arduino IDE
 [ "$I3B_ARDUINO" = 1 ] && imod arduino
 
-if [ "$I3B_TEENSY" = 1 ] ; then
-	###### Get and install the Teensy loader
-        imod teensy
+###### Get and install the Teensy loader
+[ "$I3B_TEENSY" = 1 ] && imod teensy
 
-        [ "$I3B_ARDUINO" = 1 ] && insh "$I3B_TEENSYDUINO_DL_URL"
-fi
+###### Get and install Teensyduino
+[ "$I3B_ARDUINO" = 1 && "$I3B_TEENSY" = 1 ] && insh "$I3B_TEENSYDUINO_DL_URL"
 
 ###### Get and install Ghidra
 [ "$I3B_GHIDRA" = 1 ] && imod ghidra

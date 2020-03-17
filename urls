@@ -1,0 +1,7 @@
+I3B_ARDUINO_DL_URL="https://downloads.arduino.cc/arduino-1.8.8-linux64.tar.xz"
+I3B_FLASHPRINT_DL_URL="http://en.fss.flashforge.com/10000/software/4455a73481c89c161847e1f89dd89cf2.deb"
+I3B_YED_DL_URL="https://www.yworks.com/resources/yed/demo/yEd-3.19.1.1_with-JRE13_64-bit_setup.sh"
+I3B_BLUEJ_DL_URL="http://www.bluej.org/download/files/BlueJ-linux-422.deb"
+I3B_GHIDRA_DL_URL="https://ghidra-sre.org/ghidra_9.1.2_PUBLIC_20200212.zip"
+I3B_DISCORD_DL_URL="https://discordapp.com/api/download?platform=linux&format=deb"
+I3B_TEENSYDUINO_DL_URL="https://www.pjrc.com/teensy/td_145/TeensyduinoInstall.linux64"
