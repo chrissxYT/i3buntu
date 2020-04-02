@@ -109,7 +109,7 @@ main() {
         echo '['
         while true ; do
                 render
-                sleep 1
+                sleep 0.5
         done
 }
 
