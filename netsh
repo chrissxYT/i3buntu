@@ -6,5 +6,10 @@ cd .i3buntu
 sudo ./install
 ./config
 cd ..
-echo 'Restarting...'
-shutdown -r now
+echo -n 'Restarting in 10...'
+for i in 10 9 8 7 6 5 4 3 2 1 ; do
+        echo -n "$i..."
+        sleep 1
+done
+echo
+sudo shutdown -r now
