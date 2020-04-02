@@ -1,24 +1,25 @@
-deb http://192.168.2.102:3142/de.archive.ubuntu.com/ubuntu/ eoan main restricted universe multiverse
-deb http://192.168.2.102:3142/de.archive.ubuntu.com/ubuntu/ eoan-updates main restricted universe multiverse
-deb http://192.168.2.102:3142/de.archive.ubuntu.com/ubuntu/ eoan-backports main restricted universe multiverse
-deb http://192.168.2.102:3142/de.archive.ubuntu.com/ubuntu/ eoan-security main restricted universe multiverse
-deb http://archive.canonical.com/ubuntu eoan partner
-deb http://security.ubuntu.com/ubuntu eoan main restricted universe multiverse
-deb http://security.ubuntu.com/ubuntu eoan-updates main restricted universe multiverse
-deb http://security.ubuntu.com/ubuntu eoan-backports main restricted universe multiverse
-deb http://security.ubuntu.com/ubuntu eoan-security main restricted universe multiverse
-deb [arch=amd64] http://download.docker.com/linux/ubuntu/ disco nightly
-deb http://192.168.2.102:3142/dl.winehq.org/wine-builds/ubuntu/ eoan main
-deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ disco main
-deb http://linux.teamviewer.com/deb stable main
-deb http://ppa.launchpad.net/teejee2008/ppa/ubuntu bionic main
-deb http://download.mono-project.com/repo/ubuntu preview main
-deb http://ppa.launchpad.net/eosrei/fonts/ubuntu bionic main
-deb [arch=amd64] http://192.168.2.102:3142/packages.microsoft.com/ubuntu/19.10/prod eoan main
-deb http://ppa.launchpad.net/yubico/stable/ubuntu bionic main
-deb http://ppa.launchpad.net/yubico/stable/ubuntu eoan main
-deb https://deb.opera.com/opera-stable/ stable non-free
-deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
-deb http://ppa.launchpad.net/freecad-maintainers/freecad-stable/ubuntu disco main
-deb http://ppa.launchpad.net/gezakovacs/ppa/ubuntu eoan main
-deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_19.04/ ./
+deb http://192.168.2.105:3142/de.archive.ubuntu.com/ubuntu/ eoan main restricted universe multiverse
+deb http://192.168.2.105:3142/de.archive.ubuntu.com/ubuntu/ eoan-updates main restricted universe multiverse
+deb http://192.168.2.105:3142/de.archive.ubuntu.com/ubuntu/ eoan-backports main restricted universe multiverse
+deb http://192.168.2.105:3142/de.archive.ubuntu.com/ubuntu/ eoan-security main restricted universe multiverse
+deb http://192.168.2.105:3142/archive.canonical.com/ubuntu eoan partner
+deb http://192.168.2.105:3142/security.ubuntu.com/ubuntu eoan main restricted universe multiverse
+deb http://192.168.2.105:3142/security.ubuntu.com/ubuntu eoan-updates main restricted universe multiverse
+deb http://192.168.2.105:3142/security.ubuntu.com/ubuntu eoan-backports main restricted universe multiverse
+deb http://192.168.2.105:3142/security.ubuntu.com/ubuntu eoan-security main restricted universe multiverse
+deb [arch=amd64] http://192.168.2.105:3142/download.docker.com/linux/ubuntu/ disco nightly
+deb http://192.168.2.105:3142/dl.winehq.org/wine-builds/ubuntu/ eoan main
+deb [arch=amd64] http://192.168.2.105:3142/brave-browser-apt-release.s3.brave.com/ disco main
+deb http://192.168.2.105:3142/linux.teamviewer.com/deb stable main
+deb http://192.168.2.105:3142/ppa.launchpad.net/teejee2008/ppa/ubuntu bionic main
+deb http://192.168.2.105:3142/download.mono-project.com/repo/ubuntu preview main
+deb http://192.168.2.105:3142/ppa.launchpad.net/eosrei/fonts/ubuntu bionic main
+deb [arch=amd64] http://192.168.2.105:3142/packages.microsoft.com/ubuntu/19.10/prod eoan main
+deb http://192.168.2.105:3142/ppa.launchpad.net/yubico/stable/ubuntu bionic main
+deb http://192.168.2.105:3142/ppa.launchpad.net/yubico/stable/ubuntu eoan main
+deb http://192.168.2.105:3142/deb.opera.com/opera-stable/ stable non-free
+deb [arch=amd64] http://192.168.2.105:3142/dl.google.com/linux/chrome/deb/ stable main
+deb http://192.168.2.105:3142/ppa.launchpad.net/freecad-maintainers/freecad-stable/ubuntu disco main
+deb http://192.168.2.105:3142/ppa.launchpad.net/gezakovacs/ppa/ubuntu eoan main
+deb http://192.168.2.105:3142/download.opensuse.org/repositories/home:/strycore/xUbuntu_18.04/ ./
+deb http://192.168.2.105:3142/ppa.launchpad.net/mscore-ubuntu/mscore3-stable/ubuntu eoan main
