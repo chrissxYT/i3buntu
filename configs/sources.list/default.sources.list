@@ -22,3 +22,4 @@ deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 deb http://ppa.launchpad.net/freecad-maintainers/freecad-stable/ubuntu disco main
 deb http://ppa.launchpad.net/gezakovacs/ppa/ubuntu eoan main
 deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_19.04/ ./
+deb http://ppa.launchpad.net/mscore-ubuntu/mscore3-stable/ubuntu eoan main
