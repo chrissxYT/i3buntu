@@ -17,7 +17,8 @@ source urls
 source i3brc
 
 # install sources.list
-cp -f "configs/sources.list/$I3B_SOURCES.sources.list" /etc/apt/sources.list
+cp -f configs/sources.list /etc/apt/sources.list
+[ "$I3B_APT_CACHE" = 1 ] && cp -f configs/apt-cache /etc/apt/apt.conf.d/02proxy
 dpkg --add-architecture i386
 apt-key add packages/keys.gpg
 apt_update
