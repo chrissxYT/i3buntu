@@ -14,7 +14,6 @@ insh()  (netsh $@ || fixme netsh "$@")
 apt_update() (rm -rf /etc/apt/sources.list.d ; apt update)
 
 source urls
-
 source i3brc
 
 # install sources.list
@@ -26,7 +25,8 @@ apt_update
 ###### Install tools before doing anything else (i also put wicd in
 ###### here, because it is one of the few things requiring user
 ###### interaction)
-iapt wicd gcc make
+iapt wicd
+iapt curl gcc make
 cd tools
 make install clean
 cd ..

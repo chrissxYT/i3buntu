@@ -28,8 +28,7 @@ config under ~/.i3brc.
 
 Type the following in the Ubuntu Bash:
 ```
-sudo apt install curl
-curl -L https://github.com/chrissxYT/i3buntu/raw/master/netsh | sh
+wget -O - https://github.com/chrissxYT/i3buntu/raw/master/netsh | sh
 ```
 This will download the most recent version of curl and use it to
 download the netsh script from this GitHub account and run it.
