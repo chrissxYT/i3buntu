@@ -12,6 +12,7 @@ cp:
 	cp -f ~/.config/kitty/kitty.conf kitty
 	cp -f ~/.config/youtube-dl/config ytdl
 	cp -f ~/.config/compton.conf compton.conf
+	cp -f ~/.zshtheme zsh-theme
 	@cd i3 && make cp
 
 install:
@@ -26,6 +27,7 @@ install:
 	cp -f kitty ~/.config/kitty/kitty.conf
 	cp -f ytdl ~/.config/youtube-dl/config
 	cp -f compton.conf ~/.config/compton.conf
+	cp -f zsh-theme ~/.zshtheme
 	@cd i3 && make install
 
 update:
@@ -40,4 +42,5 @@ update:
 	cp -f kitty ~/.config/kitty/kitty.conf
 	cp -f ytdl ~/.config/youtube-dl/config
 	cp -f compton.conf ~/.config/compton.conf
+	cp -f zsh-theme ~/.zshtheme
 	@cd i3 && make update
