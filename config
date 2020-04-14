@@ -11,16 +11,15 @@ cd ..
 packages/fonts
 
 ###### Install vim plugins
-source packages/vim
+packages/vim
 
 ###### Install i3b-zsh
 cp -f configs/zshrc ~/.zshrc
 cp -f configs/zsh-theme ~/.zshtheme
 
 ###### Configure git
-git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 git config --global core.editor vim
-git config --global commit.gpgsign true
+modules/gitpg "$I3B_EMAIL"
 
 ###### Install wallpapers
 git clone https://github.com/chrissxyt/walls ~/.walls

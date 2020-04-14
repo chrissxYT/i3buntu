@@ -16,6 +16,7 @@ I3B_APT_CACHE=0
 I3B_GHIDRA=0
 I3B_DISCORD=0
 I3B_TERM=kitty
+I3B_EMAIL="sepp@example.com"
 I3B_YCM_FLAGS="--clang-completer --cs-completer --java-completer --go-completer --rust-completer"
 if [ -f "/home/$(logname)/.i3brc" ] ; then
         source "/home/$(logname)/.i3brc"
