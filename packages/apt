@@ -27,7 +27,7 @@ apport-gtk
 usb-creator-common
 usb-creator-gtk
 openjdk-8-jdk
-openjdk-13-jdk
+openjdk-14-jdk
 apt-transport-https
 fonts-noto-color-emoji
 fonts-symbola
