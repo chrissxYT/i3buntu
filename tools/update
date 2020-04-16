@@ -4,4 +4,6 @@ sudo h=$h _update
 ret=$(pwd)
 cd "$h/.i3buntu"
 git pull
+cd "$h/.walls"
+git pull
 cd "$ret"
