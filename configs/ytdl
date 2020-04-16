@@ -1,7 +1,6 @@
 --xattrs
 --xattr-set-filesize
 --playlist-random
---no-part
 --hls-prefer-native
 --no-call-home
 --prefer-free-formats
