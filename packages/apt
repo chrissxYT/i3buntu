@@ -28,6 +28,8 @@ usb-creator-common
 usb-creator-gtk
 openjdk-8-jdk
 openjdk-14-jdk
+openjdk-11-jdk
+openjfx
 apt-transport-https
 fonts-noto-color-emoji
 fonts-symbola
