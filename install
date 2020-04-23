@@ -18,7 +18,7 @@ source i3brc
 
 # install sources.list
 cp -f configs/sources.list /etc/apt/sources.list
-[ "$I3B_APT_CACHE" = 1 ] && cp -f configs/apt-cache /etc/apt/apt.conf.d/02proxy
+sed "s/%PROXY%/$(echo "$I3B_APT_CACHE" | sed 's/\//\\\//')/"
 dpkg --add-architecture i386
 apt-key add packages/keys.gpg
 apt_update
