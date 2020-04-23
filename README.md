@@ -10,7 +10,7 @@ project is to construct a flavour of the Ubuntu operating system which
 
 
 # Requirements
-* A version of Ubuntu Minimal ([19.10](https://ubuntu.com/download/desktop/thank-you/?version=19.10&architecture=amd64) recommended, later ones may work, too).
+* A version of Ubuntu Minimal ([20.04](https://ubuntu.com/download/desktop/thank-you/?version=20.04&architecture=amd64) recommended, later ones may work, too).
 * An internet connection.
 
 # Installation
@@ -22,13 +22,13 @@ key) can be found in the above link for Ubuntu Minimal. During the
 installation select the English language and German keyboard layout,
 uncheck the options for additional software. After the new
 installation is booted, open a Terminal and optionally put your
-config under ~/.i3brc.
+config at ~/.i3brc.
 
 ##### 2. Download and install i3buntu
 
 Type the following in the Ubuntu Bash:
 ```
-wget -O - https://github.com/chrissxYT/i3buntu/raw/master/netsh | sh
+wget -O - https://i3b.chrissx.de/netsh | sh
 ```
 This will download the most recent version of curl and use it to
 download the netsh script from this GitHub account and run it.
@@ -39,7 +39,7 @@ constantly hope to have included everything necessary to make an
 optimal setup I often realize that perfections can be made. Anyone
 should feel absolutely free to come with suggestions on how to
 improve the project. One may (for instance!) suggest:
-* What packages to add. Again, I may have missed something which can easen our lifes.
+* What packages to add. Again, I may have missed something which can easen our lives.
 * How to make it easier for others to customize my setup.
 * Something that I may not have thought of yet.
 
