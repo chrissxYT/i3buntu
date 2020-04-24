@@ -27,11 +27,21 @@ config at ~/.i3brc.
 ##### 2. Download and install i3buntu
 
 Type the following in the Ubuntu Bash:
-```
+```sh
 wget -O - https://i3b.chrissx.de/netsh | sh
 ```
-This will download the most recent version of curl and use it to
-download the netsh script from this GitHub account and run it.
+This will download the startup script of i3buntu and run it.
+
+# Updating/Upgrading
+You can upgrade your existing i3buntu installation like this:
+```sh
+cd ~/.i3buntu
+git pull
+./update
+```
+WARNING: When upgrading across Ubuntu versions, expect stuff to break!
+I recently tried upgrading from 19.10 to 20.04 and it broke a lot, so
+be ready to reinstall.
 
 # Feedback
 The project continues to be a work in progress. Even though I
