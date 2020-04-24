@@ -2,7 +2,7 @@
 
 fixme() (echo -e "----------\n\n\n\n\n\n
 fixme: Installing $1 package(s)/module \"$2\" failed.
-\n\n\n\n\n\n----------")
+\n\n\n\n\n\n----------" | tee -a "/home/$(logname)/.i3berrors")
 
 isnap() (echo "Installing snap \"$1\"..." ; snap install $@ || fixme snap "$1")
 iapt()  (apt install -y $@ || fixme apt "$@")
