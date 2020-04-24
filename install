@@ -6,7 +6,6 @@ fixme: Installing $1 package(s)/module \"$2\" failed.
 
 isnap() (echo "Installing snap \"$1\"..." ; snap install $@ || fixme snap "$1")
 iapt()  (apt install -y $@ || fixme apt "$@")
-ipip()  (pip install $@ || fixme pip "$@")
 ipip3() (pip3 install $@ || fixme pip3 "$@")
 imod()  (source "modules/$1" || fixme i3buntu "$1")
 insh()  (netsh $@ || fixme netsh "$@")
@@ -43,7 +42,6 @@ iapt g++ clang
 isnap github-desktop --beta --classic
 cp -f configs/env /etc/environment
 for p in $(cat packages/apt) ; do iapt $p ; done
-for p in $(cat packages/pip) ; do ipip $p ; done
 for p in $(cat packages/pip3) ; do ipip3 $p ; done
 packages/netsh || fixme netsh "any of the general ones"
 likeu -l
