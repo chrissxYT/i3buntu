@@ -10,7 +10,7 @@ project is to construct a flavour of the Ubuntu operating system which
 
 
 # Requirements
-* A version of Ubuntu Minimal ([20.04](https://ubuntu.com/download/desktop/thank-you/?version=20.04&architecture=amd64) recommended, later ones may work, too).
+* A version of Ubuntu Minimal ([20.04](https://releases.ubuntu.com/20.04/ubuntu-20.04-desktop-amd64.iso) recommended, later ones may work, too).
 * An internet connection.
 
 # Installation
