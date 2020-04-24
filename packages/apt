@@ -52,7 +52,6 @@ audacity
 tor
 lm-sensors
 sox
-wicd
 libudev-dev
 cmake
 fonts-powerline
@@ -79,8 +78,7 @@ lzma
 libxft-dev
 libgtk2.0-dev
 libgtk-3-dev
-webkit2gtk-4.0
-python-pip
+libwebkit2gtk-4.0-dev
 python3-pip
 golang
 rustc
@@ -113,7 +111,7 @@ qrencode
 remmina
 rar
 unrar
-gconf-2.0
+gconf2
 libgconf2-dev
 libdbus-glib-1-dev
 yasm
