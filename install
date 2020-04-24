@@ -37,6 +37,7 @@ apt autoremove -y
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
 iapt g++ clang
 [ "$I3B_VSCODE" = 1 ] && isnap vscode --classic
+udpkg "$I3B_GITHUB_DL_URL"
 cp -f configs/env /etc/environment
 for p in $(cat packages/apt) ; do iapt $p ; done
 for p in $(cat packages/pip3) ; do ipip3 $p ; done
