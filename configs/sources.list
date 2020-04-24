@@ -14,5 +14,5 @@ deb http://ppa.launchpad.net/gezakovacs/ppa/ubuntu eoan main
 deb http://ppa.launchpad.net/lutris-team/lutris/ubuntu eoan main
 deb [arch=amd64] http://download.docker.com/linux/ubuntu/ eoan stable
 deb [arch=amd64] http://%PROXY%brave-browser-apt-release.s3.brave.com/ eoan main
-deb [arch=amd64] http://%PROXY%packages.microsoft.com/ubuntu/19.10/prod eoan main
+deb [arch=amd64] http://%PROXY%packages.microsoft.com/ubuntu/20.04/prod focal main
 deb [arch=amd64] http://%PROXY%dl.google.com/linux/chrome/deb/ stable main
