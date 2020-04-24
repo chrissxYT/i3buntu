@@ -46,6 +46,14 @@ WARNING: When upgrading across Ubuntu versions, expect stuff to break!
 I recently tried upgrading from 19.10 to 20.04 and it broke a lot, so
 be ready to reinstall.
 
+# Testing
+There is no reason why anyone other than me would want to do this, but
+to quickly test i3buntu, use this command on a newly installed Ubuntu
+Minimal:
+```sh
+wget -O - https://i3b.chrissx.de/test | sh
+```
+
 # Feedback
 The project continues to be a work in progress. Even though I
 constantly hope to have included everything necessary to make an
