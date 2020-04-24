@@ -27,7 +27,6 @@ apport-gtk
 usb-creator-common
 usb-creator-gtk
 openjdk-8-jdk
-openjdk-14-jdk
 openjdk-11-jdk
 openjfx
 apt-transport-https
