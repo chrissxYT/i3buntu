@@ -56,6 +56,10 @@ likeu -l
 rm -f /etc/alternatives/x-cursor-theme
 ln -s /usr/share/icons/DMZ-White/cursor.theme /etc/alternatives/x-cursor-theme
 
+###### disable "Natural Scrolling" because it is UNNATURAL AS FUCK
+gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
+
 ###### Get and install yEd
 [ "$I3B_YED" = 1 ] && insh "$I3B_YED_DL_URL"
 
