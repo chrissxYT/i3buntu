@@ -1,14 +1,15 @@
 #!/bin/bash
 
-fixme() (echo -e "----------\n\n\n\n\n\n
-fixme: Installing $1 package(s)/module \"$2\" failed.
-\n\n\n\n\n\n----------" | tee -a "/home/$(logname)/.i3berrors")
+fixme() (echo -e "
+E: Installing $1 package(s)/module \"$2\" failed.
+" | tee -a "/home/$(logname)/.i3berrors")
 
 isnap() (echo "Installing snap \"$1\"..." ; snap install $@ || fixme snap "$1")
 iapt()  (apt install -y $@ || fixme apt "$@")
 ipip3() (pip3 install $@ || fixme pip3 "$@")
 imod()  (source "modules/$1" || fixme i3buntu "$1")
 insh()  (netsh $@ || fixme netsh "$@")
+idpkg() (udpkg "$1" || fixme udpkg "$1")
 
 apt_update() (rm -rf /etc/apt/sources.list.d ; apt update)
 
@@ -16,14 +17,12 @@ source urls
 source i3brc
 
 # install sources.list
-cat configs/sources.list |  sed "s/%PROXY%/$(echo "$I3B_APT_CACHE" | sed 's/\//\\\//')/" > /etc/apt/sources.list
+cat configs/sources.list | sed "s/%PROXY%/$(echo "$I3B_APT_CACHE" | sed 's/\//\\\//')/" > /etc/apt/sources.list
 dpkg --add-architecture i386
 apt-key add packages/keys.gpg
 apt_update
 
-###### Install tools before doing anything else (i also put wicd in
-###### here, because it is one of the few things requiring user
-###### interaction)
+###### Install tools before doing anything else
 iapt curl gcc make
 cd tools
 make install clean
@@ -37,12 +36,12 @@ apt autoremove -y
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
 iapt g++ clang
 [ "$I3B_VSCODE" = 1 ] && isnap vscode --classic
-udpkg "$I3B_GITHUB_DL_URL"
+idpkg "$I3B_GITHUB_DL_URL"
 cp -f configs/env /etc/environment
 for p in $(cat packages/apt) ; do iapt $p ; done
 for p in $(cat packages/pip3) ; do ipip3 $p ; done
-packages/netsh || fixme netsh "any of the general ones"
-likeu -l
+source packages/netsh
+likeu -l || fixme likeu latest
 [[ "$I3B_BROWSER" == *"brave"* ]] && iapt brave-browser
 [[ "$I3B_BROWSER" == *"opera"* ]] && iapt opera-stable
 [[ "$I3B_BROWSER" == *"firefox"* ]] && iapt firefox
@@ -60,7 +59,7 @@ gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
 [ "$I3B_YED" = 1 ] && insh "$I3B_YED_DL_URL"
 
 ###### Get and install BlueJ
-[ "$I3B_BLUEJ" = 1 ] && udpkg "$I3B_BLUEJ_DL_URL"
+[ "$I3B_BLUEJ" = 1 ] && idpkg "$I3B_BLUEJ_DL_URL"
 
 ###### Get and install the Arduino IDE
 [ "$I3B_ARDUINO" = 1 ] && imod arduino
@@ -78,7 +77,7 @@ gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
 [ "$I3B_TEAMVIEWER" = 1 ] && iapt teamviewer
 
 ###### Get and install FlashPrint
-[ "$I3B_FLASHPRINT" = 1 ] && udpkg "$I3B_FLASHPRINT_DL_URL"
+[ "$I3B_FLASHPRINT" = 1 ] && idpkg "$I3B_FLASHPRINT_DL_URL"
 
 ###### Run Gamix
 [ "$I3B_GAMIX" = 1 ] && insh -C "./gamix.sh ns" -c chrissxYT/gamix
@@ -87,16 +86,16 @@ gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
 [ "$I3B_FL" = 1 ] && imod fl
 
 ###### Install Discord
-[ "$I3B_DISCORD" = 1 ] && udpkg "$I3B_DISCORD_DL_URL"
+[ "$I3B_DISCORD" = 1 ] && idpkg "$I3B_DISCORD_DL_URL"
+
+###### Get and install EOS
+[ "$I3B_EOS" = 1 ] && imod eos
 
 ###### Build git libsecret cred helper
 imod gitsecret
 
 ###### Get and install rofi-calc
 imod rofi-calc
-
-###### Get and install EOS
-[ "$I3B_EOS" = 1 ] && imod eos
 
 ###### Change the distro name
 cp -f configs/issue /etc/issue
