@@ -1,10 +1,10 @@
 #!/bin/sh
-netsh https://get.please.build
-netsh -C "make && make install" -c vi/imlib2-heic
-netsh -C "make install" -c chrissxYT/ybacklight
-netsh -C "make install" -c dylanaraps/neofetch
-netsh -C "make" -c chrissxYT/LiKeU
-netsh -C "make install" -s hg -c bb://rafaelgg/slmenu
-netsh -C "make install" -c chrissxYT/sane-sent
-netsh -C "make install" -c younix/lel
-netsh -C "autoreconf -fi ; ./configure ; cd x86_64-pc-linux-gnu ; make -j8 ; make install ; cd .." -c resloved/i3
+insh https://get.please.build
+insh -C "make && make install" -c vi/imlib2-heic
+insh -C "make install" -c chrissxYT/ybacklight
+insh -C "make install" -c dylanaraps/neofetch
+insh -C "make" -c chrissxYT/LiKeU
+insh -C "make install" -s hg -c bb://rafaelgg/slmenu
+insh -C "make install" -c chrissxYT/sane-sent
+insh -C "make install" -c younix/lel
+insh -C "autoreconf -fi ; ./configure ; cd x86_64-pc-linux-gnu ; make -j8 ; make install ; cd .." -c resloved/i3
