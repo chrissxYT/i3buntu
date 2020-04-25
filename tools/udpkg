@@ -1,5 +1,5 @@
 #!/bin/sh
-FILE="$(tempfile)"
-curl -Lo "$FILE" "$1"
-sudo dpkg -i "$FILE"
-rm -f "$FILE"
+FILE=/tmp/udpkg_$(date +%s).deb
+curl -L -o $FILE $1
+sudo dpkg -i $FILE
+rm -f $FILE
