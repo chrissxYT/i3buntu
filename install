@@ -9,7 +9,7 @@ iapt()  (apt install -y $@ || fixme apt "$@")
 ipip3() (pip3 install $@ || fixme pip3 "$@")
 imod()  (source "modules/$1" || fixme i3buntu "$1")
 insh()  (netsh $@ || fixme netsh "$@")
-idpkg() (udpkg "$1" || apt -fy install || fixme udpkg "$1")
+idpkg() (udpkg "$1" || fixme udpkg "$1" ; apt -fy install)
 
 apt_update() (rm -rf /etc/apt/sources.list.d ; apt update)
 
