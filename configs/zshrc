@@ -180,6 +180,12 @@ e()     ($EDITOR $(ls | fzf))
 E()     (sudo $EDITOR $(ls | fzf))
 uzip()  (unzip -d "$(echo "$1" | sed s/\.zip//g -)" "$1")
 sd()    (sudo shutdown $@ now)
+mnt() {
+        mkdir -p "$HOME/mnt"
+        sudo mount "$1" "$HOME/mnt"
+        sudo chown -R "$USER:$USER" "$HOME/mnt"
+}
+alias umnt='sudo umount ~/mnt'
 alias m='make'
 alias mi='sudo make install'
 alias p='mplayer'

@@ -14,16 +14,12 @@ cp:
 	cp -f /usr/bin/udpkg udpkg
 	cp -f /usr/bin/todo todo
 	cp -f /usr/bin/eos eos
-	cp -f /bin/mnt mnt
-	cp -f /bin/umnt umnt
 	cp -f /usr/bin/i3b-term i3b-term
 	cp -f /usr/bin/i3b-browser i3b-browser
 
 install: all
 	cp -f update /usr/bin/update
 	cp -f _update /usr/bin/_update
-	cp -f mnt /bin/mnt
-	cp -f umnt /bin/umnt
 	cp -f netsh /usr/bin/netsh
 	cp -f udpkg /usr/bin/udpkg
 	cp -f screenshot /usr/bin/screenshot

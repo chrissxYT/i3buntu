@@ -1,4 +1,0 @@
-#!/bin/sh
-[ ! -d $HOME/mnt ] && mkdir $HOME/mnt
-sudo mount $1 $HOME/mnt
-sudo chown -R $USER:$USER $HOME/mnt
