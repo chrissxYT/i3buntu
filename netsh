@@ -6,7 +6,7 @@ cd ~/.i3buntu
 sudo ./install
 ./config
 cd ..
-echo -n 'Restarting in 10...'
+echo -n 'Restarting in '
 for i in 10 9 8 7 6 5 4 3 2 1 ; do
         echo -n "$i..."
         sleep 1
