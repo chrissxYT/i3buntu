@@ -31,7 +31,7 @@ wget -O ~/.i3brc https://i3b.chrissx.de/i3brcs/testing.i3brc
 
 Type the following in the Ubuntu Bash:
 ```sh
-wget -O - https://i3b.chrissx.de/netsh | sh
+wget -O - https://i3b.chrissx.de/netsh | bash
 ```
 This will download the startup script of i3buntu and run it.
 
