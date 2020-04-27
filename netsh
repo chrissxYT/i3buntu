@@ -3,8 +3,10 @@ sudo apt update
 sudo apt install -y git
 git clone https://github.com/chrissxYT/i3buntu.git ~/.i3buntu
 cd ~/.i3buntu
+source i3brc
+modules/gitpg "$I3B_EMAIL"
 sudo ./install
-./config
+source config
 cd ..
 echo -n 'Restarting in '
 for i in 10 9 8 7 6 5 4 3 2 1 ; do

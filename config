@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source i3brc
-
 ###### Set configs
 cd configs
 make install
@@ -19,7 +17,10 @@ cp -f configs/zsh-theme ~/.zshtheme
 
 ###### Configure git
 git config --global core.editor vim
-modules/gitpg "$I3B_EMAIL"
+git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+git config --global user.signingkey "$(gpg --list-keys | grep -E '[0-9A-F]{40}' | sed 's/ //g')"
+git config --global commit.gpgsign true
+gpg -a --export > /home/$(logname)/.gitpg_pubkey
 
 ###### Install wallpapers
-git clone https://github.com/chrissxyt/walls ~/.walls
+git clone https://github.com/chrissxYT/walls.git ~/.walls
