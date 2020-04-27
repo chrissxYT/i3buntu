@@ -71,7 +71,7 @@ gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
 [ "$I3B_TEENSY" = 1 ] && imod teensy
 
 ###### Get and install Teensyduino
-[ "$I3B_ARDUINO" = 1 && "$I3B_TEENSY" = 1 ] && insh "$I3B_TEENSYDUINO_DL_URL"
+[ "$I3B_ARDUINO" = 1 -a "$I3B_TEENSY" = 1 ] && insh "$I3B_TEENSYDUINO_DL_URL"
 
 ###### Get and install Ghidra
 [ "$I3B_GHIDRA" = 1 ] && imod ghidra
@@ -83,7 +83,7 @@ gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
 [ "$I3B_FLASHPRINT" = 1 ] && idpkg "$I3B_FLASHPRINT_DL_URL"
 
 ###### Run Gamix
-[ "$I3B_GAMIX" = 1 ] && insh -C "./gamix.sh ns" -c chrissxYT/gamix
+[ "$I3B_GAMIX" = 1 ] && insh -C "./gamix.sh ns y" -c chrissxYT/gamix
 
 ###### Install FL Studio
 [ "$I3B_FL" = 1 ] && imod fl
@@ -96,9 +96,6 @@ gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
 
 ###### Build git libsecret cred helper
 imod gitsecret
-
-###### Get and install rofi-calc
-imod rofi-calc
 
 ###### Change the distro name
 cp -f configs/issue /etc/issue
