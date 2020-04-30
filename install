@@ -1,20 +1,11 @@
 #!/bin/bash
 
-fixme() (echo -e "
-E: Installing $1 package(s)/module \"$2\" failed.
-" | tee -a "/home/$(logname)/.i3berrors")
+source funcs
 
-isnap() (echo "Installing snap \"$1\"..." ; snap install $@ || fixme snap "$1")
-iapt()  (apt install -y "$@" || fixme apt "$@")
-ipip3() (pip3 install "$@" || fixme pip3 "$@")
-imod()  (source "modules/$1" || fixme i3buntu "$1")
-insh()  (netsh "$@" || fixme netsh "$@")
-idpkg() (udpkg "$1" || fixme udpkg "$1" ; apt -fy install)
-
-apt_update() (rm -rf /etc/apt/sources.list.d ; apt update)
+apt_update()   (rm -rf /etc/apt/sources.list.d ; apt update)
 
 iapt_at_once() (apt install -y $(cat packages/apt))
-iapt_for()     (for p in $(cat packages/apt) ; do iapt $p ; done)
+iapt_for()     (for p in $(cat packages/apt) ; do iapt "$p" ; done)
 
 source urls
 source i3brc
@@ -42,7 +33,7 @@ iapt g++ clang
 idpkg "$I3B_GITHUB_DL_URL"
 cp -f configs/env /etc/environment
 iapt_at_once || iapt_for
-for p in $(cat packages/pip3) ; do ipip3 $p ; done
+for p in $(cat packages/pip3) ; do ipip3 "$p" ; done
 source packages/netsh
 likeu -l || fixme likeu latest
 [[ "$I3B_BROWSER" == *"brave"* ]] && iapt brave-browser
@@ -84,9 +75,6 @@ gsettings set org.gnome.desktop.peripherals.mouse natural-scroll false
 
 ###### Run Gamix
 [ "$I3B_GAMIX" = 1 ] && insh -C "./gamix.sh ns y" -c chrissxYT/gamix
-
-###### Install FL Studio
-[ "$I3B_FL" = 1 ] && imod fl
 
 ###### Install Discord
 [ "$I3B_DISCORD" = 1 ] && idpkg "$I3B_DISCORD_DL_URL"

@@ -1,15 +1,24 @@
 #!/bin/bash
 
+###### tldr has to clone a repo at first run
+tldr man
+
+###### Install the Please build system
+insh https://get.please.build
+
+###### Install FL Studio
+[ "$I3B_FL" = 1 ] && imod fl
+
 ###### Set configs
 cd configs
 make install
 cd ..
 
 ###### Install fonts
-packages/fonts
+source packages/fonts
 
 ###### Install vim plugins
-packages/vim
+source packages/vim
 
 ###### Install i3b-zsh
 cp -f configs/zshrc ~/.zshrc

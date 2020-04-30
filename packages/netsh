@@ -1,5 +1,4 @@
 #!/bin/sh
-insh https://get.please.build
 insh -C "make && make install" -c vi/imlib2-heic
 insh -C "make install" -c chrissxYT/ybacklight
 insh -C "make install" -c dylanaraps/neofetch
