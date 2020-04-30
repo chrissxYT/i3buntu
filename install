@@ -94,6 +94,10 @@ cp -f configs/lsbr /etc/lsb-release
 ###### Set the locales
 cp configs/locale /etc/default/locale
 
+###### Configure GRUB
+cp configs/grub /etc/default/grub
+update-grub
+
 ###### Finish up everything
 apt_update
 apt -f install -y

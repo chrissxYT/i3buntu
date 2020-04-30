@@ -9,6 +9,7 @@ cp:
 	cp -f /etc/issue.net issue.net
 	cp -f /etc/lsb-release lsbr
 	cp -f /etc/os-release os-release
+	cp -f /etc/default/grub grub
 	cp -f ~/.config/kitty/kitty.conf kitty
 	cp -f ~/.config/youtube-dl/config ytdl
 	cp -f ~/.config/compton.conf compton.conf
