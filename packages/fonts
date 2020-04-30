@@ -1,47 +1,48 @@
-#!/bin/sh
+#!/bin/bash
 mkdir -p ~/.fonts
-curl -Lo ~/.fonts/GoogleSans-Bold.ttf         https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-Bold.ttf
-curl -Lo ~/.fonts/GoogleSans-BoldItalic.ttf   https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-BoldItalic.ttf
-curl -Lo ~/.fonts/GoogleSans-Italic.ttf       https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-Italic.ttf
-curl -Lo ~/.fonts/GoogleSans-Medium.ttf       https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-Medium.ttf
-curl -Lo ~/.fonts/GoogleSans-MediumItalic.ttf https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-MediumItalic.ttf
-curl -Lo ~/.fonts/GoogleSans-Regular.ttf      https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-Regular.ttf
-curl -Lo ~/.fonts/SF-Pro-Display-Black.otf            https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Black.otf
-curl -Lo ~/.fonts/SF-Pro-Display-BlackItalic.otf      https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-BlackItalic.otf
-curl -Lo ~/.fonts/SF-Pro-Display-Bold.otf             https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Bold.otf
-curl -Lo ~/.fonts/SF-Pro-Display-BoldItalic.otf       https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-BoldItalic.otf
-curl -Lo ~/.fonts/SF-Pro-Display-Heavy.otf            https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Heavy.otf
-curl -Lo ~/.fonts/SF-Pro-Display-HeavyItalic.otf      https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-HeavyItalic.otf
-curl -Lo ~/.fonts/SF-Pro-Display-Light.otf            https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Light.otf
-curl -Lo ~/.fonts/SF-Pro-Display-LightItalic.otf      https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-LightItalic.otf
-curl -Lo ~/.fonts/SF-Pro-Display-Medium.otf           https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Medium.otf
-curl -Lo ~/.fonts/SF-Pro-Display-MediumItalic.otf     https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-MediumItalic.otf
-curl -Lo ~/.fonts/SF-Pro-Display-Regular.otf          https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Regular.otf
-curl -Lo ~/.fonts/SF-Pro-Display-RegularItalic.otf    https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-RegularItalic.otf
-curl -Lo ~/.fonts/SF-Pro-Display-Semibold.otf         https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Semibold.otf
-curl -Lo ~/.fonts/SF-Pro-Display-SemiboldItalic.otf   https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-SemiboldItalic.otf
-curl -Lo ~/.fonts/SF-Pro-Display-Thin.otf             https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Thin.otf
-curl -Lo ~/.fonts/SF-Pro-Display-ThinItalic.otf       https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-ThinItalic.otf
-curl -Lo ~/.fonts/SF-Pro-Display-Ultralight.otf       https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Ultralight.otf
-curl -Lo ~/.fonts/SF-Pro-Display-UltralightItalic.otf https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-UltralightItalic.otf
-curl -Lo ~/.fonts/SFMono-Bold.otf           https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-Bold.otf
-curl -Lo ~/.fonts/SFMono-BoldItalic.otf     https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-BoldItalic.otf
-curl -Lo ~/.fonts/SFMono-Heavy.otf          https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-Heavy.otf
-curl -Lo ~/.fonts/SFMono-HeavyItalic.otf    https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-HeavyItalic.otf
-curl -Lo ~/.fonts/SFMono-Light.otf          https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-Light.otf
-curl -Lo ~/.fonts/SFMono-LightItalic.otf    https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-LightItalic.otf
-curl -Lo ~/.fonts/SFMono-Medium.otf         https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-Medium.otf
-curl -Lo ~/.fonts/SFMono-MediumItalic.otf   https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-MediumItalic.otf
-curl -Lo ~/.fonts/SFMono-Regular.otf        https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-Regular.otf
-curl -Lo ~/.fonts/SFMono-RegularItalic.otf  https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-RegularItalic.otf
-curl -Lo ~/.fonts/SFMono-Semibold.otf       https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-Semibold.otf
-curl -Lo ~/.fonts/SFMono-SemiboldItalic.otf https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-SemiboldItalic.otf
-curl -Lo ~/.fonts/Abel.ttf https://github.com/google/fonts/raw/master/ofl/abel/Abel-Regular.ttf
-curl -Lo ~/.fonts/FrankRuhl-Regular.ttf https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Regular.ttf
-curl -Lo ~/.fonts/FrankRuhl-Black.ttf https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Black.ttf
-curl -Lo ~/.fonts/FrankRuhl-Bold.ttf https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Bold.ttf
-curl -Lo ~/.fonts/FrankRuhl-Light.ttf https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Light.ttf
-curl -Lo ~/.fonts/FrankRuhl-Medium.ttf https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Medium.ttf
-curl -Lo ~/.fonts/Roboto-MediumItalic.ttf https://github.com/google/fonts/raw/master/apache/roboto/Roboto-MediumItalic.ttf
-curl -Lo ~/.fonts/FRL-Medium.ttf https://github.com/google/fonts/raw/master/ofl/frankruhllibre/FrankRuhlLibre-Medium.ttf
-curl -Lo ~/.fonts/Woodcut.ttf https://zerm.eu/Woodcut.ttf
+font() (pushd ; cd ~/.fonts ; curl -LO "$1" ; popd)
+font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-Bold.ttf &
+font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-BoldItalic.ttf &
+font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-Italic.ttf &
+font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-Medium.ttf &
+font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-MediumItalic.ttf &
+font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-Regular.ttf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Black.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-BlackItalic.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Bold.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-BoldItalic.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Heavy.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-HeavyItalic.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Light.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-LightItalic.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Medium.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-MediumItalic.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Regular.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-RegularItalic.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Semibold.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-SemiboldItalic.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Thin.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-ThinItalic.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-Ultralight.otf &
+font https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts/raw/master/SF-Pro-Display-UltralightItalic.otf &
+font https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-Bold.otf &
+font https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-BoldItalic.otf &
+font https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-Heavy.otf &
+font https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-HeavyItalic.otf &
+font https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-Light.otf &
+font https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-LightItalic.otf &
+font https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-Medium.otf &
+font https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-MediumItalic.otf &
+font https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-Regular.otf &
+font https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-RegularItalic.otf &
+font https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-Semibold.otf &
+font https://github.com/ZulwiyozaPutra/SF-Mono-Font/raw/master/SFMono-SemiboldItalic.otf &
+font https://github.com/google/fonts/raw/master/ofl/abel/Abel-Regular.ttf &
+font https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Regular.ttf &
+font https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Black.ttf &
+font https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Bold.ttf &
+font https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Light.ttf &
+font https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Medium.ttf &
+font https://github.com/google/fonts/raw/master/apache/roboto/Roboto-MediumItalic.ttf &
+font https://github.com/google/fonts/raw/master/ofl/frankruhllibre/FrankRuhlLibre-Medium.ttf &
+font https://zerm.eu/Woodcut.ttf
