@@ -24,7 +24,7 @@ uncheck the options for additional software. After the new
 installation is booted, open a Terminal and optionally put your
 config at `~/.i3brc`, like this:
 ```sh
-wget -O ~/.i3brc https://i3b.chrissx.de/i3brcs/testing.i3brc
+wget -O ~/.i3brc https://i3b.chrissx.de/i3brcs/x220.i3brc
 ```
 
 ##### 2. Download and install i3buntu
@@ -53,6 +53,8 @@ Minimal:
 ```sh
 wget -O - https://i3b.chrissx.de/test | sh
 ```
+FYI: This only works, if you have an apt cache set up at
+`192.168.2.104:3142`.
 
 # Feedback
 The project continues to be a work in progress. Even though I

@@ -1,0 +1,2 @@
+#!/bin/sh
+netsh -f install Linuxbrew/install
