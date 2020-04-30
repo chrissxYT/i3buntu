@@ -176,6 +176,7 @@ export TERM=xterm-256color
 zlibd() (printf "\x1f\x8b\x08\x00\x00\x00\x00\x00"|cat - $@|gzip -dc)
 alias v="$EDITOR"
 alias V="sudo $EDITOR"
+alias mv="mv -i"
 e()     ($EDITOR $(ls | fzf))
 E()     (sudo $EDITOR $(ls | fzf))
 uzip()  (unzip -d "$(echo "$1" | sed s/\.zip//g -)" "$1")
@@ -206,6 +207,7 @@ alias history='omz_history'
 alias e64=encode64
 alias d64=decode64
 
+alias zsh-theme="$EDITOR /home/$(logname)/.zsh-theme"
 alias zshrc="$EDITOR /home/$(logname)/.zshrc"
 alias vimrc="$EDITOR /home/$(logname)/.vimrc"
 alias help='man'

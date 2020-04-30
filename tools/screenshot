@@ -1,6 +1,6 @@
 #!/bin/sh
-[ $# -eq 0 ] && 1="$HOME/Pictures"
-mkdir -p "$1"
-FILE="$1/screenshot_$(date +%s).png"
+[ $# -eq 0 ] && dir="$HOME/Pictures" || dir="$1"
+mkdir -p "$dir"
+FILE="$dir/screenshot_$(date +%s).png"
 scrot "$FILE"
 echo "$FILE"
