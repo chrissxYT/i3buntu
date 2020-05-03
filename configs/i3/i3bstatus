@@ -1,8 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
 # SECURITY NOTE:
-# Please make sure that top, iwconfig and ifconfig cannot be altered
+# Please make sure that iwconfig and ifconfig cannot be altered
 # by bad people, because they could possibly cause damage.
+
+home_wifi="Gratis-Viren Google Wifi Edition"
 
 # segment text color
 segment() {
@@ -10,7 +12,7 @@ segment() {
 }
 
 diskspace() {
-        segment "$(df -h --output=avail / | grep -v Avail | sed 's/ //g')iB free " "#FFFFFF"
+        segment "$(df -h --output=avail / | tail -n +2)iB free " "#FFFFFF"
 }
 
 wifi() {
@@ -19,9 +21,9 @@ wifi() {
         rate="$(echo "$iwconfig" | grep "Bit Rate" | sed 's/.*Bit Rate=\(.* .b\/s\).*/\1/' | sed 's/ \(.\)b\/s/\1/')"
         quality="$(echo "$(echo "$iwconfig" | grep "Link Quality" | sed 's/.*Link Quality=\([0-9]*\/[0-9]*\) .*/\1/')*100" | bc -sql | cut -c1-3 | sed 's/\.\?$/%/')"
         freq="$(echo "$iwconfig" | grep Frequency: | sed 's/.*Frequency:\([0-9]*\).*/\1/')"
-        [[ "$freq" == 2 ]] && freq="2.4"
+        [ "$freq" = 2 ] && freq="2.4"
         freq="$freq GHz"
-        [[ "$essid" != "Gratis-Viren Google Wifi Edition" ]] && essid="📶 $essid" || essid="🏠"
+        [ "$essid" != "$home_wifi" ] && essid="📶 $essid" || essid="🏠"
         segment " $essid ($quality, $rate, $freq) " "#00FF00"
 }
 
@@ -30,15 +32,13 @@ battery() {
         status="$(echo "$acpi" | cut -d' ' -f3)"
         percentage="$(echo "$acpi" | cut -d' ' -f4)"
         remaining="$(echo "$acpi" | cut -d' ' -f5)"
-        if [[ $percentage == *"100%"* ]] ; then
-                status=🔌
-	elif [[ $status == *"Discharging"* ]] ; then
-		status=🔋
-	elif [[ $status == *"Charging"* && $percentage != *"100%"* ]] ; then
-                status=⚡
-        else
-                status=❔
-	fi
+        case $percentage in *"100%"*) status=Full ;; esac
+        case $status in
+                *"Full"*)        status=🔌 ;;
+                *"Discharging"*) status=🔋 ;;
+                *"Charging"*)    status=⚡ ;;
+                *)               status=❔ ;;
+        esac
         segment " $status $percentage $remaining " "#FFFFFF"
 }
 
@@ -46,8 +46,20 @@ temp() {
         segment " $(acpi -t | cut -d' ' -f4 | cut -d. -f1)°C " "#FFFFFF"
 }
 
+prev_idle=0
+prev_total=0
+
 cpu() {
-        segment " $(echo "100-$(top -bn1 | grep '^%Cpu(s):' | sed 's/%Cpu(s): [ 0-9.]* us, [ 0-9.]* sy, [ 0-9.]* ni, \([ 0-9.]*\) id, [ 0-9.]* wa, [ 0-9.]* hi, [ 0-9.]* si, [ 0-9.]* st/\1/')" | bc -sql | cut -c1-3 | sed 's/\.\?$/%/') " "#FFFFFF"
+        cpus="$(grep '^cpu[0-9]\+' /proc/stat)"
+        curr_total=$(echo "$cpus" | sed 's/cpu[0-9]\+ \([0-9]\+\) \([0-9]\+\) \([0-9]\+\) \([0-9]\+\) .*$/\1+\2+\3+\4/' | tr "\n" + | sed 's/+$//g')
+        curr_idle=$(echo "$cpus" | sed 's/cpu[0-9]\+ [0-9]\+ [0-9]\+ [0-9]\+ \([0-9]\+\) .*$/\1/' | tr "\n" + | sed 's/+$//g')
+
+        diff_total="(($curr_total) - ($prev_total))"
+
+        segment " $(echo "(1000 * ($diff_total - ($curr_idle) + ($prev_idle)) / $diff_total + 5) / 10" | bc -sql | cut -c1-3 | sed 's/\.$//')% " "#FFFFFF"
+
+        prev_idle=$curr_idle
+        prev_total=$curr_total
 }
 
 audio() {
@@ -67,39 +79,27 @@ backlight() {
 }
 
 separator() {
+        echo -n ','
         segment "" "#FFFFFF"
+        echo -n ','
 }
 
 render() {
         echo -n '['
         diskspace
-        echo -n ','
         separator
-        echo -n ','
         wifi
-        echo -n ','
         separator
-        echo -n ','
         battery
-        echo -n ','
         separator
-        echo -n ','
         temp
-        echo -n ','
         separator
-        echo -n ','
         cpu
-        echo -n ','
         separator
-        echo -n ','
         audio
-        echo -n ','
         separator
-        echo -n ','
         datetime
-        echo -n ','
         separator
-        echo -n ','
         backlight
         echo '],'
 }
@@ -109,7 +109,7 @@ main() {
         echo '['
         while true ; do
                 render
-                sleep 0.5
+                sleep 1
         done
 }
 
