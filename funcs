@@ -10,3 +10,5 @@ ipip3() (pip3 install "$@" || fixme pip3 "$@")
 imod()  (source "modules/$1" || fixme i3buntu "$1")
 insh()  (netsh "$@" || fixme netsh "$@")
 idpkg() (udpkg "$1" || fixme udpkg "$1" ; apt -fy install)
+
+apt_update() (rm -rf /etc/apt/sources.list.d ; apt update || fixme apt update)

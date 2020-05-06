@@ -1,4 +1,5 @@
 libjson-c-dev
+openssh-server
 libuv1-dev
 libwebsockets-dev
 mercurial
@@ -7,8 +8,8 @@ arandr
 libpng-dev
 libusb-dev
 lxappearance
-vim
-vim-gtk
+libtool-bin
+luajit
 gnome-system-tools
 exfat-fuse
 x11proto-dev

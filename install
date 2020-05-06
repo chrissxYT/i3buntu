@@ -2,8 +2,6 @@
 
 source funcs
 
-apt_update()   (rm -rf /etc/apt/sources.list.d ; apt update)
-
 iapt_at_once() (apt install -y $(cat packages/apt))
 iapt_for()     (for p in $(cat packages/apt) ; do iapt "$p" ; done)
 

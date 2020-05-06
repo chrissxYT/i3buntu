@@ -1,6 +1,8 @@
 #!/bin/bash
 mkdir -p ~/.fonts
-font() (pushd ; cd ~/.fonts ; curl -LO "$1" ; popd)
+pushd
+cd ~/.fonts
+alias font='curl -LO'
 font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-Bold.ttf &
 font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-BoldItalic.ttf &
 font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-Italic.ttf &
@@ -51,3 +53,4 @@ font https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Bo
 font https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Light.ttf &
 font https://github.com/fontef/frankruhlhofshi/raw/master/ttf/FrankRuhlHofshi-Medium.ttf &
 font https://zerm.eu/Woodcut.ttf
+popd
