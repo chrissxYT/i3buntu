@@ -1,3 +1,4 @@
+gcc-multilib
 libjson-c-dev
 openssh-server
 libuv1-dev
@@ -33,7 +34,7 @@ openjfx
 apt-transport-https
 fonts-noto-color-emoji
 fonts-symbola
-dotnet-sdk-3.1
+dotnet-sdk-2.1
 zsh
 htop
 tmux
