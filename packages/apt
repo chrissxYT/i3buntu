@@ -1,4 +1,6 @@
 gcc-multilib
+g++-multilib
+libssl-dev:i386
 libjson-c-dev
 openssh-server
 libuv1-dev
