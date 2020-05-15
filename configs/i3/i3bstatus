@@ -8,7 +8,7 @@ home_wifi="Gratis-Viren Google Wifi Edition"
 
 # segment text color
 segment() {
-        echo -n "{\"name\":\"\",\"color\":\"$2\",\"full_text\":\"$1\",\"separator\":false,\"separator_block_width\":0}"
+        echo -n "{\"color\":\"$2\",\"full_text\":\"$1\",\"separator\":false,\"separator_block_width\":0}"
 }
 
 diskspace() {
@@ -45,7 +45,7 @@ battery() {
 }
 
 temp() {
-        temp=$(cat /sys/class/thermal/thermal_zone0)
+        temp=$(cat /sys/class/thermal/thermal_zone0/temp)
         segment " $(($temp / 1000))°C " "#FFFFFF"
 }
 
@@ -82,9 +82,7 @@ backlight() {
 }
 
 separator() {
-        echo -n ','
-        segment "" "#FFFFFF"
-        echo -n ','
+        echo -n ',{"color":"#FFFFFF","full_text":"","separator":false,"separator_block_width":0},'
 }
 
 render() {
