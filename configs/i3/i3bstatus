@@ -45,7 +45,8 @@ battery() {
 }
 
 temp() {
-        segment " $(acpi -t | cut -d' ' -f4 | cut -d. -f1)°C " "#FFFFFF"
+        temp=$(cat /sys/class/thermal/thermal_zone0)
+        segment " $(($temp / 1000))°C " "#FFFFFF"
 }
 
 prev_idle=0
