@@ -28,18 +28,20 @@ wifi() {
 }
 
 battery() {
-        acpi="$(acpi -b | sed s/,//g)"
-        status="$(echo "$acpi" | cut -d' ' -f3)"
-        percentage="$(echo "$acpi" | cut -d' ' -f4)"
-        remaining="$(echo "$acpi" | cut -d' ' -f5)"
-        case $percentage in *"100%"*) status=Full ;; esac
-        case $status in
-                *"Full"*)        status=🔌 ;;
-                *"Discharging"*) status=🔋 ;;
-                *"Charging"*)    status=⚡ ;;
-                *)               status=❔ ;;
-        esac
-        segment " $status $percentage $remaining " "#FFFFFF"
+        for bat in /sys/class/power_supply/BAT? ; do
+                status="$(cat $bat/status)"
+                percentage="$(cat $bat/capacity)%"
+                remaining="$(echo "$(cat $bat/energy_now) / $(cat $bat/power_now)" | bc -sql 2>/dev/null | cut -c1-3 | sed 's/\.$//')h "
+                [ "$remaining" = "h " ] && remaining=""
+                case $percentage in *"100%"*) status=Full ;; esac
+                case $status in
+                        *"Full"*)        status=🔌 ;;
+                        *"Discharging"*) status=🔋 ;;
+                        *"Charging"*)    status=⚡ ;;
+                        *)               status=❔ ;;
+                esac
+                segment " $status $percentage $remaining" "#FFFFFF"
+        done
 }
 
 temp() {
