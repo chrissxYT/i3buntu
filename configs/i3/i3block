@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Authors:
+# Dolores Portalatin <hello@doloresportalatin.info>
+# Chris Häußler <chrissx@chrissx.de>
+
+#-level 0%,100%,0.6 -filter Gaussian -resize 20% -define filter:sigma=1.5 -resize 500.5%
+
+scrot -o /tmp/s.png
+
+convert /tmp/s.png -level 0%,100%,0.6 -set colorspace Gray -separate -average -scale 10% -scale 1000% ~/.i3buntu/res/lock.png -gravity center -composite /tmp/s.png
+
+i3lock -i /tmp/s.png
