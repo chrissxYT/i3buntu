@@ -32,6 +32,7 @@ battery() {
                 status="$(cat $bat/status)"
                 percentage="$(cat $bat/capacity)%"
                 remaining="$(echo "$(cat $bat/energy_now) / $(cat $bat/power_now)" | bc -sql 2>/dev/null | cut -c1-3 | sed 's/\.$//')h "
+                power=$(echo "$(cat $bat/power_now) / 1000000" | bc -sql 2>/dev/null | sed 's/\(^[0-9]\+\...\).*$/\1/')W
                 [ "$remaining" = "h " ] && remaining=""
                 case $percentage in *"100%"*) status=Full ;; esac
                 case $status in
@@ -40,7 +41,7 @@ battery() {
                         *"Charging"*)    status=⚡ ;;
                         *)               status=❔ ;;
                 esac
-                segment " $status $percentage $remaining" "#FFFFFF"
+                segment " $status $percentage $power $remaining" "#FFFFFF"
         done
 }
 
@@ -67,10 +68,8 @@ cpu() {
 
 audio() {
         amixer sget Master | grep off >/dev/null \
-                && \
-                        segment " 🔇 " "#FFFFFF" \
-                || \
-                        segment " 🔉 $(pactl list sinks | grep "Volume: " | grep -v "Base Volume:" | sed 's/.* \([0-9]\+%\).*/\1/') " "#FFFFFF"
+                &&      segment " 🔇 " "#FFFFFF" \
+                ||      segment " 🔉 $(pactl list sinks | grep "Volume: " | grep -v "Base Volume:" | sed 's/.* \([0-9]\+%\).*/\1/') " "#FFFFFF"
 }
 
 datetime() {
