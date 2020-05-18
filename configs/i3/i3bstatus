@@ -55,12 +55,12 @@ prev_total=0
 
 cpu() {
         cpus="$(grep '^cpu[0-9]\+' /proc/stat)"
-        curr_total=$(echo "$cpus" | sed 's/cpu[0-9]\+ \([0-9]\+\) \([0-9]\+\) \([0-9]\+\) \([0-9]\+\) .*$/\1+\2+\3+\4/' | tr "\n" + | sed 's/+$//g')
-        curr_idle=$(echo "$cpus" | sed 's/cpu[0-9]\+ [0-9]\+ [0-9]\+ [0-9]\+ \([0-9]\+\) .*$/\1/' | tr "\n" + | sed 's/+$//g')
+        curr_total=$(echo "$cpus" | sed 's/^cpu[0-9]\+ \([0-9]\+\) \([0-9]\+\) \([0-9]\+\) \([0-9]\+\) .*$/\1+\2+\3+\4/' | tr "\n" + | sed 's/+$//' | bc -sql)
+        curr_idle=$(echo "$cpus" | sed 's/^cpu[0-9]\+ [0-9]\+ [0-9]\+ [0-9]\+ \([0-9]\+\) .*$/\1/' | tr "\n" + | sed 's/+$//' | bc -sql)
 
-        diff_total="(($curr_total) - ($prev_total))"
+        diff_total="($curr_total - $prev_total)"
 
-        segment " $(echo "(1000 * ($diff_total - ($curr_idle) + ($prev_idle)) / $diff_total + 5) / 10" | bc -sql | cut -c1-3 | sed 's/\.$//')% " "#FFFFFF"
+        segment " $(echo "100 * ($diff_total - $curr_idle + $prev_idle) / $diff_total + 5" | bc -sql | cut -c1-3 | sed 's/\.$//')% " "#FFFFFF"
 
         prev_idle=$curr_idle
         prev_total=$curr_total
