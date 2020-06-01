@@ -1,8 +1,5 @@
---xattrs
---xattr-set-filesize
 --playlist-random
 --hls-prefer-native
 --no-call-home
 --prefer-free-formats
--f bestvideo+bestaudio
 -icw
