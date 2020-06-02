@@ -6,4 +6,5 @@ install:
 	apt update
 	sh -c 'for p in $$(cat apt) ; do apt install -y $$p ; done'
 	sh -c 'for p in $$(cat pip3) ; do pip3 install $$p ; done'
+	sh -c 'for p in $$(cat npm) ; do npm install $$p ; done'
 	./netsh

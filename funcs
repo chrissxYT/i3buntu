@@ -7,6 +7,7 @@ E: Installing $1 package(s)/module \"$2\" failed.
 isnap() (echo "Installing snap \"$1\"..." ; snap install $@ || fixme snap "$1")
 iapt()  (apt install -y "$@" || fixme apt "$@")
 ipip3() (pip3 install "$@" || fixme pip3 "$@")
+inpm()  (npm install "$@" || fixme npm "$@")
 imod()  (source "modules/$1" || fixme i3buntu "$1")
 insh()  (netsh "$@" || fixme netsh "$@")
 idpkg() (udpkg "$1" || fixme udpkg "$1" ; apt -fy install)
