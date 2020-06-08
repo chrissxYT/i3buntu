@@ -2,7 +2,7 @@
 
 source funcs
 
-iapt_at_once() (apt install -y $(cat packages/apt))
+iapt_at_once() (DEBIAN_FRONTEND=noninteractive apt install -y $(cat packages/apt))
 iapt_for()     (for p in $(cat packages/apt) ; do iapt "$p" ; done)
 
 source urls
@@ -26,6 +26,9 @@ apt autoremove -y
 
 ###### Install main apps, drivers and dependencies
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+echo debconf apt-fast/maxdownloads string 16 | debconf-set-selections
+echo debconf apt-fast/dlflag boolean true | debconf-set-selections
+echo debconf apt-fast/aptmanager string apt | debconf-set-selections
 iapt g++ clang
 [ "$I3B_VSCODE" = 1 ] && isnap vscode --classic
 idpkg "$I3B_GITHUB_DL_URL"
