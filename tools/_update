@@ -1,5 +1,6 @@
 #!/bin/sh
 apt update
+apt-fast full-upgrade -y
 apt full-upgrade -y
 apt -f install -y
 apt autoremove -y

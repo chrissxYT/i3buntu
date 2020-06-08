@@ -1,3 +1,4 @@
+apt-fast
 gcc-multilib
 g++-multilib
 libssl-dev:i386
