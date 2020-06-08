@@ -102,10 +102,9 @@ function command_not_found_handler { /usr/lib/command-not-found -- "$1" && : ; }
 encode64() { { [ $# -ne 0 ] && echo "$@" || cat ; } | base64 ; }
 decode64() { { [ $# -ne 0 ] && echo "$@" || cat ; } | base64 -d ; }
 
-for ft in htm html de org net com eu ; do alias -s $ft=i3b-browser; done
 for ft in cpp cc c hpp hh h inl asc txt tex ; do alias -s $ft=$EDITOR; done
 for ft in jpg jpeg png gif heic heif ; do alias -s $ft=feh; done
-for ft in avi flv m4a mkv mp4 mov mp3 mpeg mpg ogg wav webm ; do alias -s $ft=mplayer; done
+for ft in avi flv m4a mkv mp4 mov mp3 mpeg mpg ogg wav webm ; do alias -s $ft=mpv; done
 
 alias -s pdf=mupdf
 alias -s ps=zathura
@@ -189,7 +188,7 @@ mnt() {
 alias umnt='sudo umount ~/mnt'
 alias m='make'
 alias mi='sudo make install'
-alias p='mplayer'
+alias p='mpv'
 alias i='sudo apt install'
 alias -g ...='../..'
 alias -g ....='../../..'
