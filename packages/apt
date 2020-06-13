@@ -125,6 +125,7 @@ playerctl
 libftdi-dev
 libftdi1-dev
 libhidapi-dev
+libxaw7-dev
 gtk-doc-tools
 gnutls-bin
 valac
