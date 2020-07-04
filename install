@@ -18,7 +18,7 @@ apt_update
 echo debconf apt-fast/maxdownloads string 16 | debconf-set-selections
 echo debconf apt-fast/dlflag boolean true | debconf-set-selections
 echo debconf apt-fast/aptmanager string apt | debconf-set-selections
-apt install apt-fast || exit 1
+apt install -y apt-fast || exit 1
 
 ###### Install tools before doing anything else
 iapt curl gcc make
