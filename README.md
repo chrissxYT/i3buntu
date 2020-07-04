@@ -54,7 +54,7 @@ Minimal:
 wget -O - https://i3b.chrissx.de/test | sh
 ```
 FYI: This only works, if you have an apt cache set up at
-`192.168.2.104:3142`.
+`192.168.2.102:3142`.
 
 # Feedback
 The project continues to be a work in progress. Even though I

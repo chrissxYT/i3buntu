@@ -8,10 +8,12 @@ deb http://%PROXY%download.mono-project.com/repo/ubuntu preview main
 deb http://deb.opera.com/opera-stable/ stable non-free
 deb http://ppa.launchpad.net/teejee2008/ppa/ubuntu bionic main
 deb http://ppa.launchpad.net/eosrei/fonts/ubuntu bionic main
-deb http://ppa.launchpad.net/yubico/stable/ubuntu eoan main
+deb http://ppa.launchpad.net/yubico/stable/ubuntu focal main
+deb http://ppa.launchpad.net/yubico/stable/ubuntu bionic main
 deb http://ppa.launchpad.net/freecad-maintainers/freecad-stable/ubuntu eoan main
 deb http://ppa.launchpad.net/gezakovacs/ppa/ubuntu eoan main
 deb http://ppa.launchpad.net/lutris-team/lutris/ubuntu eoan main
+deb http://ppa.launchpad.net/apt-fast/stable/ubuntu focal main
 deb [arch=amd64] http://download.docker.com/linux/ubuntu/ eoan stable
 deb [arch=amd64] http://%PROXY%brave-browser-apt-release.s3.brave.com/ eoan main
 deb [arch=amd64] http://%PROXY%packages.microsoft.com/ubuntu/20.04/prod focal main
