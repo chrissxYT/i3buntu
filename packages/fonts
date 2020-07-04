@@ -1,8 +1,8 @@
 #!/bin/bash
 mkdir -p ~/.fonts
-pushd
+pushd .
 cd ~/.fonts
-alias font='curl -LO'
+font() { curl -LO ; }
 font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-Bold.ttf &
 font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-BoldItalic.ttf &
 font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-Italic.ttf &
