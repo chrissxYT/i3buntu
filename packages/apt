@@ -153,7 +153,9 @@ libxcb-xv0-dev
 libxcb-xvmc0-dev
 python3-xcbgen
 libjsoncpp-dev
-i3status
+i3bar
+i3lock
+dunst
 suckless-tools
 rofi-dev
 qalc
@@ -184,7 +186,5 @@ ruby
 fd-find
 texlive-xetex
 vbindiff
-nodejs
-npm
 binwalk
 zbar-tools

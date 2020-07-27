@@ -38,7 +38,6 @@ idpkg "$I3B_GITHUB_DL_URL"
 cp -f configs/env /etc/environment
 iapt_at_once || iapt_for
 for p in $(cat packages/pip3) ; do ipip3 "$p" ; done
-for p in $(cat packages/npm) ; do inpm "$p" ; done
 source packages/netsh
 likeu -l || fixme likeu latest
 [[ "$I3B_BROWSER" == *"brave"* ]] && iapt brave-browser
