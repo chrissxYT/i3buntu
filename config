@@ -3,9 +3,6 @@
 ###### tldr has to clone a repo at first run
 tldr man
 
-###### Install the Please build system
-insh https://get.please.build
-
 ###### Install FL Studio
 [ "$I3B_FL" = 1 ] && imod fl
 
@@ -29,7 +26,11 @@ git config --global core.editor vim
 git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 git config --global user.signingkey "$(gpg --list-keys | grep -E '[0-9A-F]{40}' | sed 's/ //g')"
 git config --global commit.gpgsign true
-gpg -a --export > /home/$(logname)/.gitpg_pubkey
+rlname="$(grep "^$(logname)" /etc/passwd | cut -d: -f5 | cut -d, -f1)"
+git config --global user.email "$I3B_EMAIL"
+git config --global user.name "$rlname"
+echo -e "#!/bin/sh\ngpg -a --export | xclip -in -selection clipboard" > /home/$(logname)/copy_gitpg_pubkey
+chmod +x /home/$(logname)/copy_gitpg_pubkey
 
 ###### Install wallpapers
 git clone https://github.com/chrissxYT/walls.git ~/.walls
