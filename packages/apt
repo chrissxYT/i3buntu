@@ -188,3 +188,4 @@ texlive-xetex
 vbindiff
 binwalk
 zbar-tools
+libgpm-dev

@@ -1,5 +1,5 @@
 #!/bin/sh
-netsh -C "cp /home/$(logname)/.i3buntu/configs/vimmakefile src/Makefile ; make ; make install" -c vim/vim
+insh -C "cp /home/$(logname)/.i3buntu/configs/vimmakefile src/Makefile ; make ; make install" -c vim/vim
 insh -C "make && make install" -c vi/imlib2-heic
 insh -C "make install" -c chrissxYT/ybacklight
 insh -C "make install" -c dylanaraps/neofetch
