@@ -189,3 +189,4 @@ vbindiff
 binwalk
 zbar-tools
 libgpm-dev
+lcov
