@@ -8,5 +8,5 @@ git clone https://github.com/tweekmonster/gofmt.vim.git ~/.vim/bundle/gofmt.vim
 ret="$(pwd)"
 cd ~/.vim/bundle/YouCompleteMe
 git submodule update --init --recursive
-./install.py "$I3B_YCM_FLAGS"
+./install.py $I3B_YCM_FLAGS
 cd "$ret"
