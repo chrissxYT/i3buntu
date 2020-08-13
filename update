@@ -1,11 +1,16 @@
-#!/bin/sh
+#!/bin/bash
+source ~/.i3brc
 git pull
 cd tools
 sudo make install clean
-cd ../packages
+cd ..
+sudo sh -c "cat configs/sources.list | sed 's/%PROXY%/$(echo "$I3B_APT_CACHE" | sed 's/\//\\\//')/' > /etc/apt/sources.list"
+sudo dpkg --add-architecture i386
+sudo apt-key add packages/keys.gpg
+cd packages
 sudo make install
 cd ../configs
 make update
 cd ..
-[ ! -d "~/.walls" ] && git clone https://github.com/chrissxyt/walls ~/.walls
+[ ! -d ~/.walls ] && git clone https://github.com/chrissxYT/walls.git ~/.walls
 update
