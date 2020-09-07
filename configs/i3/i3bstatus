@@ -18,6 +18,7 @@ diskspace() {
 
 wifi() {
         iwconfig="$(iwconfig 2>/dev/null)"
+        # TODO: check if connected
         essid="$(echo "$iwconfig" | grep ESSID: | sed 's/.*ESSID:\"\(.*\)\".*/\1/')"
         rate="$(echo "$iwconfig" | grep "Bit Rate" | sed 's/.*Bit Rate=\(.* .b\/s\).*/\1/' | sed 's/ \(.\)b\/s/\1/')"
         quality="$(echo "$(echo "$iwconfig" | grep "Link Quality" | sed 's/.*Link Quality=\([0-9]*\/[0-9]*\) .*/\1/')*100" | bc -sql | cut -c1-3 | sed 's/\.\?$/%/')"
@@ -68,6 +69,13 @@ cpu() {
         prev_total=$curr_total
 }
 
+ram() {
+        raw="$(free | grep Mem:)"
+        total="$(echo "$raw" | awk '{ print $2 }')"
+        used="$(echo "$raw" | awk '{ print $3 }')"
+        segment " $(($used * 100 / $total))% " "#FFFFFF"
+}
+
 audio() {
         amixer sget Master | grep off >/dev/null \
                 &&      segment " 🔇 " "#FFFFFF" \
@@ -97,6 +105,8 @@ render() {
         temp
         separator
         cpu
+        separator
+        ram
         separator
         audio
         separator
