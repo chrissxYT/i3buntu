@@ -2,7 +2,7 @@ font_size 20
 background #2d2d2d
 foreground #eeeeec
 enable_audio_bell yes
-scrollback_lines -1
+scrollback_lines 100000
 mouse_hide_wait -1
 url_color #eeeeec
 url_style single
