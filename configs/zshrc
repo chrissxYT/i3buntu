@@ -187,9 +187,10 @@ mnt() {
 }
 alias umnt='sudo umount ~/mnt'
 alias m='make'
+alias mt='make test'
 alias mi='sudo make install'
 alias p='mpv'
-alias i='sudo apt install'
+alias i='sudo apt-fast install'
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
@@ -238,5 +239,7 @@ alias fd=fdfind
 xmodmap -e 'clear lock' >/dev/null
 
 source /etc/environment
+
+[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ] && . $HOME/.nix-profile/etc/profile.d/nix.sh
 
 neofetch
