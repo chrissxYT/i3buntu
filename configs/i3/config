@@ -216,7 +216,7 @@ bindsym $mod+n border normal 0
 
 bindsym $mod+q split toggle
 
-gaps inner 10
+gaps inner 8
 border_radius 5
 
 for_window [class=".*"] border pixel 0
