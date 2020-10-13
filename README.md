@@ -8,7 +8,6 @@ project is to construct a flavour of the Ubuntu operating system which
 * it should come preinstalled with all needed drivers
 * the i3 window manager should be the default and only (preinstalled) window manager on the system. A number of customizations should be made in order for it to be both visually attractive and allow for productive workflows.
 
-
 # Requirements
 * A version of Ubuntu Minimal ([20.04](https://releases.ubuntu.com/20.04/ubuntu-20.04-desktop-amd64.iso) recommended, later ones may work, too).
 * An internet connection.
