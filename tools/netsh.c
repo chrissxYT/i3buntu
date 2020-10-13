@@ -6,7 +6,7 @@
 #define NAME "netsh"
 #define YEARS "2019-2020"
 #define AUTHORS "Chris E. Häußler, chrissx Media"
-#define VERSION "1.6.2"
+#define VERSION "1.6.3"
 
 #define HELP NAME" "VERSION"\n"\
              "(c) "YEARS" "AUTHORS"\n"\
@@ -30,6 +30,7 @@
 
 #define ARGSTART if(!strcmp(s, "--")) argsended = 1
 #define ARG(s, unix, gnu) else if(!argsended && (!strcmp(s, "-"unix) || !strcmp(s, "--"gnu)))
+
 #define url(s) (!strncmp((s), "http://", 7) || \
         !strncmp((s), "https://", 8) || !strncmp((s), "git://", 6) ||\
         !strncmp((s), "svn://", 6) || !strncmp((s), "cvs://", 6) || \
@@ -57,14 +58,14 @@ int main(int argc, char **argv)
 {
         int c = 0, argsended = 0;
         char *cmd = "./netsh", *f = "netsh", *scm = "git";
-        for(int i = 1; i < argc; i++)
+        while(argc-- > 1)
         {
-                char *s = argv[i];
+                char *s = *argv++;
                 ARGSTART;
                 ARG(s, "c", "clone") c = !c;
-                ARG(s, "f", "file") f = argv[++i];
-                ARG(s, "C", "command") cmd = argv[++i];
-                ARG(s, "s", "scm") scm = argv[++i];
+                ARG(s, "f", "file") f = *argv++;
+                ARG(s, "C", "command") cmd = *argv++;
+                ARG(s, "s", "scm") scm = *argv++;
                 ARG(s, "v", "version") puts(VERSION);
                 ARG(s, "h", "help") puts(HELP);
                 else
