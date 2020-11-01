@@ -235,6 +235,7 @@ alias gp='git push -v'
 alias gs='git status'
 
 alias fd=fdfind
+alias gurl=curl
 
 xmodmap -e 'clear lock' >/dev/null
 
