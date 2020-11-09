@@ -1,12 +1,12 @@
 NAME="i3buntu"
-VERSION="20.04+"
+VERSION="20.10+"
 ID=ubuntu
 ID_LIKE=debian
-PRETTY_NAME="i3buntu 20.04+"
+PRETTY_NAME="i3buntu 20.10+"
 VERSION_ID="20"
 HOME_URL="https://github.com/chrissxYT/i3buntu"
 SUPPORT_URL="https://github.com/chrissxYT/i3buntu"
 BUG_REPORT_URL="https://github.com/chrissxYT/i3buntu"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-VERSION_CODENAME=focal
-UBUNTU_CODENAME=focal
+VERSION_CODENAME=groovy
+UBUNTU_CODENAME=groovy
