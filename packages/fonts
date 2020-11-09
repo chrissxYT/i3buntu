@@ -2,7 +2,7 @@
 mkdir -p ~/.fonts
 pushd .
 cd ~/.fonts
-font() { curl -LO ; }
+font() { curl -LO $@ ; }
 font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-Bold.ttf &
 font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-BoldItalic.ttf &
 font https://github.com/sahibjotsaggu/Google-Sans-Fonts/raw/master/GoogleSans-Italic.ttf &
