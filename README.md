@@ -19,9 +19,10 @@ project is to construct a flavour of the Ubuntu operating system which
 A guide on how to construct a installation media (CD, DVD or USB
 key) can be found in the above link for Ubuntu Minimal. During the
 installation select the English language and German keyboard layout,
-uncheck the options for additional software. After the new
-installation is booted, open a Terminal and optionally put your
-config at `~/.i3brc`, like this:
+uncheck the options for additional software. As of November 2020 I
+cannot recommend using ZFS as it just makes our lifes harder in many
+ways at the moment. After the new installation is booted, open a
+Terminal and optionally put your config at `~/.i3brc`, like this:
 ```sh
 wget -O ~/.i3brc https://i3b.chrissx.de/i3brcs/x220.i3brc
 ```
