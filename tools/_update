@@ -9,7 +9,6 @@ cp -f "$h/.i3buntu/configs/issue.net" /etc/issue.net
 cp -f "$h/.i3buntu/configs/os-release" /etc/os-release
 cp -f "$h/.i3buntu/configs/lsbr" /etc/lsb-release
 likeu -l
-pip3 install -U youtube-dl
-pip3 install -U instalooter
+pip3 install -U $(pip3 freeze | cut -d= -f1)
 rm -f /etc/alternatives/x-cursor-theme
 ln -s /usr/share/icons/DMZ-White/cursor.theme /etc/alternatives/x-cursor-theme
