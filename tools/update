@@ -1,6 +1,7 @@
 #!/bin/sh
 h=/home/$(logname)
 sudo h=$h _update
+pip3 install -U $(pip3 freeze | cut -d= -f1)
 ret=$(pwd)
 cd "$h/.i3buntu"
 git pull
