@@ -1,5 +1,5 @@
 #!/bin/bash
-# can be b, f, c or o
+# can be brave, firefox, chrome or opera
 I3B_BROWSER=brave-browser
 I3B_YED=0
 I3B_EOS=0
