@@ -11,6 +11,6 @@ I3B_FL=1
 I3B_GAMIX=1
 I3B_EMAIL="chrissx@chrissx.de"
 I3B_NAS='//192.168.86.100/b/ncl_2/xx /home/chrissx/ncl cifs rw,user=chrissx\040Media\040Inc,workgroup=CHRISSX\040MEDIA,vers=3.0,file_mode=0777,dir_mode=0777 0 2'
-I3B_APT_CACHE="192.168.2.103:3142/"
+I3B_APT_CACHE="192.168.2.104:3142/"
 I3B_GHIDRA=1
 I3B_DISCORD=1
