@@ -9,4 +9,4 @@ I3B_FLASHPRINT=0
 I3B_VSCODE=0
 I3B_EMAIL="babaex@chrissx.de"
 I3B_NAS='//192.168.86.100/b/ncl_2/baba /ncl cifs rw,user=chrissx\040Media\040Inc,workgroup=CHRISSX\040MEDIA,vers=3.0,file_mode=0777,dir_mode=0777 0 2'
-I3B_APT_CACHE="192.168.2.103:3142/"
+I3B_APT_CACHE="192.168.2.104:3142/"
