@@ -6,7 +6,7 @@
 #define NAME "netsh"
 #define YEARS "2019-2020"
 #define AUTHORS "Chris E. Häußler, chrissx Media"
-#define VERSION "1.6.3"
+#define VERSION "1.6.4"
 
 #define HELP NAME" "VERSION"\n"\
              "(c) "YEARS" "AUTHORS"\n"\
@@ -58,6 +58,7 @@ int main(int argc, char **argv)
 {
         int c = 0, argsended = 0;
         char *cmd = "./netsh", *f = "netsh", *scm = "git";
+        argv++;
         while(argc-- > 1)
         {
                 char *s = *argv++;
@@ -77,7 +78,7 @@ int main(int argc, char **argv)
                         if(c) clonecommand();
                         else   elsecommand();
                         if(system(cmdbuf))
-                                printf("system(\"%s\") failed.\n", s);
+                                printf("system(\"%s\") failed.\n", cmdbuf);
                 }
         }
         return 0;
