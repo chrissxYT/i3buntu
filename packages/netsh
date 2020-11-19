@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../funcs
+source /home/$(logname)/.i3buntu/funcs
 insh -C "cp /home/$(logname)/.i3buntu/configs/vimmakefile src/Makefile ; make ; make install" -c vim/vim
 insh -C "make && make install" -c vi/imlib2-heic
 insh -C "make install" -c chrissxYT/ybacklight
@@ -8,5 +8,5 @@ insh -C "make" -c chrissxYT/LiKeU
 insh -C "make install" -s hg -c bb://rafaelgg/slmenu
 insh -C "make install" -c chrissxYT/sane-sent
 insh -C "make install" -c younix/lel
-insh -C "autoreconf -fi ; ./configure ; cd x86_64-pc-linux-gnu ; make -j8 ; make install ; cd .." -c resloved/i3
+insh -C "mkdir build ; cd build ; meson .. ; ninja ; meson install ; cd .." -c resloved/i3
 insh -C "autoreconf -fi ; mkdir build ; cd build ; ../configure ; make ; make install ; cd .." -c svenstaro/rofi-calc

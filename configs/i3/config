@@ -217,7 +217,7 @@ bindsym $mod+n border normal 0
 bindsym $mod+q split toggle
 
 gaps inner 8
-border_radius 5
+#corners rounded 5
 
 for_window [class=".*"] border pixel 0
 hide_edge_borders both
