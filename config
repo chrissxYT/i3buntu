@@ -6,6 +6,9 @@ tldr man
 ###### Install FL Studio
 [ "$I3B_FL" = 1 ] && imod fl
 
+###### Install Flutter
+[ "$I3B_FLUTTER" = 1 ] && imod flutter
+
 ###### Set configs
 cd configs
 make install
