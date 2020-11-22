@@ -13,7 +13,7 @@ cp:
 	cp -f /usr/bin/update update
 	cp -f /usr/bin/udpkg udpkg
 	cp -f /usr/bin/todo todo
-	cp -f /usr/bin/eos eos
+	[ ! -f /usr/bin/eos ] || cp -f /usr/bin/eos eos
 	cp -f /usr/bin/i3b-term i3b-term
 	cp -f /usr/bin/i3b-browser i3b-browser
 
