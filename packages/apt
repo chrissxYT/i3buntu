@@ -65,7 +65,7 @@ libcurl4-openssl-dev
 flex
 bison
 libelf-dev
-yubikey-manager-qt
+yubikey-manager
 nextcloud-desktop
 yubikey-personalization-gui
 yubioath-desktop
@@ -101,8 +101,6 @@ cowsay
 mupdf
 zathura
 zathura-ps
-python-lxml
-python-dateutil
 python3-requests
 cmus
 tcc
