@@ -1,6 +1,6 @@
 #!/bin/sh
 name="$(grep "^$(logname)" /etc/passwd | cut -d: -f5 | cut -d, -f1)"
-ki="$(tempfile)"
+ki="$(mktemp)"
 echo "Key-Type: RSA" > "$ki"
 echo "Key-Length: 4096" >> "$ki"
 echo "Subkey-Type: RSA" >> "$ki"
