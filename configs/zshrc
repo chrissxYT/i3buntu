@@ -109,7 +109,7 @@ for ft in avi flv m4a mkv mp4 mov mp3 mpeg mpg ogg wav webm ; do alias -s $ft=mp
 alias -s pdf=mupdf
 alias -s ps=zathura
 
-source "/home/$(logname)/.zshtheme"
+source "$HOME/.zshtheme"
 
 alias x=extract
 
@@ -176,10 +176,10 @@ zlibd() (printf "\x1f\x8b\x08\x00\x00\x00\x00\x00"|cat - $@|gzip -dc)
 alias v="$EDITOR"
 alias V="sudo $EDITOR"
 alias mv="mv -i"
-e()     ($EDITOR $(ls | fzf))
-E()     (sudo $EDITOR $(ls | fzf))
-uzip()  (unzip -d "$(echo "$1" | sed s/\.zip//g -)" "$1")
-sd()    (sudo shutdown $@ now)
+e()    ($EDITOR $(ls | fzf))
+E()    (sudo $EDITOR $(ls | fzf))
+uzip() (unzip -d "$(echo "$1" | sed s/\.zip//g -)" "$1")
+sd()   (sudo shutdown $@ now)
 mnt() {
         mkdir -p "$HOME/mnt"
         sudo mount "$1" "$HOME/mnt"
@@ -207,9 +207,9 @@ alias history='omz_history'
 alias e64=encode64
 alias d64=decode64
 
-alias zsh-theme="$EDITOR /home/$(logname)/.zsh-theme"
-alias zshrc="$EDITOR /home/$(logname)/.zshrc"
-alias vimrc="$EDITOR /home/$(logname)/.vimrc"
+alias zsh-theme="$EDITOR $HOME/.zsh-theme"
+alias zshrc="$EDITOR $HOME/.zshrc"
+alias vimrc="$EDITOR $HOME/.vimrc"
 alias help='man'
 
 alias -g H='| head'
@@ -235,12 +235,13 @@ alias gp='git push -v'
 alias gs='git status'
 
 alias fd=fdfind
-alias gurl=curl
 
-xmodmap -e 'clear lock' >/dev/null
+command -v xmodmap >/dev/null && xmodmap -e 'clear lock'
 
 source /etc/environment
 
 [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ] && . $HOME/.nix-profile/etc/profile.d/nix.sh
 
-neofetch
+command -v pfetch >/dev/null && pfetch
+
+true
