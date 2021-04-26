@@ -9,7 +9,7 @@ project is to construct a flavour of the Ubuntu operating system which
 * the i3 window manager should be the default and only (preinstalled) window manager on the system. A number of customizations should be made in order for it to be both visually attractive and allow for productive workflows.
 
 # Requirements
-* A version of Ubuntu Desktop ([20.10](https://releases.ubuntu.com/20.10/ubuntu-20.10-desktop-amd64.iso) recommended, later ones may work, too).
+* A version of Ubuntu Desktop ([21.04](https://releases.ubuntu.com/21.04/ubuntu-21.04-desktop-amd64.iso) recommended, later ones may work, too).
 * An internet connection.
 
 # Installation
